@@ -11,14 +11,25 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="963a1c0c-ea8a-4c80-836f-d43e70e13fa3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/symbolTable/symbolTable.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/symbolTable/symbolTable.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../说明文档/Grammer.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../说明文档/Grammer.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../说明文档/符号表.xls" beforeDir="false" afterPath="$PROJECT_DIR$/../../说明文档/符号表.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../课设代码/test.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../课设代码/type/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../课设代码/type/type.h" beforeDir="false" />
+    <list default="true" id="963a1c0c-ea8a-4c80-836f-d43e70e13fa3" name="Default Changelist" comment="初步实现了sTable">
+      <change afterPath="$PROJECT_DIR$/STable/Sheet.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/STable/Sheet.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/complier.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/complier.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/complier.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symbolTable/symbolTable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/STable/STable.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symbolTable/symbolTable.h" beforeDir="false" afterPath="$PROJECT_DIR$/STable/STable.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../说明文档/符号表.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../说明文档/符号表.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+            <state relative-caret-position="113">
+              <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -55,21 +66,54 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symbolTable/symbolTable.cpp">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="150">
+              <caret line="5" column="77" lean-forward="true" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/symbolTable/symbolTable.h">
+        <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+            <state relative-caret-position="113">
+              <caret line="122" column="12" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="12" />
               <folding>
-                <element signature="e#102#137#0" expanded="true" />
+                <element signature="e#0#2#0" />
+                <element signature="e#173#239#1" />
+                <element signature="e#353#558#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/STable/Sheet.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/STable/STable.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/STable/STable.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#2#0" />
+                <element signature="e#92#127#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,33 +122,48 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tokenType/tokenType.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+            <state relative-caret-position="210">
+              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>prime</find>
+      <find>sTable</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="计算机1808-岳崇建-20184545 &lt;65590083+dialectics-ycj@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tokenType/README.md" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/symbolTable/symbolTable.cpp" />
         <option value="$PROJECT_DIR$/tokenType/tokenType.h" />
         <option value="$PROJECT_DIR$/symbolTable/symbolTable.h" />
+        <option value="$PROJECT_DIR$/STable/Sheet.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/STable/STable.h" />
+        <option value="$PROJECT_DIR$/STable/STable.cpp" />
+        <option value="$PROJECT_DIR$/STable/Sheet.h" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1088" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1089" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -122,7 +181,12 @@
             <path>
               <item name="complier" type="b2602c69:ProjectViewProjectNode" />
               <item name="complier" type="462c0819:PsiDirectoryNode" />
-              <item name="symbolTable" type="462c0819:PsiDirectoryNode" />
+              <item name="STable" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="complier" type="b2602c69:ProjectViewProjectNode" />
+              <item name="complier" type="462c0819:PsiDirectoryNode" />
+              <item name="tokenType" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -175,17 +239,27 @@
       <workItem from="1593483802613" duration="217000" />
       <workItem from="1593484104553" duration="536000" />
       <workItem from="1593486597378" duration="4652000" />
+      <workItem from="1593504278087" duration="4545000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5405000" />
+    <option name="totallyTimeSpent" value="9950000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="781" height="870" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25311205" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25268096" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -194,13 +268,13 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3297587" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32931727" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3297587" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32841823" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3297587" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.47587132" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -210,40 +284,13 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="初步实现了sTable" />
+    <option name="LAST_COMMIT_MESSAGE" value="初步实现了sTable" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.cpp" />
     <entry file="file://$PROJECT_DIR$/type/type.h" />
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tokenType/tokenType.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symbolTable/symbolTable.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tokenType/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -251,12 +298,106 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/symbolTable/symbolTable.h">
+    <entry file="file://D:/Parser/Lex.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+        <state relative-caret-position="90">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="31" />
           <folding>
-            <element signature="e#102#137#0" expanded="true" />
+            <element signature="e#288#3404#1" />
+            <element signature="e#481#2699#0" />
+            <element signature="e#2713#3174#0" />
+            <element signature="e#3180#3225#0" />
+            <element signature="e#3231#3402#0" />
+            <element signature="e#3406#3491#1" />
+            <element signature="e#3883#3934#0" />
+            <element signature="e#3940#3995#0" />
+            <element signature="e#4142#4409#0" />
+            <element signature="e#4415#4689#0" />
+            <element signature="e#4839#6095#0" />
+            <element signature="e#6101#6626#0" />
+            <element signature="e#6674#7902#1" />
+            <element signature="e#6764#7462#0" />
+            <element signature="e#7468#7856#0" />
+            <element signature="e#7862#7900#0" />
+            <element signature="e#7904#8073#1" />
+            <element signature="e#8022#8071#0" />
+            <element signature="e#8075#8148#1" />
+            <element signature="e#8263#8358#0" />
+            <element signature="e#8359#8483#0" />
+            <element signature="e#8484#8575#0" />
+            <element signature="e#8576#8692#0" />
+            <element signature="e#8693#8780#0" />
+            <element signature="e#8781#8889#0" />
+            <element signature="e#8890#8980#0" />
+            <element signature="e#8981#10922#0" />
+            <element signature="e#10923#13288#0" />
+            <element signature="e#13289#16130#0" />
+            <element signature="e#16131#17815#0" />
+            <element signature="e#17887#18039#0" />
+            <element signature="e#18040#18080#0" />
+            <element signature="e#18081#18638#0" />
+            <element signature="e#18639#19052#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tokenType/tokenType.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="77" lean-forward="true" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/STable.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#92#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/Sheet.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/STable.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="122" column="12" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#173#239#1" />
+            <element signature="e#353#558#0" />
           </folding>
         </state>
       </provider>

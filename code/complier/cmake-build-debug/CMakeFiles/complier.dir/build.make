@@ -70,32 +70,47 @@ CMakeFiles/complier.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/main.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/main.cpp -o CMakeFiles/complier.dir/main.cpp.s
 
-CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.o: CMakeFiles/complier.dir/flags.make
-CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.o: ../symbolTable/symbolTable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.o -c /cygdrive/e/Course-design-of-compiling-principles/code/complier/symbolTable/symbolTable.cpp
+CMakeFiles/complier.dir/STable/STable.cpp.o: CMakeFiles/complier.dir/flags.make
+CMakeFiles/complier.dir/STable/STable.cpp.o: ../STable/STable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/complier.dir/STable/STable.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/complier.dir/STable/STable.cpp.o -c /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.cpp
 
-CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/Course-design-of-compiling-principles/code/complier/symbolTable/symbolTable.cpp > CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.i
+CMakeFiles/complier.dir/STable/STable.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/complier.dir/STable/STable.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.cpp > CMakeFiles/complier.dir/STable/STable.cpp.i
 
-CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/symbolTable/symbolTable.cpp -o CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.s
+CMakeFiles/complier.dir/STable/STable.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/STable/STable.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.cpp -o CMakeFiles/complier.dir/STable/STable.cpp.s
+
+CMakeFiles/complier.dir/STable/Sheet.cpp.o: CMakeFiles/complier.dir/flags.make
+CMakeFiles/complier.dir/STable/Sheet.cpp.o: ../STable/Sheet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/complier.dir/STable/Sheet.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/complier.dir/STable/Sheet.cpp.o -c /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.cpp
+
+CMakeFiles/complier.dir/STable/Sheet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/complier.dir/STable/Sheet.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.cpp > CMakeFiles/complier.dir/STable/Sheet.cpp.i
+
+CMakeFiles/complier.dir/STable/Sheet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/STable/Sheet.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.cpp -o CMakeFiles/complier.dir/STable/Sheet.cpp.s
 
 # Object files for target complier
 complier_OBJECTS = \
 "CMakeFiles/complier.dir/main.cpp.o" \
-"CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.o"
+"CMakeFiles/complier.dir/STable/STable.cpp.o" \
+"CMakeFiles/complier.dir/STable/Sheet.cpp.o"
 
 # External object files for target complier
 complier_EXTERNAL_OBJECTS =
 
 complier.exe: CMakeFiles/complier.dir/main.cpp.o
-complier.exe: CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.o
+complier.exe: CMakeFiles/complier.dir/STable/STable.cpp.o
+complier.exe: CMakeFiles/complier.dir/STable/Sheet.cpp.o
 complier.exe: CMakeFiles/complier.dir/build.make
 complier.exe: CMakeFiles/complier.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable complier.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable complier.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/complier.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

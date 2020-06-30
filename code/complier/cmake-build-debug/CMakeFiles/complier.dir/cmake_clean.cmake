@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/complier.dir/main.cpp.o"
-  "CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.o"
+  "CMakeFiles/complier.dir/STable/STable.cpp.o"
+  "CMakeFiles/complier.dir/STable/Sheet.cpp.o"
   "complier.pdb"
   "complier.exe"
   "libcomplier.dll.a"

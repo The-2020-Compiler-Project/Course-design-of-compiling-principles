@@ -3,4 +3,4 @@ project(complier)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(complier main.cpp tokenType/tokenType.h symbolTable/symbolTable.cpp symbolTable/symbolTable.h)
+add_executable(complier main.cpp tokenType/tokenType.h STable/STable.cpp STable/STable.h STable/Sheet.cpp STable/Sheet.h)

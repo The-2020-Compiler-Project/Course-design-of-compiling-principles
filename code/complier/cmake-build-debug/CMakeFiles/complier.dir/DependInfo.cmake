@@ -4,8 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.cpp" "/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles/complier.dir/STable/STable.cpp.o"
+  "/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.cpp" "/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles/complier.dir/STable/Sheet.cpp.o"
   "/cygdrive/e/Course-design-of-compiling-principles/code/complier/main.cpp" "/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles/complier.dir/main.cpp.o"
-  "/cygdrive/e/Course-design-of-compiling-principles/code/complier/symbolTable/symbolTable.cpp" "/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

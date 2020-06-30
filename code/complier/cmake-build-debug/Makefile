@@ -123,6 +123,60 @@ complier/fast:
 	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/build
 .PHONY : complier/fast
 
+STable/STable.o: STable/STable.cpp.o
+
+.PHONY : STable/STable.o
+
+# target to build an object file
+STable/STable.cpp.o:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/STable/STable.cpp.o
+.PHONY : STable/STable.cpp.o
+
+STable/STable.i: STable/STable.cpp.i
+
+.PHONY : STable/STable.i
+
+# target to preprocess a source file
+STable/STable.cpp.i:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/STable/STable.cpp.i
+.PHONY : STable/STable.cpp.i
+
+STable/STable.s: STable/STable.cpp.s
+
+.PHONY : STable/STable.s
+
+# target to generate assembly for a file
+STable/STable.cpp.s:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/STable/STable.cpp.s
+.PHONY : STable/STable.cpp.s
+
+STable/Sheet.o: STable/Sheet.cpp.o
+
+.PHONY : STable/Sheet.o
+
+# target to build an object file
+STable/Sheet.cpp.o:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/STable/Sheet.cpp.o
+.PHONY : STable/Sheet.cpp.o
+
+STable/Sheet.i: STable/Sheet.cpp.i
+
+.PHONY : STable/Sheet.i
+
+# target to preprocess a source file
+STable/Sheet.cpp.i:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/STable/Sheet.cpp.i
+.PHONY : STable/Sheet.cpp.i
+
+STable/Sheet.s: STable/Sheet.cpp.s
+
+.PHONY : STable/Sheet.s
+
+# target to generate assembly for a file
+STable/Sheet.cpp.s:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/STable/Sheet.cpp.s
+.PHONY : STable/Sheet.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -150,33 +204,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-symbolTable/symbolTable.o: symbolTable/symbolTable.cpp.o
-
-.PHONY : symbolTable/symbolTable.o
-
-# target to build an object file
-symbolTable/symbolTable.cpp.o:
-	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.o
-.PHONY : symbolTable/symbolTable.cpp.o
-
-symbolTable/symbolTable.i: symbolTable/symbolTable.cpp.i
-
-.PHONY : symbolTable/symbolTable.i
-
-# target to preprocess a source file
-symbolTable/symbolTable.cpp.i:
-	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.i
-.PHONY : symbolTable/symbolTable.cpp.i
-
-symbolTable/symbolTable.s: symbolTable/symbolTable.cpp.s
-
-.PHONY : symbolTable/symbolTable.s
-
-# target to generate assembly for a file
-symbolTable/symbolTable.cpp.s:
-	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.s
-.PHONY : symbolTable/symbolTable.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,12 +213,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... complier"
 	@echo "... edit_cache"
+	@echo "... STable/STable.o"
+	@echo "... STable/STable.i"
+	@echo "... STable/STable.s"
+	@echo "... STable/Sheet.o"
+	@echo "... STable/Sheet.i"
+	@echo "... STable/Sheet.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... symbolTable/symbolTable.o"
-	@echo "... symbolTable/symbolTable.i"
-	@echo "... symbolTable/symbolTable.s"
 .PHONY : help
 
 

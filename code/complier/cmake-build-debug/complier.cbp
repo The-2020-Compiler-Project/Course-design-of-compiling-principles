@@ -80,13 +80,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.cpp">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.cpp">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.h">
+			<Option target="complier"/>
+		</Unit>
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/main.cpp">
-			<Option target="complier"/>
-		</Unit>
-		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/symbolTable/symbolTable.cpp">
-			<Option target="complier"/>
-		</Unit>
-		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/symbolTable/symbolTable.h">
 			<Option target="complier"/>
 		</Unit>
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h">
