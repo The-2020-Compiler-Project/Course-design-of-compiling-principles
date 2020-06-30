@@ -6,11 +6,29 @@
 
 #IncludeRegexTransform: 
 
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.cpp
+STable.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h
+../tokenType/tokenType.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h
+Sheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.h
+bits/stdc++.h
+-
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.h
+bits/stdc++.h
+-
+
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/main.cpp
 iostream
 -
 tokenType/tokenType.h
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h
+STable/STable.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h
 
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h
 
