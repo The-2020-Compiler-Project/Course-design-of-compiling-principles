@@ -3,7 +3,6 @@
 #include "STable\STable.h"
 int main() {
     //主函数可用于测试，随意使用
-    //revert test
     string s="my name is YCJ";
     sTable.insertIt("my name is YCJ");
     sTable.insertIt("my name");
