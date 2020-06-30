@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/complier.dir/main.cpp.o CMakeFiles/complier.dir/symbolTable/symbolTable.cpp.o  -o complier.exe -Wl,--out-implib,libcomplier.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

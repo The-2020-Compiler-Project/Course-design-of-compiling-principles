@@ -1,0 +1,4 @@
+C:\Users\Lenovo\.CLion2019.1\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/e/Course-design-of-compiling-principles/code/complier
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug

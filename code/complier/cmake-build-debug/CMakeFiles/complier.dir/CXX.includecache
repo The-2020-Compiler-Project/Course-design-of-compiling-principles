@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/main.cpp
+iostream
+-
+tokenType/tokenType.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h
+
