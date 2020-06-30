@@ -11,7 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="963a1c0c-ea8a-4c80-836f-d43e70e13fa3" name="Default Changelist" comment="">
+    <list default="true" id="963a1c0c-ea8a-4c80-836f-d43e70e13fa3" name="Default Changelist" comment="Revert &quot;revert test&quot;&#10;&#10;This reverts commit 0f7bbf9d">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
@@ -31,7 +31,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/STable/STable.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="300">
               <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
               <folding>
                 <element signature="e#0#2#0" />
@@ -43,7 +43,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/STable/STable.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
+            <state relative-caret-position="150">
               <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
               <folding>
                 <element signature="e#0#2#0" />
@@ -71,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -100,7 +100,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="1260">
               <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
               <folding>
                 <element signature="e#0#2#0" />
@@ -152,17 +152,17 @@
         <option value="$PROJECT_DIR$/STable/PTtable.txt" />
         <option value="$PROJECT_DIR$/STable/Sheet.cpp" />
         <option value="$PROJECT_DIR$/STable/Sheet.h" />
-        <option value="$PROJECT_DIR$/STable/STable.cpp" />
         <option value="$PROJECT_DIR$/STable/STable.h" />
+        <option value="$PROJECT_DIR$/STable/STable.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="978" />
-    <option name="height" value="1098" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="979" />
+    <option name="height" value="1099" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -170,7 +170,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -178,20 +177,11 @@
               <item name="complier" type="b2602c69:ProjectViewProjectNode" />
               <item name="complier" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="complier" type="b2602c69:ProjectViewProjectNode" />
-              <item name="complier" type="462c0819:PsiDirectoryNode" />
-              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="complier" type="b2602c69:ProjectViewProjectNode" />
-              <item name="complier" type="462c0819:PsiDirectoryNode" />
-              <item name="STable" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -239,7 +229,8 @@
       <workItem from="1593484104553" duration="536000" />
       <workItem from="1593486597378" duration="4652000" />
       <workItem from="1593504278087" duration="4819000" />
-      <workItem from="1593515779763" duration="5412000" />
+      <workItem from="1593515779763" duration="5040000" />
+      <workItem from="1593521703371" duration="693000" />
     </task>
     <task id="LOCAL-00001" summary="初步实现了sTable">
       <created>1593508908172</created>
@@ -255,25 +246,18 @@
       <option name="project" value="LOCAL" />
       <updated>1593508997181</updated>
     </task>
-    <task id="LOCAL-00003" summary="1、初步实现并测试了sTable&#10;2、增加了clion开发注意.md用于分享clion环境有关问题">
-      <created>1593520969275</created>
+    <task id="LOCAL-00003" summary="Revert &quot;revert test&quot;&#10;&#10;This reverts commit 0f7bbf9d">
+      <created>1593521442845</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1593520969275</updated>
+      <updated>1593521442845</updated>
     </task>
-    <task id="LOCAL-00004" summary="1、初步实现并测试了sTable&#10;2、增加了clion开发注意.md用于分享clion环境有关问题">
-      <created>1593521020439</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1593521020439</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15636000" />
+    <option name="totallyTimeSpent" value="16208000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -288,7 +272,7 @@
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25603217" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25938338" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -300,10 +284,10 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3297587" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32841823" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5013405" side_tool="true" weight="0.49463806" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49865952" weight="0.49463806" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.49463806" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32841823" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49932975" weight="0.47587132" />
+      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.47587132" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -335,11 +319,21 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="初步实现了sTable" />
     <MESSAGE value="1、初步实现并测试了sTable&#10;2、增加了clion开发注意.md用于分享clion环境有关问题&#10;3、" />
-    <MESSAGE value="1、初步实现并测试了sTable&#10;2、增加了clion开发注意.md用于分享clion环境有关问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="1、初步实现并测试了sTable&#10;2、增加了clion开发注意.md用于分享clion环境有关问题" />
+    <MESSAGE value="Revert &quot;revert test&quot;&#10;&#10;This reverts commit 0f7bbf9d" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;revert test&quot;&#10;&#10;This reverts commit 0f7bbf9d" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -419,49 +413,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/STable/KTtable.txt">
+    <entry file="file://$PROJECT_DIR$/STable/STable.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/STable/PTtable.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/STable/Sheet.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+        <state relative-caret-position="300">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
           <folding>
             <element signature="e#0#2#0" />
-            <element signature="e#173#239#1" />
-            <element signature="e#353#558#0" />
-            <element signature="e#937#1229#0" />
-            <element signature="e#1370#2351#0" />
-            <element signature="e#2357#2791#0" />
-            <element signature="e#2797#2960#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/CXX.includecache">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/STable/STable.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="150">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
           <folding>
             <element signature="e#0#2#0" />
@@ -479,20 +443,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/STable/STable.h">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/CXX.includecache">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/PTtable.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        <state relative-caret-position="270">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/KTtable.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
           <folding>
             <element signature="e#0#2#0" />
+            <element signature="e#173#239#1" />
+            <element signature="e#353#558#0" />
+            <element signature="e#937#1229#0" />
+            <element signature="e#1370#2351#0" />
+            <element signature="e#2357#2791#0" />
+            <element signature="e#2797#2960#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/Sheet.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
