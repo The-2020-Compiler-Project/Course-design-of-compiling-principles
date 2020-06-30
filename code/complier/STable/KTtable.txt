@@ -1,0 +1,7 @@
+  program
+  var    
+  integer
+  real   
+  char   
+  begin  
+  end

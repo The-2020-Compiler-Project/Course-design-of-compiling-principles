@@ -1,12 +1,11 @@
 //
-// Created by Lenovo on 2020/6/30.
+// Created by YCJ on 2020/6/30.
 //
 
 #ifndef COMPLIER_SHEET_H
 #define COMPLIER_SHEET_H
 
 #include <bits/stdc++.h>
-
 using namespace std;
 typedef unsigned long long ull;
 
@@ -41,6 +40,7 @@ public:
         string name;
         while (fin.peek() != EOF) {
             fin >> name;
+            //cout<<name<<endl;
             insert(name);
         }
         fin.close();
@@ -65,6 +65,7 @@ private:
     map<ull, list<int> > shine;//映射表,hash_key->地址链表
 
 public:
+    //插入字符串，若存在同名返回-1，否则返回插入位置
     int insert(const string &name) override {
         int ansIndex = -1;
         ull hashKey = hash(name);
