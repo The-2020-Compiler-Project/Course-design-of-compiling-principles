@@ -5,7 +5,7 @@
 #include "XTable.h"
 
 typeSheet::iterator XTable::findType(const string& name) {
-    return typeSheet::iterator();
+    return typeTable.find(name);
 }
 
 typeSheet::iterator XTable::typeEnd() {

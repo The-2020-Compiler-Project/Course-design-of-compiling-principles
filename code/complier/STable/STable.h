@@ -8,8 +8,19 @@
 #include "..\tokenType\tokenType.h"
 #include "Sheet.h"
 #include <bits/stdc++.h>
+
+//环境配置
+#define CLION_ENVIROMENT
+#ifdef CLION_ENVIROMENT
+//clion 环境
 static const string ktFile=R"(..\STable\KTtable.txt)";
 static const string ptFile=R"(..\STable\PTtable.txt)";
+#else
+//VS 环境配置
+static const string ktFile=R"(..\STable\KTtable.txt)";
+static const string ptFile=R"(..\STable\PTtable.txt)";
+#endif
+
 using namespace std;
 /*简单符号表定义*/
 class STable {

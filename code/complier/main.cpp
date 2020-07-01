@@ -1,14 +1,14 @@
 #include <iostream>
 #include "tokenType\tokenType.h"
 #include "STable\STable.h"
-#include ".\XTable\xTable.h"
+#include ".\XTable\XTable.h"
 int main() {
     //主函数可用于测试，随意使用
     //revert_test2
     XTable test;
     auto it =test.findType("bool");
-    if(it!=){
-        cout<<it->len<<endl;
+    if(it!=test.typeEnd()){
+        cout<<it->name<<endl;
     }
     string s="my name is YCJ";
     sTable.insertIt("my name is YCJ");

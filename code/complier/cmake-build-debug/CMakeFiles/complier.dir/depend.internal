@@ -12,6 +12,9 @@ CMakeFiles/complier.dir/STable/Sheet.cpp.o
 CMakeFiles/complier.dir/XTable/XTable.cpp.o
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/XTable.cpp
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/XTable.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/funSheet.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/typeSheet.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
 CMakeFiles/complier.dir/XTable/funSheet.cpp.o
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/funSheet.cpp
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/funSheet.h
@@ -20,6 +23,8 @@ CMakeFiles/complier.dir/XTable/typeSheet.cpp.o
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/typeSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
 CMakeFiles/complier.dir/main.cpp.o
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/XTable.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/funSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/typeSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/./type/type.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h

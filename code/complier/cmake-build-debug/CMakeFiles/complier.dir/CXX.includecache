@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/XTable.h
+funSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/funSheet.h
+typeSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/typeSheet.h
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/funSheet.h
+bits/stdc++.h
+-
+
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/typeSheet.h
 ../type/type.h
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/./type/type.h
@@ -15,6 +25,10 @@ bits/stdc++.h
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/./type/type.h
 bits/stdc++.h
 -
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.cpp
+STable.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h
 
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h
 ../tokenType/tokenType.h
@@ -28,16 +42,6 @@ bits/stdc++.h
 bits/stdc++.h
 -
 
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/typeSheet.cpp
-typeSheet.h
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/typeSheet.h
-
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/typeSheet.h
-../type/type.h
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
-bits/stdc++.h
--
-
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/main.cpp
 iostream
 -
@@ -45,12 +49,8 @@ tokenType/tokenType.h
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h
 STable/STable.h
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h
-./XTable/typeSheet.h
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/typeSheet.h
+./XTable/XTable.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/XTable.h
 
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h
-
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
-bits/stdc++.h
--
 

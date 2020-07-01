@@ -11,6 +11,9 @@ CMakeFiles/complier.dir/STable/Sheet.cpp.o: ../STable/Sheet.h
 
 CMakeFiles/complier.dir/XTable/XTable.cpp.o: ../XTable/XTable.cpp
 CMakeFiles/complier.dir/XTable/XTable.cpp.o: ../XTable/XTable.h
+CMakeFiles/complier.dir/XTable/XTable.cpp.o: ../XTable/funSheet.h
+CMakeFiles/complier.dir/XTable/XTable.cpp.o: ../XTable/typeSheet.h
+CMakeFiles/complier.dir/XTable/XTable.cpp.o: ../type/type.h
 
 CMakeFiles/complier.dir/XTable/funSheet.cpp.o: ../XTable/funSheet.cpp
 CMakeFiles/complier.dir/XTable/funSheet.cpp.o: ../XTable/funSheet.h
@@ -19,6 +22,8 @@ CMakeFiles/complier.dir/XTable/typeSheet.cpp.o: ../XTable/typeSheet.cpp
 CMakeFiles/complier.dir/XTable/typeSheet.cpp.o: ../XTable/typeSheet.h
 CMakeFiles/complier.dir/XTable/typeSheet.cpp.o: ../type/type.h
 
+CMakeFiles/complier.dir/main.cpp.o: .././XTable/XTable.h
+CMakeFiles/complier.dir/main.cpp.o: .././XTable/funSheet.h
 CMakeFiles/complier.dir/main.cpp.o: .././XTable/typeSheet.h
 CMakeFiles/complier.dir/main.cpp.o: .././type/type.h
 CMakeFiles/complier.dir/main.cpp.o: ../STable/STable.h

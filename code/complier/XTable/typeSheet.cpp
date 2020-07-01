@@ -6,7 +6,7 @@
 
 typeSheet::typeSheet() {
     typeNode tmp{};
-    for(int i=0;i<3;i++) {
+    for(int i=0;i<baseNum;i++) {
         tmp.tVal = typeVal(i);
         tmp.len = typeLen[i];
         tmp.tPoint = nullptr;
