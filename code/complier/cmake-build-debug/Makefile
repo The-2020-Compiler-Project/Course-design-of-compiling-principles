@@ -177,6 +177,87 @@ STable/Sheet.cpp.s:
 	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/STable/Sheet.cpp.s
 .PHONY : STable/Sheet.cpp.s
 
+XTable/XTable.o: XTable/XTable.cpp.o
+
+.PHONY : XTable/XTable.o
+
+# target to build an object file
+XTable/XTable.cpp.o:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/XTable.cpp.o
+.PHONY : XTable/XTable.cpp.o
+
+XTable/XTable.i: XTable/XTable.cpp.i
+
+.PHONY : XTable/XTable.i
+
+# target to preprocess a source file
+XTable/XTable.cpp.i:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/XTable.cpp.i
+.PHONY : XTable/XTable.cpp.i
+
+XTable/XTable.s: XTable/XTable.cpp.s
+
+.PHONY : XTable/XTable.s
+
+# target to generate assembly for a file
+XTable/XTable.cpp.s:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/XTable.cpp.s
+.PHONY : XTable/XTable.cpp.s
+
+XTable/funSheet.o: XTable/funSheet.cpp.o
+
+.PHONY : XTable/funSheet.o
+
+# target to build an object file
+XTable/funSheet.cpp.o:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/funSheet.cpp.o
+.PHONY : XTable/funSheet.cpp.o
+
+XTable/funSheet.i: XTable/funSheet.cpp.i
+
+.PHONY : XTable/funSheet.i
+
+# target to preprocess a source file
+XTable/funSheet.cpp.i:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/funSheet.cpp.i
+.PHONY : XTable/funSheet.cpp.i
+
+XTable/funSheet.s: XTable/funSheet.cpp.s
+
+.PHONY : XTable/funSheet.s
+
+# target to generate assembly for a file
+XTable/funSheet.cpp.s:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/funSheet.cpp.s
+.PHONY : XTable/funSheet.cpp.s
+
+XTable/typeSheet.o: XTable/typeSheet.cpp.o
+
+.PHONY : XTable/typeSheet.o
+
+# target to build an object file
+XTable/typeSheet.cpp.o:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/typeSheet.cpp.o
+.PHONY : XTable/typeSheet.cpp.o
+
+XTable/typeSheet.i: XTable/typeSheet.cpp.i
+
+.PHONY : XTable/typeSheet.i
+
+# target to preprocess a source file
+XTable/typeSheet.cpp.i:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/typeSheet.cpp.i
+.PHONY : XTable/typeSheet.cpp.i
+
+XTable/typeSheet.s: XTable/typeSheet.cpp.s
+
+.PHONY : XTable/typeSheet.s
+
+# target to generate assembly for a file
+XTable/typeSheet.cpp.s:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/typeSheet.cpp.s
+.PHONY : XTable/typeSheet.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -219,6 +300,15 @@ help:
 	@echo "... STable/Sheet.o"
 	@echo "... STable/Sheet.i"
 	@echo "... STable/Sheet.s"
+	@echo "... XTable/XTable.o"
+	@echo "... XTable/XTable.i"
+	@echo "... XTable/XTable.s"
+	@echo "... XTable/funSheet.o"
+	@echo "... XTable/funSheet.i"
+	@echo "... XTable/funSheet.s"
+	@echo "... XTable/typeSheet.o"
+	@echo "... XTable/typeSheet.i"
+	@echo "... XTable/typeSheet.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

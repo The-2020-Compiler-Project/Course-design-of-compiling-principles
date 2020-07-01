@@ -66,6 +66,6 @@ public:
         init();
     }
 };
-extern STable sTable;
+extern STable sTable;//全局变量
 
 #endif //COMPLIER_STABLE_H

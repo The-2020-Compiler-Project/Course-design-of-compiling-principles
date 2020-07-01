@@ -247,16 +247,26 @@ pascal函数只允许调用直属函数与同级函数。
 ```pascal
 program Hello;
 
-procedure A1();
-
+procedure A1();//             	(pro,A1,_,_)  A1:
+	var a,b,c,d,e,f:inter;		(+);
+								(write,)
+                                ....
+                                (endpro,a1,_,_)
 	procedure B();
 	begin
+		c=a+3;
 		writeln ('Hello, Max!')
+		
 	end;
 
 begin
 	writeln('Hello, Min!')
 end;
+
+function xxx():bool;
+begin
+	xxx=0;//(:=,0,_,xxx)
+end
 
 procedure A2();
 begin
@@ -266,9 +276,16 @@ begin
 end;
 
 begin
-	A1();//正确
+	a  =   xxx();//(call,(xxx,_),_,_)
+				//(:=,(hello,xxx_1),_,(hello,xxx_1))
+									
+				//(:=,t,_,x)
+	A1();//正确			(call,a1_,_)->/*活动记录压栈的目标代码，调用函数的目标代码
 	A2();//正确
 	B();//错误
 end.
+
 ```
+
+
 

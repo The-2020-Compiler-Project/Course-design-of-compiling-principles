@@ -11,9 +11,34 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="963a1c0c-ea8a-4c80-836f-d43e70e13fa3" name="Default Changelist" comment="Revert &quot;revert test&quot;&#10;&#10;This reverts commit 0f7bbf9d">
+    <list default="true" id="963a1c0c-ea8a-4c80-836f-d43e70e13fa3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/XTable/XTable.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/XTable/XTable.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/XTable/funSheet.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/XTable/funSheet.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/XTable/typeSheet.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/XTable/typeSheet.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/type/type.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STable/STable.h" beforeDir="false" afterPath="$PROJECT_DIR$/STable/STable.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/complier.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/complier.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tokenType/tokenType.h" beforeDir="false" afterPath="$PROJECT_DIR$/tokenType/tokenType.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../说明文档/Grammer.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../说明文档/Grammer.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../说明文档/符号表.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../说明文档/符号表.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../说明文档/符号表.xls" beforeDir="false" afterPath="$PROJECT_DIR$/../../说明文档/符号表.xls" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,98 +53,62 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/XTable/XTable.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-24">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <element signature="e#92#113#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tokenType/tokenType.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/STable/STable.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#2#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/STable/STable.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#2#0" />
-                <element signature="e#291#338#0" />
-                <element signature="e#522#571#0" />
-                <element signature="e#823#872#0" />
-                <element signature="e#959#1005#0" />
-                <element signature="e#1021#1067#0" />
-                <element signature="e#1083#1128#0" />
-                <element signature="e#1141#1189#0" />
-                <element signature="e#1346#1410#0" />
-                <element signature="e#1412#1476#0" />
-                <element signature="e#1478#1542#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/CXX.includecache">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/STable/PTtable.txt">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+              <caret line="45" column="6" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#2#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/STable/KTtable.txt">
+        <entry file="file://$USER_HOME$/Desktop/tmp/Grammar.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="2" column="9" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="9" />
+              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
+        <entry file="file://$USER_HOME$/Desktop/tmp/lexical.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
-              <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#2#0" />
-                <element signature="e#173#239#1" />
-                <element signature="e#353#558#0" />
-                <element signature="e#937#1229#0" />
-                <element signature="e#1370#2351#0" />
-                <element signature="e#2357#2791#0" />
-                <element signature="e#2797#2960#0" />
-              </folding>
+            <state relative-caret-position="1800">
+              <caret line="62" column="21" lean-forward="true" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/STable/Sheet.cpp">
+        <entry file="file://$USER_HOME$/Desktop/tmp/Grammar.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+            <state relative-caret-position="120">
+              <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -130,6 +119,7 @@
     <findStrings>
       <find>prime</find>
       <find>sTable</find>
+      <find>end</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -145,24 +135,34 @@
       <list>
         <option value="$PROJECT_DIR$/tokenType/README.md" />
         <option value="$PROJECT_DIR$/symbolTable/symbolTable.cpp" />
-        <option value="$PROJECT_DIR$/tokenType/tokenType.h" />
         <option value="$PROJECT_DIR$/symbolTable/symbolTable.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/STable/KTtable.txt" />
         <option value="$PROJECT_DIR$/STable/PTtable.txt" />
         <option value="$PROJECT_DIR$/STable/Sheet.cpp" />
         <option value="$PROJECT_DIR$/STable/Sheet.h" />
-        <option value="$PROJECT_DIR$/STable/STable.h" />
         <option value="$PROJECT_DIR$/STable/STable.cpp" />
+        <option value="$PROJECT_DIR$/XTable/funSheet.h" />
+        <option value="$PROJECT_DIR$/XTable/type.cpp" />
+        <option value="$PROJECT_DIR$/XTable/funSheet.cpp" />
+        <option value="$PROJECT_DIR$/XTable/type.h" />
+        <option value="$PROJECT_DIR$/type/type.h" />
+        <option value="$PROJECT_DIR$/XTable/typeSheet.h" />
+        <option value="$PROJECT_DIR$/XTable/typeSheet.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/XTable/XTable.cpp" />
+        <option value="$PROJECT_DIR$/STable/STable.h" />
+        <option value="$PROJECT_DIR$/XTable/XTable.h" />
+        <option value="$PROJECT_DIR$/tokenType/tokenType.h" />
+        <option value="$USER_HOME$/Desktop/tmp/lexical.h" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
-    <option name="width" value="979" />
-    <option name="height" value="1099" />
+    <option name="width" value="980" />
+    <option name="height" value="1100" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -170,6 +170,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -177,11 +178,25 @@
               <item name="complier" type="b2602c69:ProjectViewProjectNode" />
               <item name="complier" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="complier" type="b2602c69:ProjectViewProjectNode" />
+              <item name="complier" type="462c0819:PsiDirectoryNode" />
+              <item name="STable" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="complier" type="b2602c69:ProjectViewProjectNode" />
+              <item name="complier" type="462c0819:PsiDirectoryNode" />
+              <item name="tokenType" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="complier" type="b2602c69:ProjectViewProjectNode" />
+              <item name="complier" type="462c0819:PsiDirectoryNode" />
+              <item name="XTable" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -230,7 +245,9 @@
       <workItem from="1593486597378" duration="4652000" />
       <workItem from="1593504278087" duration="4819000" />
       <workItem from="1593515779763" duration="5040000" />
-      <workItem from="1593521703371" duration="693000" />
+      <workItem from="1593521703371" duration="6952000" />
+      <workItem from="1593557824448" duration="6500000" />
+      <workItem from="1593571236109" duration="826000" />
     </task>
     <task id="LOCAL-00001" summary="初步实现了sTable">
       <created>1593508908172</created>
@@ -253,11 +270,18 @@
       <option name="project" value="LOCAL" />
       <updated>1593521442845</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="revert_test2">
+      <created>1593522430844</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1593522430844</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16208000" />
+    <option name="totallyTimeSpent" value="29793000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -272,7 +296,7 @@
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25938338" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2627346" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -287,19 +311,19 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.49463806" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32841823" />
-      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.47587132" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.47587132" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25603217" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25938338" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3297587" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3297587" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -307,7 +331,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32841823" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32931727" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.49463806" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32841823" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.47587132" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -333,7 +357,8 @@
     <MESSAGE value="初步实现了sTable" />
     <MESSAGE value="1、初步实现并测试了sTable&#10;2、增加了clion开发注意.md用于分享clion环境有关问题&#10;3、" />
     <MESSAGE value="Revert &quot;revert test&quot;&#10;&#10;This reverts commit 0f7bbf9d" />
-    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;revert test&quot;&#10;&#10;This reverts commit 0f7bbf9d" />
+    <MESSAGE value="revert_test2" />
+    <option name="LAST_COMMIT_MESSAGE" value="revert_test2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -348,7 +373,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.cpp" />
-    <entry file="file://$PROJECT_DIR$/type/type.h" />
     <entry file="file://D:/Parser/Lex.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -392,20 +416,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tokenType/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tokenType/tokenType.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -413,45 +423,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/STable/STable.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#2#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/STable/STable.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#2#0" />
-            <element signature="e#291#338#0" />
-            <element signature="e#522#571#0" />
-            <element signature="e#823#872#0" />
-            <element signature="e#959#1005#0" />
-            <element signature="e#1021#1067#0" />
-            <element signature="e#1083#1128#0" />
-            <element signature="e#1141#1189#0" />
-            <element signature="e#1346#1410#0" />
-            <element signature="e#1412#1476#0" />
-            <element signature="e#1478#1542#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/CXX.includecache">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/STable/PTtable.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/STable/KTtable.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -460,19 +433,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
+    <entry file="file://$PROJECT_DIR$/STable/PTtable.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#2#0" />
-            <element signature="e#173#239#1" />
-            <element signature="e#353#558#0" />
-            <element signature="e#937#1229#0" />
-            <element signature="e#1370#2351#0" />
-            <element signature="e#2357#2791#0" />
-            <element signature="e#2797#2960#0" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -483,12 +447,191 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://F:/cygwin64/usr/include/w32api/commctrl.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="382" column="70" selection-start-line="382" selection-start-column="70" selection-end-line="382" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tokenType/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/LexAnalyzer/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="146" column="28" lean-forward="true" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
+          <folding>
+            <element signature="e#270#3386#1" />
+            <element signature="e#463#2681#0" />
+            <element signature="e#2695#3156#0" />
+            <element signature="e#3162#3207#0" />
+            <element signature="e#3213#3384#0" />
+            <element signature="e#3388#3473#1" />
+            <element signature="e#3646#3851#0" />
+            <element signature="e#3922#3977#0" />
+            <element signature="e#4124#4391#0" />
+            <element signature="e#4397#4671#0" />
+            <element signature="e#4821#6077#0" />
+            <element signature="e#6083#6608#0" />
+            <element signature="e#6746#7444#0" />
+            <element signature="e#7450#7838#0" />
+            <element signature="e#7844#7882#0" />
+            <element signature="e#7886#8047#1" />
+            <element signature="e#7996#8045#0" />
+            <element signature="e#8049#8113#1" />
+            <element signature="e#8228#8323#0" />
+            <element signature="e#8324#8448#0" />
+            <element signature="e#8449#8842#0" />
+            <element signature="e#8843#8934#0" />
+            <element signature="e#8935#9051#0" />
+            <element signature="e#9052#9139#0" />
+            <element signature="e#9140#9248#0" />
+            <element signature="e#9249#9339#0" />
+            <element signature="e#9340#11281#0" />
+            <element signature="e#11282#13648#0" />
+            <element signature="e#13649#16492#0" />
+            <element signature="e#16493#18177#0" />
+            <element signature="e#18178#19455#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/type/type.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="17" column="10" lean-forward="true" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#169#235#1" />
+            <element signature="e#665#959#0" />
+            <element signature="e#965#1257#0" />
+            <element signature="e#1288#3042#1" />
+            <element signature="e#1398#2379#0" />
+            <element signature="e#2385#2819#0" />
+            <element signature="e#2825#2988#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/XTable/typeSheet.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/XTable/funSheet.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#255#1304#1" />
+            <element signature="e#1306#3060#1" />
+            <element signature="e#3062#3081#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/STable.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#2#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        <state relative-caret-position="270">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/XTable/funSheet.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/XTable/typeSheet.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding>
+            <element signature="e#103#128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/XTable/XTable.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/tmp/Grammar.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/tmp/lexical.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1800">
+          <caret line="62" column="21" lean-forward="true" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/tmp/Grammar.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/STable.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="45" column="6" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#2#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tokenType/tokenType.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/XTable/XTable.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-24">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#92#113#0" expanded="true" />
           </folding>
         </state>
       </provider>
