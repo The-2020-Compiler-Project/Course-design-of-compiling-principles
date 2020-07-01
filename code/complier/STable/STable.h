@@ -11,6 +11,7 @@
 static const string ktFile=R"(..\STable\KTtable.txt)";
 static const string ptFile=R"(..\STable\PTtable.txt)";
 using namespace std;
+/*简单符号表定义*/
 class STable {
     const ull Lprime = 769, Sprime = 128, Iprime = 17;
     //存储关键字、界符、标识符、字符常量、字符串常量
