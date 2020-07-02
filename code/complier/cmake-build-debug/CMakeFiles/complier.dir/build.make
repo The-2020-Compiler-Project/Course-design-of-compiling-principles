@@ -109,31 +109,70 @@ CMakeFiles/complier.dir/XTable/XTable.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/XTable/XTable.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/XTable.cpp -o CMakeFiles/complier.dir/XTable/XTable.cpp.s
 
-CMakeFiles/complier.dir/XTable/funSheet.cpp.o: CMakeFiles/complier.dir/flags.make
-CMakeFiles/complier.dir/XTable/funSheet.cpp.o: ../XTable/funSheet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/complier.dir/XTable/funSheet.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/complier.dir/XTable/funSheet.cpp.o -c /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/funSheet.cpp
+CMakeFiles/complier.dir/XTable/FunSheet.cpp.o: CMakeFiles/complier.dir/flags.make
+CMakeFiles/complier.dir/XTable/FunSheet.cpp.o: ../XTable/FunSheet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/complier.dir/XTable/FunSheet.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/complier.dir/XTable/FunSheet.cpp.o -c /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.cpp
 
-CMakeFiles/complier.dir/XTable/funSheet.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/complier.dir/XTable/funSheet.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/funSheet.cpp > CMakeFiles/complier.dir/XTable/funSheet.cpp.i
+CMakeFiles/complier.dir/XTable/FunSheet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/complier.dir/XTable/FunSheet.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.cpp > CMakeFiles/complier.dir/XTable/FunSheet.cpp.i
 
-CMakeFiles/complier.dir/XTable/funSheet.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/XTable/funSheet.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/funSheet.cpp -o CMakeFiles/complier.dir/XTable/funSheet.cpp.s
+CMakeFiles/complier.dir/XTable/FunSheet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/XTable/FunSheet.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.cpp -o CMakeFiles/complier.dir/XTable/FunSheet.cpp.s
 
-CMakeFiles/complier.dir/XTable/typeSheet.cpp.o: CMakeFiles/complier.dir/flags.make
-CMakeFiles/complier.dir/XTable/typeSheet.cpp.o: ../XTable/typeSheet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/complier.dir/XTable/typeSheet.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/complier.dir/XTable/typeSheet.cpp.o -c /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/typeSheet.cpp
+CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o: CMakeFiles/complier.dir/flags.make
+CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o: ../XTable/TypeSheet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o -c /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.cpp
 
-CMakeFiles/complier.dir/XTable/typeSheet.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/complier.dir/XTable/typeSheet.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/typeSheet.cpp > CMakeFiles/complier.dir/XTable/typeSheet.cpp.i
+CMakeFiles/complier.dir/XTable/TypeSheet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/complier.dir/XTable/TypeSheet.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.cpp > CMakeFiles/complier.dir/XTable/TypeSheet.cpp.i
 
-CMakeFiles/complier.dir/XTable/typeSheet.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/XTable/typeSheet.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/typeSheet.cpp -o CMakeFiles/complier.dir/XTable/typeSheet.cpp.s
+CMakeFiles/complier.dir/XTable/TypeSheet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/XTable/TypeSheet.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.cpp -o CMakeFiles/complier.dir/XTable/TypeSheet.cpp.s
+
+CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o: CMakeFiles/complier.dir/flags.make
+CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o: ../XTable/ElemSheet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o -c /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.cpp
+
+CMakeFiles/complier.dir/XTable/ElemSheet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/complier.dir/XTable/ElemSheet.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.cpp > CMakeFiles/complier.dir/XTable/ElemSheet.cpp.i
+
+CMakeFiles/complier.dir/XTable/ElemSheet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/XTable/ElemSheet.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.cpp -o CMakeFiles/complier.dir/XTable/ElemSheet.cpp.s
+
+CMakeFiles/complier.dir/XTable/TmpSheet.cpp.o: CMakeFiles/complier.dir/flags.make
+CMakeFiles/complier.dir/XTable/TmpSheet.cpp.o: ../XTable/TmpSheet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/complier.dir/XTable/TmpSheet.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/complier.dir/XTable/TmpSheet.cpp.o -c /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TmpSheet.cpp
+
+CMakeFiles/complier.dir/XTable/TmpSheet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/complier.dir/XTable/TmpSheet.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TmpSheet.cpp > CMakeFiles/complier.dir/XTable/TmpSheet.cpp.i
+
+CMakeFiles/complier.dir/XTable/TmpSheet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/XTable/TmpSheet.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TmpSheet.cpp -o CMakeFiles/complier.dir/XTable/TmpSheet.cpp.s
+
+CMakeFiles/complier.dir/XTable/ArrSheet.cpp.o: CMakeFiles/complier.dir/flags.make
+CMakeFiles/complier.dir/XTable/ArrSheet.cpp.o: ../XTable/ArrSheet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/complier.dir/XTable/ArrSheet.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/complier.dir/XTable/ArrSheet.cpp.o -c /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ArrSheet.cpp
+
+CMakeFiles/complier.dir/XTable/ArrSheet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/complier.dir/XTable/ArrSheet.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ArrSheet.cpp > CMakeFiles/complier.dir/XTable/ArrSheet.cpp.i
+
+CMakeFiles/complier.dir/XTable/ArrSheet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/XTable/ArrSheet.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ArrSheet.cpp -o CMakeFiles/complier.dir/XTable/ArrSheet.cpp.s
 
 # Object files for target complier
 complier_OBJECTS = \
@@ -141,8 +180,11 @@ complier_OBJECTS = \
 "CMakeFiles/complier.dir/STable/STable.cpp.o" \
 "CMakeFiles/complier.dir/STable/Sheet.cpp.o" \
 "CMakeFiles/complier.dir/XTable/XTable.cpp.o" \
-"CMakeFiles/complier.dir/XTable/funSheet.cpp.o" \
-"CMakeFiles/complier.dir/XTable/typeSheet.cpp.o"
+"CMakeFiles/complier.dir/XTable/FunSheet.cpp.o" \
+"CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o" \
+"CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o" \
+"CMakeFiles/complier.dir/XTable/TmpSheet.cpp.o" \
+"CMakeFiles/complier.dir/XTable/ArrSheet.cpp.o"
 
 # External object files for target complier
 complier_EXTERNAL_OBJECTS =
@@ -151,11 +193,14 @@ complier.exe: CMakeFiles/complier.dir/main.cpp.o
 complier.exe: CMakeFiles/complier.dir/STable/STable.cpp.o
 complier.exe: CMakeFiles/complier.dir/STable/Sheet.cpp.o
 complier.exe: CMakeFiles/complier.dir/XTable/XTable.cpp.o
-complier.exe: CMakeFiles/complier.dir/XTable/funSheet.cpp.o
-complier.exe: CMakeFiles/complier.dir/XTable/typeSheet.cpp.o
+complier.exe: CMakeFiles/complier.dir/XTable/FunSheet.cpp.o
+complier.exe: CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o
+complier.exe: CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o
+complier.exe: CMakeFiles/complier.dir/XTable/TmpSheet.cpp.o
+complier.exe: CMakeFiles/complier.dir/XTable/ArrSheet.cpp.o
 complier.exe: CMakeFiles/complier.dir/build.make
 complier.exe: CMakeFiles/complier.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable complier.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable complier.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/complier.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

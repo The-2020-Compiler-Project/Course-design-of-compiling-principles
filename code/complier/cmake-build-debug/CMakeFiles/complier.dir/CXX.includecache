@@ -6,29 +6,53 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/XTable.h
-funSheet.h
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/funSheet.h
-typeSheet.h
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/typeSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/ArrSheet.h
 
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/funSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/ElemSheet.h
+bits/stdc++.h
+-
+TypeSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/TypeSheet.h
+../type/cat.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./type/cat.h
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/FunSheet.h
+TypeSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/TypeSheet.h
+../type/cat.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./type/cat.h
+ElemSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/ElemSheet.h
+TmpSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/TmpSheet.h
 bits/stdc++.h
 -
 
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/typeSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/TmpSheet.h
+TypeSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/TypeSheet.h
+bits/stdc++.h
+-
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/TypeSheet.h
+ArrSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/ArrSheet.h
 ../type/type.h
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/./type/type.h
 bits/stdc++.h
 -
 
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/XTable.h
+FunSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/FunSheet.h
+TypeSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/TypeSheet.h
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/./type/cat.h
+
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/./type/type.h
 bits/stdc++.h
 -
-
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.cpp
-STable.h
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h
 
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h
 ../tokenType/tokenType.h
@@ -39,6 +63,20 @@ bits/stdc++.h
 -
 
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.h
+bits/stdc++.h
+-
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ArrSheet.h
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.cpp
+TypeSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h
+ArrSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ArrSheet.h
+../type/type.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
 bits/stdc++.h
 -
 
@@ -53,4 +91,8 @@ STable/STable.h
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/XTable.h
 
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
+bits/stdc++.h
+-
 

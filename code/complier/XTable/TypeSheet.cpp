@@ -2,14 +2,14 @@
 // Created by YCJ on 2020/7/1.
 //
 
-#include "typeSheet.h"
+#include "TypeSheet.h"
 
-typeSheet::typeSheet() {
+TypeSheet::TypeSheet() {
     typeNode tmp{};
     for(int i=0;i<baseNum;i++) {
-        tmp.tVal = typeVal(i);
+        tmp.tVal = TYPEVAL(i);
         tmp.len = typeLen[i];
-        tmp.tPoint = nullptr;
+
         tmp.name = typeName[i];
         record.push_back(tmp);
     }
@@ -17,7 +17,7 @@ typeSheet::typeSheet() {
 
 
 
-typeSheet::ull typeSheet::hash(const string &s) {
+TypeSheet::ull TypeSheet::hash(const string &s) {
     //计算哈希值,溢出取模
     ull ans = 0;
     ull prime = 1;
@@ -28,7 +28,7 @@ typeSheet::ull typeSheet::hash(const string &s) {
     return ans;
 }
 
-typeSheet::iterator  typeSheet::find(const string &name) {
+TypeSheet::const_iterator  TypeSheet::find(const string &name) {
     for (auto it=record.begin();it!=record.end();it++) {
         if (it->name == name) {
             return it;
@@ -37,6 +37,6 @@ typeSheet::iterator  typeSheet::find(const string &name) {
     return record.end();
 }
 
-typeSheet::iterator typeSheet::end() {
+TypeSheet::const_iterator TypeSheet::end() {
     return record.end();
 }

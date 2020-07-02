@@ -5,23 +5,22 @@
 #ifndef COMPLIER_XTABLE_H
 #define COMPLIER_XTABLE_H
 
-#include "funSheet.h"
-#include "typeSheet.h"
+#include "FunSheet.h"
+#include "TypeSheet.h"
 
 class XTable {
 private:
-    funSheet funTable;
-    typeSheet typeTable;
+
 public:
     /*迭代器end系列函数*/
-    typeSheet::iterator typeEnd();
+    TypeSheet::const_iterator typeEnd();
 
     /*find系列函数,仅在局部查找，用于重定义检查、信息修改*/
-    typeSheet::iterator findType(const string& name);//查询const 一个类型&的信息
+    TypeSheet::const_iterator findType(const string& name);//查询const 一个类型&的信息
     void findFun(string name);//查询一个函数的信息
     void findElm(string fName,string eName);//查询变量/常量/参数的信息
     /*search系列函数，按照最近嵌套规则进行查找，用于查找信息*/
-    typeSheet::iterator searchType(string name);//查询一个类型的信息
+    TypeSheet::const_iterator searchType(string name);//查询一个类型的信息
     void searchFun(string name);//查询一个函数的信息
     void searchElt(string fName,string eName);//查询变量/常量/参数的信息
     /*insert系列函数，用于插入新的标识符*/

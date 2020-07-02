@@ -118,9 +118,28 @@ bool									1
 program example;
 	const c=3;
     var a,b:integer;
+begin			//(beginProgram,example,_,_)
+    a:=2+c; 	//(add,2,c,t1)	(assign,t1,_,a)
+    b:=2*5+a	//(MUL,2,5,t2)	(add,t2,a,t3)	(assign,t3,_,b)
+end.			//(endProgram,example,_,_)
+
+
+//
+program Hello;
+	var ans:integer;
+	function A(var x:integer):integer;
+		var c,d:integer;
+		begin
+			x:=4;		//(assign,4,_,x)	
+			c=x+3;		//(ADD,x,3,t)
+			c:=3;
+			d:=4;
+			A:=c+d+x;
+		end;
 begin
-    a:=2+c; 
-    b:=2*5+a
+	ans:=3;
+	ans:=A(ans);
+  	writeln ('Hello, world!')
 end.
 
 ```

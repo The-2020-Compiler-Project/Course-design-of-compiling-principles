@@ -92,28 +92,49 @@
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.h">
 			<Option target="complier"/>
 		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ArrSheet.cpp">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ArrSheet.h">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.cpp">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.h">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.cpp">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.h">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TmpSheet.cpp">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TmpSheet.h">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.cpp">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h">
+			<Option target="complier"/>
+		</Unit>
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/XTable.cpp">
 			<Option target="complier"/>
 		</Unit>
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/XTable.h">
 			<Option target="complier"/>
 		</Unit>
-		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/funSheet.cpp">
-			<Option target="complier"/>
-		</Unit>
-		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/funSheet.h">
-			<Option target="complier"/>
-		</Unit>
-		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/typeSheet.cpp">
-			<Option target="complier"/>
-		</Unit>
-		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/typeSheet.h">
-			<Option target="complier"/>
-		</Unit>
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/main.cpp">
 			<Option target="complier"/>
 		</Unit>
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/cat.h">
 			<Option target="complier"/>
 		</Unit>
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h">
