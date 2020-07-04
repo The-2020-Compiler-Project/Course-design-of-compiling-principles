@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include<vector>
 #include<map>
 #include<set>
@@ -86,6 +86,9 @@ public:
 	//计算所求变量相对于变量所在层bp的偏移量，这个函数是我应该实现的
 	int findTrueOffset(string tempName);
 
+	//在display表中查找位置，输入变量层次，返回指向低位的偏移量
+	int findInDisplay(int Level);
+
 	//生成数据段和堆栈段,初始化,在准备生成代码时调用
 	void initAsm();
 
@@ -100,6 +103,9 @@ public:
 
 	//处理关系运算
 	void relCalculation(quar nowQuar);
+
+	//处理结束程序
+	void programEnd(quar nowQuar);
 
 	//生成目标代码
 	void generateCode();
