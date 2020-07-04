@@ -1,7 +1,11 @@
-  program
-  var    
-  integer
-  real   
-  char   
+ program
+ var    
+integer
+ real   
+ char   
   begin  
   end
+result
+true
+false
+call

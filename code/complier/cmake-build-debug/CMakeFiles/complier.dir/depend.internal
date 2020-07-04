@@ -9,53 +9,27 @@ CMakeFiles/complier.dir/STable/STable.cpp.o
 CMakeFiles/complier.dir/STable/Sheet.cpp.o
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.cpp
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.h
-CMakeFiles/complier.dir/XTable/ArrSheet.cpp.o
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ArrSheet.cpp
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ArrSheet.h
 CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ArrSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.cpp
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/cat.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
 CMakeFiles/complier.dir/XTable/FunSheet.cpp.o
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ArrSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.cpp
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TmpSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/cat.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
-CMakeFiles/complier.dir/XTable/TmpSheet.cpp.o
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ArrSheet.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TmpSheet.cpp
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TmpSheet.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
 CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ArrSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.cpp
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
-CMakeFiles/complier.dir/XTable/XTable.cpp.o
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ArrSheet.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TmpSheet.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/XTable.cpp
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/XTable.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/cat.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
 CMakeFiles/complier.dir/main.cpp.o
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/ArrSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/ElemSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/FunSheet.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/TmpSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/TypeSheet.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/XTable.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/./type/cat.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/./type/type.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h

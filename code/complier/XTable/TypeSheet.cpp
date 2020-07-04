@@ -3,40 +3,37 @@
 //
 
 #include "TypeSheet.h"
-
+///类型表的初始化
 TypeSheet::TypeSheet() {
-    typeNode tmp{};
-    for(int i=0;i<baseNum;i++) {
-        tmp.tVal = TYPEVAL(i);
-        tmp.len = typeLen[i];
-
-        tmp.name = typeName[i];
-        record.push_back(tmp);
+//从type.h文件中读取定义的基本类型以及名字，tval值
+    TypeSheet::TypeNode tmp;
+    for(int i=0;i<baseTypeNum;i++){
+      tmp.name=baseTypeName[i];
+      tmp.len=baseTypeLen[i];
+      tmp.structSheet=nullptr;
+      tmp.arrSheet=nullptr;
+      tmp.tVal=TYPEVAL(i);
+      this->record[tmp.name]=tmp;
     }
 }
 
-
-
-TypeSheet::ull TypeSheet::hash(const string &s) {
-    //计算哈希值,溢出取模
-    ull ans = 0;
-    ull prime = 1;
-    for (char i : s) {
-        ans += i * prime;
-        prime *= hPrime;
+TypeSheet::typePoint TypeSheet::find(const string &findName) {
+    if(record.find(findName)!=record.end()){
+        return &record[findName];
     }
-    return ans;
+    else return nullptr;
 }
 
-TypeSheet::const_iterator  TypeSheet::find(const string &name) {
-    for (auto it=record.begin();it!=record.end();it++) {
-        if (it->name == name) {
-            return it;
-        }
-    }
-    return record.end();
+int TypeSheet::iterator::len() {
+    return this->root->len;
 }
 
-TypeSheet::const_iterator TypeSheet::end() {
-    return record.end();
+TYPEVAL TypeSheet::iterator::tVal() {
+    return this->root->tVal;
 }
+
+string TypeSheet::iterator::name() {
+    return this->root->name;
+}
+
+

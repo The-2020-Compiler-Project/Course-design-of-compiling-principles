@@ -177,33 +177,6 @@ STable/Sheet.cpp.s:
 	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/STable/Sheet.cpp.s
 .PHONY : STable/Sheet.cpp.s
 
-XTable/ArrSheet.o: XTable/ArrSheet.cpp.o
-
-.PHONY : XTable/ArrSheet.o
-
-# target to build an object file
-XTable/ArrSheet.cpp.o:
-	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/ArrSheet.cpp.o
-.PHONY : XTable/ArrSheet.cpp.o
-
-XTable/ArrSheet.i: XTable/ArrSheet.cpp.i
-
-.PHONY : XTable/ArrSheet.i
-
-# target to preprocess a source file
-XTable/ArrSheet.cpp.i:
-	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/ArrSheet.cpp.i
-.PHONY : XTable/ArrSheet.cpp.i
-
-XTable/ArrSheet.s: XTable/ArrSheet.cpp.s
-
-.PHONY : XTable/ArrSheet.s
-
-# target to generate assembly for a file
-XTable/ArrSheet.cpp.s:
-	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/ArrSheet.cpp.s
-.PHONY : XTable/ArrSheet.cpp.s
-
 XTable/ElemSheet.o: XTable/ElemSheet.cpp.o
 
 .PHONY : XTable/ElemSheet.o
@@ -258,33 +231,6 @@ XTable/FunSheet.cpp.s:
 	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/FunSheet.cpp.s
 .PHONY : XTable/FunSheet.cpp.s
 
-XTable/TmpSheet.o: XTable/TmpSheet.cpp.o
-
-.PHONY : XTable/TmpSheet.o
-
-# target to build an object file
-XTable/TmpSheet.cpp.o:
-	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/TmpSheet.cpp.o
-.PHONY : XTable/TmpSheet.cpp.o
-
-XTable/TmpSheet.i: XTable/TmpSheet.cpp.i
-
-.PHONY : XTable/TmpSheet.i
-
-# target to preprocess a source file
-XTable/TmpSheet.cpp.i:
-	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/TmpSheet.cpp.i
-.PHONY : XTable/TmpSheet.cpp.i
-
-XTable/TmpSheet.s: XTable/TmpSheet.cpp.s
-
-.PHONY : XTable/TmpSheet.s
-
-# target to generate assembly for a file
-XTable/TmpSheet.cpp.s:
-	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/TmpSheet.cpp.s
-.PHONY : XTable/TmpSheet.cpp.s
-
 XTable/TypeSheet.o: XTable/TypeSheet.cpp.o
 
 .PHONY : XTable/TypeSheet.o
@@ -311,33 +257,6 @@ XTable/TypeSheet.s: XTable/TypeSheet.cpp.s
 XTable/TypeSheet.cpp.s:
 	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/TypeSheet.cpp.s
 .PHONY : XTable/TypeSheet.cpp.s
-
-XTable/XTable.o: XTable/XTable.cpp.o
-
-.PHONY : XTable/XTable.o
-
-# target to build an object file
-XTable/XTable.cpp.o:
-	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/XTable.cpp.o
-.PHONY : XTable/XTable.cpp.o
-
-XTable/XTable.i: XTable/XTable.cpp.i
-
-.PHONY : XTable/XTable.i
-
-# target to preprocess a source file
-XTable/XTable.cpp.i:
-	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/XTable.cpp.i
-.PHONY : XTable/XTable.cpp.i
-
-XTable/XTable.s: XTable/XTable.cpp.s
-
-.PHONY : XTable/XTable.s
-
-# target to generate assembly for a file
-XTable/XTable.cpp.s:
-	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/XTable/XTable.cpp.s
-.PHONY : XTable/XTable.cpp.s
 
 main.o: main.cpp.o
 
@@ -381,24 +300,15 @@ help:
 	@echo "... STable/Sheet.o"
 	@echo "... STable/Sheet.i"
 	@echo "... STable/Sheet.s"
-	@echo "... XTable/ArrSheet.o"
-	@echo "... XTable/ArrSheet.i"
-	@echo "... XTable/ArrSheet.s"
 	@echo "... XTable/ElemSheet.o"
 	@echo "... XTable/ElemSheet.i"
 	@echo "... XTable/ElemSheet.s"
 	@echo "... XTable/FunSheet.o"
 	@echo "... XTable/FunSheet.i"
 	@echo "... XTable/FunSheet.s"
-	@echo "... XTable/TmpSheet.o"
-	@echo "... XTable/TmpSheet.i"
-	@echo "... XTable/TmpSheet.s"
 	@echo "... XTable/TypeSheet.o"
 	@echo "... XTable/TypeSheet.i"
 	@echo "... XTable/TypeSheet.s"
-	@echo "... XTable/XTable.o"
-	@echo "... XTable/XTable.i"
-	@echo "... XTable/XTable.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
