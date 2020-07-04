@@ -5,10 +5,10 @@
 
 using std::ios;
 using std::cout;
-using std::endl;
+using std::endl; 
 
 
-//´ÓÎÄ¼şÖĞ¶ÁÈ¡ËÄÔªÊ½
+//ä»æ–‡ä»¶ä¸­è¯»å–å››å…ƒå¼
 void TargetCodeGenerator::read(string filename)
 {
 	ifstream infile;
@@ -24,7 +24,7 @@ void TargetCodeGenerator::read(string filename)
 	{
 		std::getline(infile, line);
 
-		//bookÎª¿ªÊ¼¸´ÖÆµÄÎ»ÖÃ£¬turnÎªµ½ÁËÄÄ¸ö²Ù×÷Êı£¨0£¬1£¬2£¬3£©
+		//bookä¸ºå¼€å§‹å¤åˆ¶çš„ä½ç½®ï¼Œturnä¸ºåˆ°äº†å“ªä¸ªæ“ä½œæ•°ï¼ˆ0ï¼Œ1ï¼Œ2ï¼Œ3ï¼‰
 		int book = 1, turn = 0;	
 
 		for (int i = 1; i < line.size() - 1; i++)
@@ -41,14 +41,14 @@ void TargetCodeGenerator::read(string filename)
 			}
 		}
 
-		//ÒòÎªµ½ÁË×îºóÒ»¸ö¶ººÅ¾ÍÍ£ÏÂÁË£¬ËùÒÔÒª°Ñ×îºóµÄÄ¿±ê²Ù×÷ÊıÔÙ´¦ÀíÒ»ÏÂ
+		//å› ä¸ºåˆ°äº†æœ€åä¸€ä¸ªé€—å·å°±åœä¸‹äº†ï¼Œæ‰€ä»¥è¦æŠŠæœ€åçš„ç›®æ ‡æ“ä½œæ•°å†å¤„ç†ä¸€ä¸‹
 		th[turn] = "";
 		for (int i = book; i < line.size() - 1; i++)
 		{
 			th[turn] += line[i];
 		}
 
-		//´æÈëËùÓĞËÄÔªÊ½¼¯ÖĞ
+		//å­˜å…¥æ‰€æœ‰å››å…ƒå¼é›†ä¸­
 		quar tq;
 		tq.oper = th[0], tq.o1 = th[1], tq.o2 = th[2], tq.target = th[3];
 		AllQuarColl.push_back(tq);
@@ -56,8 +56,8 @@ void TargetCodeGenerator::read(string filename)
 	int a = 1;
 }
 
-//ÊÇ·ñÊÇÌø×ª·û£¬Ä¿Ç°ÓĞif£¬else£¬while£¬we
-//ÊÇÔò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+//æ˜¯å¦æ˜¯è·³è½¬ç¬¦ï¼Œç›®å‰æœ‰ifï¼Œelseï¼Œwhileï¼Œwe
+//æ˜¯åˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 bool TargetCodeGenerator::isSpilt(quar nowQuar)
 {
 	for (int i = 0; i < SpiltQuarSize; i++)
@@ -70,56 +70,56 @@ bool TargetCodeGenerator::isSpilt(quar nowQuar)
 	return false;
 }
 
-//·Ö¸îËÄÔªÊ½Îª»ù±¾¿é£¬´æÈë»ù±¾¿é¼¯ÖĞ
+//åˆ†å‰²å››å…ƒå¼ä¸ºåŸºæœ¬å—ï¼Œå­˜å…¥åŸºæœ¬å—é›†ä¸­
 void TargetCodeGenerator::spiltMidCode()
 {
 	quar nowQuar;
-	set<int> BeginQuarColl;		//»ù±¾¿éÈë¿ÚÖ¸Áî±àºÅ¼¯£¬´Ó0¿ªÊ¼
-	BeginQuarColl.insert(0);	//µÚÒ»¸öËÄÔªÊ½¼ÓÈë
+	set<int> BeginQuarColl;		//åŸºæœ¬å—å…¥å£æŒ‡ä»¤ç¼–å·é›†ï¼Œä»0å¼€å§‹
+	BeginQuarColl.insert(0);	//ç¬¬ä¸€ä¸ªå››å…ƒå¼åŠ å…¥
 	
-	//±éÀúËùÓĞËÄÔªÊ½
+	//éå†æ‰€æœ‰å››å…ƒå¼
 	for (int i = 1; i < AllQuarColl.size(); i++)
 	{
 
-		//Èç¹ûÉÏÒ»ÌõÊÇÌø×ªÓï¾ä£¬Ôò½«´ËÌõ¼ÓÈë
+		//å¦‚æœä¸Šä¸€æ¡æ˜¯è·³è½¬è¯­å¥ï¼Œåˆ™å°†æ­¤æ¡åŠ å…¥
 		if (isSpilt(AllQuarColl[i - 1]))
 		{
 			BeginQuarColl.insert(i);
 		}
-		//ÌØÅĞ£¬while¿ªÊ¼ËÄÔªÊ½Ò²ÊÇ¿ªÊ¼ËÄÔªÊ½
+		//ç‰¹åˆ¤ï¼Œwhileå¼€å§‹å››å…ƒå¼ä¹Ÿæ˜¯å¼€å§‹å››å…ƒå¼
 		if (AllQuarColl[i].oper == "beginWhile")
 		{
 			BeginQuarColl.insert(i);
 		}
 	}
 
-	//µ±Ç°»ù±¾¿é
+	//å½“å‰åŸºæœ¬å—
 	BaseBlock nowBlock;
 
-	//±éÀúÃ¿Ò»¸ö±àºÅ£¬ÒÔµ±Ç°Èë¿ÚÓï¾ä¿ªÊ¼£¬ÏÂÒ»¸öÈë¿ÚÓï¾ä½áÊø£¨²»°üº¬£©£¬¿ªÊ¼¸´ÖÆ
+	//éå†æ¯ä¸€ä¸ªç¼–å·ï¼Œä»¥å½“å‰å…¥å£è¯­å¥å¼€å§‹ï¼Œä¸‹ä¸€ä¸ªå…¥å£è¯­å¥ç»“æŸï¼ˆä¸åŒ…å«ï¼‰ï¼Œå¼€å§‹å¤åˆ¶
 	for (auto g = BeginQuarColl.begin(); g != prev(BeginQuarColl.end()); g++)
 	{
 		nowBlock.BaseBlockQuar.clear();
 
 		auto next = g;
-		int nowBegin = *g;				//¿ªÊ¼
-		int nowEnd = *(++next);			//½áÊø
+		int nowBegin = *g;				//å¼€å§‹
+		int nowEnd = *(++next);			//ç»“æŸ
 
-		//»ù±¾¿é¿ªÊ¼ºÍ½áÊøµÄÎ»ÖÃ±àºÅ
+		//åŸºæœ¬å—å¼€å§‹å’Œç»“æŸçš„ä½ç½®ç¼–å·
 		nowBlock.BaseBlockStart = nowBegin;
 		nowBlock.BaseBlockEnd = nowEnd - 1;
 		
-		//¿ªÊ¼¸´ÖÆ
+		//å¼€å§‹å¤åˆ¶
 		for (int i = nowBegin; i < nowEnd; i++)
 		{
 			nowBlock.BaseBlockQuar.push_back(AllQuarColl[i]);
 		}
 
-		//¼ÓÈë»ù±¾¿é¼¯
+		//åŠ å…¥åŸºæœ¬å—é›†
 		BaseBlockColl.push_back(nowBlock);
 	}
 
-	//Ê£ÏÂ×îºóÒ»¸ö¿ªÊ¼Óï¾äÖ±µ½ËùÓĞËÄÔªÊ½½áÊø£¬ËùÒÔ²¹ÉÏ
+	//å‰©ä¸‹æœ€åä¸€ä¸ªå¼€å§‹è¯­å¥ç›´åˆ°æ‰€æœ‰å››å…ƒå¼ç»“æŸï¼Œæ‰€ä»¥è¡¥ä¸Š
 	nowBlock.BaseBlockQuar.clear();
 	int nowBegin = *prev(BeginQuarColl.end());
 	int nowEnd = AllQuarColl.size();
@@ -137,7 +137,7 @@ void TargetCodeGenerator::spiltMidCode()
 }
 
 
-//²âÊÔÓÃ£¬Êµ¼ÊÓ¦¸ÃÊ¹ÓÃ·ûºÅ±íµÄº¯Êı
+//æµ‹è¯•ç”¨ï¼Œå®é™…åº”è¯¥ä½¿ç”¨ç¬¦å·è¡¨çš„å‡½æ•°
 bool isTemporary(string nowString)
 {
 	if (nowString[0] == 't')
@@ -145,7 +145,7 @@ bool isTemporary(string nowString)
 	return false;
 }
 
-//ÅĞ¶Ï²Ù×÷·ûÊÇ·ñÊÇº¯Êıµ÷ÓÃ£¬º¯ÊıÉùÃ÷£¬Ö÷³ÌĞòÉùÃ÷£¬¹ı³ÌÉùÃ÷£¬º¯Êı½áÊø£¬Ö÷³ÌĞò½áÊø£¬¹ı³Ì½áÊø
+//åˆ¤æ–­æ“ä½œç¬¦æ˜¯å¦æ˜¯å‡½æ•°è°ƒç”¨ï¼Œå‡½æ•°å£°æ˜ï¼Œä¸»ç¨‹åºå£°æ˜ï¼Œè¿‡ç¨‹å£°æ˜ï¼Œå‡½æ•°ç»“æŸï¼Œä¸»ç¨‹åºç»“æŸï¼Œè¿‡ç¨‹ç»“æŸ
 int BaseBlock::isHaveActivity(string nowOp)
 {
 	for (int i = 0; i < notAcitvityCount; i++)
@@ -156,7 +156,7 @@ int BaseBlock::isHaveActivity(string nowOp)
 	return 0;
 }
 
-//ÅĞ¶Ï²Ù×÷ÊıÊÇ·ñÊÇ¿Õ¸ñ
+//åˆ¤æ–­æ“ä½œæ•°æ˜¯å¦æ˜¯ç©ºæ ¼
 int BaseBlock::isBlankOper(string nowOper)
 {
 	if (nowOper == "_")
@@ -164,36 +164,36 @@ int BaseBlock::isBlankOper(string nowOper)
 	return 0;
 }
 
-//³õÊ¼»¯»ù±¾¿é»îÔ¾ĞÅÏ¢£¬°´ÕÕ»ù±¾¿éÖĞËÄÔªÊ½ÊıÁ¿Éú³É¶ÔÓ¦ÊıÁ¿µÄ»îÔ¾ĞÅÏ¢½á¹¹Ìå
-//ÁÙÊ±±äÁ¿³õÊ¼»¯Îªno£¬ÆäËû³õÊ¼»¯Îªyes
+//åˆå§‹åŒ–åŸºæœ¬å—æ´»è·ƒä¿¡æ¯ï¼ŒæŒ‰ç…§åŸºæœ¬å—ä¸­å››å…ƒå¼æ•°é‡ç”Ÿæˆå¯¹åº”æ•°é‡çš„æ´»è·ƒä¿¡æ¯ç»“æ„ä½“
+//ä¸´æ—¶å˜é‡åˆå§‹åŒ–ä¸ºnoï¼Œå…¶ä»–åˆå§‹åŒ–ä¸ºyes
 void BaseBlock::initBlockActive()
 {
 	for (int i = 0; i < BaseBlockQuar.size(); i++)
 	{
-		//µ±Ç°ËÄÔªÊ½µÄ»îÔ¾ĞÅÏ¢£¬Ëã·ûÃ»É¶Ó°Ïì£¬ËùÒÔÖ±½Ó¸´ÖÆ
+		//å½“å‰å››å…ƒå¼çš„æ´»è·ƒä¿¡æ¯ï¼Œç®—ç¬¦æ²¡å•¥å½±å“ï¼Œæ‰€ä»¥ç›´æ¥å¤åˆ¶
 		active nowActivity;
 		nowActivity.oper = BaseBlockQuar[i].oper;
 		
-		//²é¿´ÊÇ·ñÊÇÁÙÊ±±äÁ¿
+		//æŸ¥çœ‹æ˜¯å¦æ˜¯ä¸´æ—¶å˜é‡
 		string checkTemp = "";
 
-		//²é¿´ÊÇ·ñÊÇ¿ÕµÄ
-		if (!isBlankOper(BaseBlockQuar[i].o1))		//·Ç¿Õ£¬¼ÌĞø
+		//æŸ¥çœ‹æ˜¯å¦æ˜¯ç©ºçš„
+		if (!isBlankOper(BaseBlockQuar[i].o1))		//éç©ºï¼Œç»§ç»­
 		{
 			checkTemp = BaseBlockQuar[i].o1;
-			if (isTemporary(checkTemp))				//²é¿´ÊÇ·ñÊÇÁÙÊ±±äÁ¿
+			if (isTemporary(checkTemp))				//æŸ¥çœ‹æ˜¯å¦æ˜¯ä¸´æ—¶å˜é‡
 			{
-				nowActivity.o1 = "no";				//ÁÙÊ±±äÁ¿Îªno
+				nowActivity.o1 = "no";				//ä¸´æ—¶å˜é‡ä¸ºno
 				tempVariable[checkTemp] = "no";
 			}
 			else
 			{
-				nowActivity.o1 = "yes";				//·ñÔòÎªyes
+				nowActivity.o1 = "yes";				//å¦åˆ™ä¸ºyes
 				notTempVariable[checkTemp] = "yes";
 			}
 		}
 
-		//µÚ¶ş¸ö²Ù×÷Êı£¬Í¬ÉÏ
+		//ç¬¬äºŒä¸ªæ“ä½œæ•°ï¼ŒåŒä¸Š
 		if (!isBlankOper(BaseBlockQuar[i].o2))
 		{
 			checkTemp = BaseBlockQuar[i].o2;
@@ -209,7 +209,7 @@ void BaseBlock::initBlockActive()
 			}
 		}
 
-		//Ä¿±ê²Ù×÷Êı£¬Í¬ÉÏ
+		//ç›®æ ‡æ“ä½œæ•°ï¼ŒåŒä¸Š
 		if (!isBlankOper(BaseBlockQuar[i].target))
 		{
 			checkTemp = BaseBlockQuar[i].target;
@@ -225,20 +225,20 @@ void BaseBlock::initBlockActive()
 			}
 		}
 
-		BaseBlockActivity.push_back(nowActivity);	//´æ´¢
+		BaseBlockActivity.push_back(nowActivity);	//å­˜å‚¨
 		int a = 1;
 	}
 	
 }
 
-//¼ÆËã»îÔ¾ĞÅÏ¢£¬ÓÃµÄÉÏ¿ÎpptµÄ·½·¨
+//è®¡ç®—æ´»è·ƒä¿¡æ¯ï¼Œç”¨çš„ä¸Šè¯¾pptçš„æ–¹æ³•
 void BaseBlock::checkBlockActive()
 {
-	//Ê×ÏÈ³õÊ¼»¯µ±Ç°»ù±¾¿éµÄ»îÔ¾ĞÅÏ¢
+	//é¦–å…ˆåˆå§‹åŒ–å½“å‰åŸºæœ¬å—çš„æ´»è·ƒä¿¡æ¯
 	initBlockActive();
 	
 	int a = 1;
-	//¿ªÊ¼Ìî»îÔ¾ĞÅÏ¢±í£¬µ¹×ÅÀ´
+	//å¼€å§‹å¡«æ´»è·ƒä¿¡æ¯è¡¨ï¼Œå€’ç€æ¥
 	for (int i = BaseBlockActivity.size() - 1; i >= 0; i--)
 	{
 		if (isHaveActivity(BaseBlockQuar[i].oper))
@@ -249,14 +249,14 @@ void BaseBlock::checkBlockActive()
 		
 		if (!isBlankOper(BaseBlockQuar[i].target))
 		{
-			nowVariable = BaseBlockQuar[i].target;		//µ±Ç°²Ù×÷Êı
-			if (isTemporary(nowVariable))						//Èç¹ûÊÇÁÙÊ±±äÁ¿µÄ²Ù×÷
+			nowVariable = BaseBlockQuar[i].target;		//å½“å‰æ“ä½œæ•°
+			if (isTemporary(nowVariable))						//å¦‚æœæ˜¯ä¸´æ—¶å˜é‡çš„æ“ä½œ
 			{
 				changeMessage = tempVariable[nowVariable];		
-				BaseBlockActivity[i].target = changeMessage;	//´Ó±íÖĞÕÒµ½Öµ£¬¸³¸ø»îÔ¾ĞÅÏ¢±í
-				tempVariable[nowVariable] = "no";				//Ä¿±ê²Ù×÷Êı±äÎªno
+				BaseBlockActivity[i].target = changeMessage;	//ä»è¡¨ä¸­æ‰¾åˆ°å€¼ï¼Œèµ‹ç»™æ´»è·ƒä¿¡æ¯è¡¨
+				tempVariable[nowVariable] = "no";				//ç›®æ ‡æ“ä½œæ•°å˜ä¸ºno
 			}
-			else												//Èç¹û²»ÊÇÁÙÊ±±äÁ¿µÄ²Ù×÷
+			else												//å¦‚æœä¸æ˜¯ä¸´æ—¶å˜é‡çš„æ“ä½œ
 			{
 				changeMessage = notTempVariable[nowVariable];
 				BaseBlockActivity[i].target = changeMessage;
@@ -270,8 +270,8 @@ void BaseBlock::checkBlockActive()
 			if (isTemporary(nowVariable))
 			{
 				changeMessage = tempVariable[nowVariable];		
-				BaseBlockActivity[i].o2 = changeMessage;		//´Ó±íÖĞÕÒµ½Öµ£¬¸³¸ø»îÔ¾ĞÅÏ¢±í
-				tempVariable[nowVariable] = "yes";				//²Ù×÷Êı2±äÎªyes
+				BaseBlockActivity[i].o2 = changeMessage;		//ä»è¡¨ä¸­æ‰¾åˆ°å€¼ï¼Œèµ‹ç»™æ´»è·ƒä¿¡æ¯è¡¨
+				tempVariable[nowVariable] = "yes";				//æ“ä½œæ•°2å˜ä¸ºyes
 			}
 			else
 			{
@@ -287,8 +287,8 @@ void BaseBlock::checkBlockActive()
 			if (isTemporary(nowVariable))
 			{
 				changeMessage = tempVariable[nowVariable];
-				BaseBlockActivity[i].o1 = changeMessage;		//´Ó±íÖĞÕÒµ½Öµ£¬¸³¸ø»îÔ¾ĞÅÏ¢±í
-				tempVariable[nowVariable] = "yes";				//²Ù×÷Êı1±äÎªyes
+				BaseBlockActivity[i].o1 = changeMessage;		//ä»è¡¨ä¸­æ‰¾åˆ°å€¼ï¼Œèµ‹ç»™æ´»è·ƒä¿¡æ¯è¡¨
+				tempVariable[nowVariable] = "yes";				//æ“ä½œæ•°1å˜ä¸ºyes
 			}
 			else
 			{
@@ -301,11 +301,11 @@ void BaseBlock::checkBlockActive()
 	}
 }
 
-//²éÕÒ±äÁ¿Ïà¶ÔÓÚ±äÁ¿´æ´¢¿ªÊ¼Î»ÖÃµÄÆ«ÒÆÁ¿£¬²âÊÔÓÃ£¬Êµ¼ÊÊ¹ÓÃĞèÒª·ûºÅ±íµÄº¯Êı
-//²éÕÒºóÒª¼ÌĞø´¦Àí£¨¼ÓÉÏold spÊ²Ã´µÄ£©
+//æŸ¥æ‰¾å˜é‡ç›¸å¯¹äºå˜é‡å­˜å‚¨å¼€å§‹ä½ç½®çš„åç§»é‡ï¼Œæµ‹è¯•ç”¨ï¼Œå®é™…ä½¿ç”¨éœ€è¦ç¬¦å·è¡¨çš„å‡½æ•°
+//æŸ¥æ‰¾åè¦ç»§ç»­å¤„ç†ï¼ˆåŠ ä¸Šold spä»€ä¹ˆçš„ï¼‰
 int findTempOffset(string tempName)
 {
-	//±äÁ¿Ïà¶ÔÓÚ´æ´¢Êı¾İÇøµÄÆ«ÒÆÁ¿£¬Ö¸Ïò¸ßÎ»
+	//å˜é‡ç›¸å¯¹äºå­˜å‚¨æ•°æ®åŒºçš„åç§»é‡ï¼ŒæŒ‡å‘é«˜ä½
 	if (tempName == "a")
 		return 0;
 	if (tempName == "b")
@@ -322,55 +322,55 @@ int findTempOffset(string tempName)
 		return 12;
 }
 
-//²é¿´±äÁ¿µÄ²ã´Î£¬´Ó0¿ªÊ¼£¬²âÊÔÓÃ
+//æŸ¥çœ‹å˜é‡çš„å±‚æ¬¡ï¼Œä»0å¼€å§‹ï¼Œæµ‹è¯•ç”¨
 int findTempLevel(string tempName)
 {
 	return 0;
 }
 
-//¼ÆËã±äÁ¿´æ´¢¿ªÊ¼µ¥ÔªÏà¶ÔÓÚold sp´æ´¢Î»ÖÃµÄÆ«ÒÆÁ¿£¬Õâ¸öº¯ÊıÊÇÎÒÓ¦¸ÃÊµÏÖµÄ
+//è®¡ç®—å˜é‡å­˜å‚¨å¼€å§‹å•å…ƒç›¸å¯¹äºold spå­˜å‚¨ä½ç½®çš„åç§»é‡ï¼Œè¿™ä¸ªå‡½æ•°æ˜¯æˆ‘åº”è¯¥å®ç°çš„
 int TargetCodeGenerator::findBpOffset(string tempName)
 {
-	//²é¿´²ã´Î£¬ÔİÊ±Ê¹ÓÃ²âÊÔº¯Êı
+	//æŸ¥çœ‹å±‚æ¬¡ï¼Œæš‚æ—¶ä½¿ç”¨æµ‹è¯•å‡½æ•°
 	int tempLevel = findTempLevel(tempName);
 
-	//old sp(2)+·µ»ØÖµ(2)+display((²ã´Î+1)*2)
-	//ÓÉÓÚ±äÁ¿Æ«ÒÆÎ»ÖÃ¸ø³öÊ±Ò²ÊÇ´ÓÁã¿ªÊ¼£¬ËùÒÔÒ»¿ªÊ¼¿ÉÒÔÖ±½Ó¼Ó2
+	//old sp(2)+è¿”å›å€¼(2)+display((å±‚æ¬¡+1)*2)
+	//ç”±äºå˜é‡åç§»ä½ç½®ç»™å‡ºæ—¶ä¹Ÿæ˜¯ä»é›¶å¼€å§‹ï¼Œæ‰€ä»¥ä¸€å¼€å§‹å¯ä»¥ç›´æ¥åŠ 2
 	int spOffset = 2 + 2 + 2 * (tempLevel + 1);
 	return spOffset;
 }
 
-//¼ÆËãËùÇó±äÁ¿Ïà¶ÔÓÚËùÔÚ²ãspµÄÆ«ÒÆÁ¿£¬Õâ¸öº¯ÊıÊÇÎÒÓ¦¸ÃÊµÏÖµÄ
+//è®¡ç®—æ‰€æ±‚å˜é‡ç›¸å¯¹äºæ‰€åœ¨å±‚spçš„åç§»é‡ï¼Œè¿™ä¸ªå‡½æ•°æ˜¯æˆ‘åº”è¯¥å®ç°çš„
 int TargetCodeGenerator::findTrueOffset(string tempName)
 {
 	int trueOffset = findBpOffset(tempName) + findTempOffset(tempName);
 	return trueOffset;
 }
 
-//Éú³ÉÊı¾İ¶ÎºÍ¶ÑÕ»¶Î,³õÊ¼»¯,ÔÚ×¼±¸Éú³É´úÂëÊ±µ÷ÓÃ
+//ç”Ÿæˆæ•°æ®æ®µå’Œå †æ ˆæ®µ,åˆå§‹åŒ–,åœ¨å‡†å¤‡ç”Ÿæˆä»£ç æ—¶è°ƒç”¨
 void TargetCodeGenerator::initAsm()
 {
-	//Éú³ÉÊı¾İ¶ÎÒòÎªËùÓĞÊı¾İ¶¼´æÔÚ¶ÑÕ»¶Î£¬ËùÒÔÊı¾İ¶ÎÎª¿Õ
+	//ç”Ÿæˆæ•°æ®æ®µå› ä¸ºæ‰€æœ‰æ•°æ®éƒ½å­˜åœ¨å †æ ˆæ®µï¼Œæ‰€ä»¥æ•°æ®æ®µä¸ºç©º
 	asmout << "dseg segment" << endl;
 	asmout << "dseg ends" << endl << endl;
 
-	//Éú³ÉÊı¾İ¶Î
+	//ç”Ÿæˆæ•°æ®æ®µ
 	asmout << "sseg segment	stack" << endl;
 	asmout << "	        dw 512 dup(?)" << endl;
 	asmout << "sseg ends" << endl << endl;
 
-	//¿ªÊ¼³ÌĞò¶Î£¬³õÊ¼»¯Êı¾İ¶Î£¬¶ÑÕ»¶Î£¬³ÌĞò¶Î
+	//å¼€å§‹ç¨‹åºæ®µï¼Œåˆå§‹åŒ–æ•°æ®æ®µï¼Œå †æ ˆæ®µï¼Œç¨‹åºæ®µ
 	asmout << "cseg segment" << endl;
 	asmout << "	        assume cs:cseg,ds:dseg" << endl;
 	asmout << "	assume ss:sseg" << endl;
-	asmout << "start:	mov ax,sseg" << endl;	//´Ë´¦ÊÔÑé¶Î¸ü»»
+	asmout << "start:	mov ax,sseg" << endl;	//æ­¤å¤„è¯•éªŒæ®µæ›´æ¢
 	asmout << "	        mov ds,ax" << endl;
 	asmout << "	        mov ax,sseg" << endl;
 	asmout << "	        mov ss,ax" << endl << endl;
 
 }
 
-//»ñµÃÊı¾İ´æ´¢Çø³¤¶È£¬²âÊÔÓÃ
+//è·å¾—æ•°æ®å­˜å‚¨åŒºé•¿åº¦ï¼Œæµ‹è¯•ç”¨
 int funDataLen()
 {
 	return 14;
@@ -381,44 +381,44 @@ int funLevel()
 	return 0;
 }
 
-//´¦Àí³ÌĞò¿ªÊ¼ËÄÔªÊ½
+//å¤„ç†ç¨‹åºå¼€å§‹å››å…ƒå¼
 void TargetCodeGenerator::programBegin(quar nowQuar)
 {
-	//Õâ¸öº¯ÊıÖĞÓ¦¸ÃÍ¨¹ı·ûºÅ±íµÄ½Ó¿Ú£¬¸ø·ûºÅ±í·¢ËÍprogrambeginÃüÁî
-	//Õâ¸ö¿ÉÒÔÏÈ·Å·Å£¬µÈµ½ÌÖÂÛµÄÊ±ºòÎÊÎÊ
+	//è¿™ä¸ªå‡½æ•°ä¸­åº”è¯¥é€šè¿‡ç¬¦å·è¡¨çš„æ¥å£ï¼Œç»™ç¬¦å·è¡¨å‘é€programbeginå‘½ä»¤
+	//è¿™ä¸ªå¯ä»¥å…ˆæ”¾æ”¾ï¼Œç­‰åˆ°è®¨è®ºçš„æ—¶å€™é—®é—®
 
-	//¿ªÊ¼·ÖÅä³ÌĞòµÄ¶ÑÕ»¿Õ¼ä
-	//Ê×ÏÈ½«bp´æÈë£¬Îªold sp
-	asmout << "	        ";			//ÎªÁË»ã±àÓï¾ä¶ÔÆë
+	//å¼€å§‹åˆ†é…ç¨‹åºçš„å †æ ˆç©ºé—´
+	//é¦–å…ˆå°†bpå­˜å…¥ï¼Œä¸ºold sp
+	asmout << "	        ";			//ä¸ºäº†æ±‡ç¼–è¯­å¥å¯¹é½
 	stackManager.push(asmout, "bp");
 
-	//½«bpÒÆµ½spµÄÎ»ÖÃ
-	asmout << "	        ";			//ÎªÁË»ã±àÓï¾ä¶ÔÆë
+	//å°†bpç§»åˆ°spçš„ä½ç½®
+	asmout << "	        ";			//ä¸ºäº†æ±‡ç¼–è¯­å¥å¯¹é½
 	stackManager.movp(asmout, "bp", "sp");
 
-	//È·¶¨ĞèÒªµÄ´æ´¢µ¥Ôª£¬²é±íÈ·¶¨Êı¾İ´æ´¢ÇøµÄ³¤¶Èºó¼ÆËã£¬old spÒÑ¾­¼ÓÈëÁË£¬¾Í²»ÓÃËãÁË
-	//(·µ»ØÖµ(2)+display((µ±Ç°º¯Êı²ã´ÎÊı+1)*2)+Êı¾İ´æ´¢Çø³¤¶È£¨²»ÓÃ³Ë£¬¿ÉÒÔÖ±½ÓµÃµ½´æ´¢µ¥ÔªÊı))
+	//ç¡®å®šéœ€è¦çš„å­˜å‚¨å•å…ƒï¼ŒæŸ¥è¡¨ç¡®å®šæ•°æ®å­˜å‚¨åŒºçš„é•¿åº¦åè®¡ç®—ï¼Œold spå·²ç»åŠ å…¥äº†ï¼Œå°±ä¸ç”¨ç®—äº†
+	//(è¿”å›å€¼(2)+display((å½“å‰å‡½æ•°å±‚æ¬¡æ•°+1)*2)+æ•°æ®å­˜å‚¨åŒºé•¿åº¦ï¼ˆä¸ç”¨ä¹˜ï¼Œå¯ä»¥ç›´æ¥å¾—åˆ°å­˜å‚¨å•å…ƒæ•°))
 	int dataLenth = funDataLen();
 	int nowLevel = funLevel();
 	int storeLenth = 2 + (nowLevel + 1) * 2 + dataLenth;
 	
-	//Í¨¹ı¼õĞ¡spÀ´¿ª±Ù´æ´¢¿Õ¼ä
-	asmout << "	        ";			//ÎªÁË»ã±àÓï¾ä¶ÔÆë
+	//é€šè¿‡å‡å°spæ¥å¼€è¾Ÿå­˜å‚¨ç©ºé—´
+	asmout << "	        ";			//ä¸ºäº†æ±‡ç¼–è¯­å¥å¯¹é½
 	stackManager.subSp(asmout, to_string(storeLenth));
 
-	//¼ÆËãdisplay±í£¬Ö®Ç°ÒÑ¾­»ñÈ¡¹ıµ±Ç°²ã´ÎÁË£¬Ö±½ÓÓÃ¾ÍĞĞÁË
-	//ÒòÎªÊÇ³ÌĞò¿ªÊ¼£¬ËùÒÔÖ±½Ó2¸ö´æ´¢µ¥Ôª¸³Öµ¾ÍĞĞÁË
-	asmout << "	        ";			//ÎªÁË»ã±àÓï¾ä¶ÔÆë
+	//è®¡ç®—displayè¡¨ï¼Œä¹‹å‰å·²ç»è·å–è¿‡å½“å‰å±‚æ¬¡äº†ï¼Œç›´æ¥ç”¨å°±è¡Œäº†
+	//å› ä¸ºæ˜¯ç¨‹åºå¼€å§‹ï¼Œæ‰€ä»¥ç›´æ¥2ä¸ªå­˜å‚¨å•å…ƒèµ‹å€¼å°±è¡Œäº†
+	asmout << "	        ";			//ä¸ºäº†æ±‡ç¼–è¯­å¥å¯¹é½
 	MOV(asmout, "[bp+5]", "bp");
 
 }
 
-//´¦Àí¸³Öµ
+//å¤„ç†èµ‹å€¼
 void TargetCodeGenerator::assignCalculation(quar nowQuar)
 {
 	string o1 = nowQuar.o1;
 
-	//ÅĞ¶Ï²Ù×÷Êı1ÊÇ·ñÊÇÊı×Ö
+	//åˆ¤æ–­æ“ä½œæ•°1æ˜¯å¦æ˜¯æ•°å­—
 	int isNum = 1;
 	for (int i = 0; i < o1.size(); i++)
 	{
@@ -429,14 +429,14 @@ void TargetCodeGenerator::assignCalculation(quar nowQuar)
 		}
 	}
 
-	if (isNum)		//Èç¹ûÊÇÊı×Ö
+	if (isNum)		//å¦‚æœæ˜¯æ•°å­—
 	{
 		string o2 = nowQuar.o2;
 
 	}
 }
 
-//´¦Àí¼Ó¼õ³Ë³ı
+//å¤„ç†åŠ å‡ä¹˜é™¤
 void TargetCodeGenerator::numCalculation(quar nowQuar)
 {
 	string nowOper = nowQuar.oper;
@@ -447,7 +447,7 @@ void TargetCodeGenerator::numCalculation(quar nowQuar)
 	}
 }
 
-//Éú³ÉÄ¿±ê´úÂë
+//ç”Ÿæˆç›®æ ‡ä»£ç 
 void TargetCodeGenerator::generateCode()
 {
 	for (int i = 0; i < BaseBlockColl.size(); i++)
@@ -456,7 +456,7 @@ void TargetCodeGenerator::generateCode()
 	}
 	int a = 1;
 
-	//´ò¿ªÄ¿±êÎÄ¼ş
+	//æ‰“å¼€ç›®æ ‡æ–‡ä»¶
 	asmout.open("../target.asm", ios::out);
 	if (!asmout.is_open())
 	{
@@ -464,27 +464,27 @@ void TargetCodeGenerator::generateCode()
 		exit(0);
 	}
 
-	//³õÊ¼»¯Êı¾İ¶Î£¬¶ÑÕ»¶Î
+	//åˆå§‹åŒ–æ•°æ®æ®µï¼Œå †æ ˆæ®µ
 	initAsm();
 
-	//±éÀúËùÓĞ»ù±¾¿é
+	//éå†æ‰€æœ‰åŸºæœ¬å—
 	for (int i = 0; i < BaseBlockColl.size(); i++)
 	{
-		//±éÀú»ù±¾¿éÖĞËÄÔªÊ½
+		//éå†åŸºæœ¬å—ä¸­å››å…ƒå¼
 		for (int j = 0; j < BaseBlockColl[i].BaseBlockQuar.size(); j++)
 		{
-			//È¡µÃµ±Ç°ËÄÔªÊ½²Ù×÷Êı
+			//å–å¾—å½“å‰å››å…ƒå¼æ“ä½œæ•°
 			quar nowQuar = BaseBlockColl[i].BaseBlockQuar[i];
 
-			//²Ù×÷·ûÎª³ÌĞò¿ªÊ¼Ê±µ÷ÓÃ¶ÔÓ¦º¯Êı´¦Àí
+			//æ“ä½œç¬¦ä¸ºç¨‹åºå¼€å§‹æ—¶è°ƒç”¨å¯¹åº”å‡½æ•°å¤„ç†
 			if (nowQuar.oper == "beginprogram")
 			{
 				programBegin(nowQuar);
-				//²âÊÔÓÃbreak£¬±ğÍüÁËÉ¾µô
+				//æµ‹è¯•ç”¨breakï¼Œåˆ«å¿˜äº†åˆ æ‰
 				break;
 			}
 
-			//²Ù×÷·ûÎª¼Ó¼õ³Ë³ıÊ±µ÷ÓÃ¶ÔÓ¦º¯Êı´¦Àí
+			//æ“ä½œç¬¦ä¸ºåŠ å‡ä¹˜é™¤æ—¶è°ƒç”¨å¯¹åº”å‡½æ•°å¤„ç†
 			if (nowQuar.oper == "ADD" ||nowQuar.oper == "SUB" ||
 				nowQuar.oper == "MUL" ||nowQuar.oper == "DIV")
 			{
@@ -492,7 +492,7 @@ void TargetCodeGenerator::generateCode()
 			}
 		}
 
-		//²âÊÔÓÃbreak£¬±ğÍüÁËÉ¾µô
+		//æµ‹è¯•ç”¨breakï¼Œåˆ«å¿˜äº†åˆ æ‰
 		break;
 	}
 	asmout.close();
