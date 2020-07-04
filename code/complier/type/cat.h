@@ -4,11 +4,11 @@
 
 #ifndef COMPLIER_CAT_H
 #define COMPLIER_CAT_H
-//标识符类型定义
+//标识符类语义角色
 //catVn:换名形参
 //catVf:赋值形参
-//catT,类型，基本类型关键字具有类型标识符的属性
-//catD,域名
+///catT!!!!!!!!!!!!!!因符号表设计者的脑瘫，这个语义角色被废弃了
+//catD,类型标识符
 //catC,常量
 //catV,变量
 //catF，函数
