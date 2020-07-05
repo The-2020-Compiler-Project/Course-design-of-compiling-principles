@@ -43,6 +43,8 @@ int findTempOffset(string tempName)
 		return 3;
 	if (tempName == "b")
 		return 5;
+	if (tempName == "d")
+		return 7;
 }
 
 //获得数据存储区长度，测试用
@@ -71,6 +73,8 @@ string findTempType(string tempName)
 	if (tempName == "c")
 		return typeName[0];
 	if (tempName == "b")
+		return typeName[0];
+	if (tempName == "d")
 		return typeName[0];
 	if (tempName == "10")
 		return typeName[0];
@@ -556,7 +560,7 @@ void TargetCodeGenerator::assignCalculation(quar nowQuar)
 		//MOV(targetCodeArea, blank, "ax,", strTrueOffset);
 
 		*/
-		o1Code = findBpxxx(o1);
+		o1Code = findBpxxx(o1, blank);
 		//更改nowRdlTemp的值
 		nowRdlTemp = o1;	//变量名
 	}
@@ -608,12 +612,12 @@ void TargetCodeGenerator::assignCalculation(quar nowQuar)
 	}
 	*/
 
-	MOV(targetCodeArea, blank, findBpxxx(target) + ",", nowRe);
+	MOV(targetCodeArea, blank, findBpxxx(target, blank) + ",", nowRe);
 	//更改nowRdlTemp的值
 	nowRdlTemp = "0";	//清空
 }
 
-//处理加减乘除
+//处理加减
 void TargetCodeGenerator::addCalculation(quar nowQuar)
 {
 	//首先进行LD过程
@@ -627,7 +631,7 @@ void TargetCodeGenerator::addCalculation(quar nowQuar)
 	}
 	else
 	{
-		o1Code = findBpxxx(o1);
+		o1Code = findBpxxx(o1, blank);
 	}
 	nowRdlTemp = o1;
 	string nowRe = "";
@@ -652,7 +656,7 @@ void TargetCodeGenerator::addCalculation(quar nowQuar)
 	}
 	else
 	{
-		o2Code = findBpxxx(o2);
+		o2Code = findBpxxx(o2, blank);
 	}
 	nowRdlTemp = nowQuar.target;
 	if (nowQuar.oper == "ADD")
@@ -669,16 +673,204 @@ void TargetCodeGenerator::addCalculation(quar nowQuar)
 	string tarCode = "";
 
 	//target必定为变量，不用判断（虽然判断也不麻烦）
-	tarCode = findBpxxx(target);
+	tarCode = findBpxxx(target, blank);
 	nowRdlTemp = target;
 	MOV(targetCodeArea, blank, tarCode + ",", nowRe);
 
 }
 
-//处理乘除
+//处理乘
 void TargetCodeGenerator::mulCalculation(quar nowQuar)
 {
+	//我先默认都是int乘int，如果有其他奇怪的操作我就加个预处理，先处理成对应的样子
 
+	//进行LD过程
+	string o1 = nowQuar.o1;
+	string o1Code = "";
+	string nowRe = "";
+	if (isNum(o1))
+	{
+		o1Code = o1;
+	}
+	else
+	{
+		o1Code = findBpxxx(o1, blank);
+	}
+	nowRdlTemp = o1;	//ax寄存器内的东西
+
+	//这里有优化的空间，可以用ppt的方法
+	XOR(targetCodeArea, blank, "ax,", "ax");	//清空ax
+	XOR(targetCodeArea, blank, "dx,", "dx");	//清空dx，dx暂时只会在乘除用到
+	if (findTempType(o1) == typeName[0])
+	{
+		MOV(targetCodeArea, blank, "ax,", o1Code);
+		nowRe = "ax";
+	}
+	else
+	{
+		MOV(targetCodeArea, blank, "al,", o1Code);
+		nowRe = "al";
+	}
+
+	//开始mul过程
+	string o2 = nowQuar.o2;
+	string o2Code = "";
+
+	if (isNum(o2))
+	{
+		o2Code = o2;
+	}
+	else
+	{
+		o2Code = findBpxxx(o2, blank);
+	}
+	nowRdlTemp = nowQuar.target;
+	IMUL(targetCodeArea, blank, o2Code);
+
+	//开始ST过程
+	string target = nowQuar.target;
+	string tarCode = "";
+	tarCode = findBpxxx(target, blank);
+	MOV(targetCodeArea, blank, tarCode + ",", "ax");
+
+}
+
+//处理除
+void TargetCodeGenerator::divCalculation(quar nowQuar)
+{
+	//我先默认都是int除int，如果有其他奇怪的操作我就加个预处理，先处理成对应的样子
+
+	//进行LD过程
+	string o1 = nowQuar.o1;
+	string o1Code = "";
+	string nowRe = "";
+	if (isNum(o1))
+	{
+		o1Code = o1;
+	}
+	else
+	{
+		o1Code = findBpxxx(o1, blank);
+	}
+	nowRdlTemp = o1;	//ax寄存器内的东西
+
+	//这里有优化的空间，可以用ppt的方法
+	XOR(targetCodeArea, blank, "ax,", "ax");	//清空ax
+	XOR(targetCodeArea, blank, "dx,", "dx");	//清空dx，dx暂时只会在乘除用到
+	if (findTempType(o1) == typeName[0])
+	{
+		MOV(targetCodeArea, blank, "ax,", o1Code);
+		nowRe = "ax";
+	}
+	else
+	{
+		MOV(targetCodeArea, blank, "al,", o1Code);
+		nowRe = "al";
+	}
+
+	//开始div过程
+	string o2 = nowQuar.o2;
+	string o2Code = "";
+
+	if (isNum(o2))
+	{
+		o2Code = o2;
+	}
+	else
+	{
+		o2Code = findBpxxx(o2, blank);
+	}
+	nowRdlTemp = nowQuar.target;
+	IDIV(targetCodeArea, blank, o2Code);
+
+	//开始ST过程
+	string target = nowQuar.target;
+	string tarCode = "";
+	tarCode = findBpxxx(target, blank);
+	MOV(targetCodeArea, blank, tarCode + ",", "ax");
+
+}
+
+//处理关系运算
+void TargetCodeGenerator::relCalculation(quar nowQuar)
+{
+	//首先进行cmp o1，o2环节
+	//先LD
+	string o1 = nowQuar.o1;
+	string o1Code = "";
+	string nowRe = "";
+	if (isNum(o1))
+	{
+		o1Code = o1;
+	}
+	else
+	{
+		o1Code = findBpxxx(o1, blank);
+	}
+	nowRdlTemp = o1;	//ax寄存器内的东西
+	if (findTempType(o1) == typeName[0])
+	{
+		MOV(targetCodeArea, blank, "ax,", o1Code);
+		nowRe = "ax";
+	}
+	else
+	{
+		MOV(targetCodeArea, blank, "al,", o1Code);
+		nowRe = "al";
+	}
+
+	//LD之后就是寻址cmp了
+	string o2 = nowQuar.o2;
+	string o2Code = "";
+	if (isNum(o2))
+	{
+		o2Code = o2;
+	}
+	else
+	{
+		o2Code = findBpxxx(o2, blank);
+	}
+	//寄存器不变，就不存了
+	//该cmp了
+	CMP(targetCodeArea, blank, nowRe + ",", o2Code);
+
+	//现在该瞎鸡儿跳转了，手动生成标号的时候注意点
+	//条件跳转指令
+	string relJmpCode = getRelAsm(nowQuar.oper);
+	relJmp(targetCodeArea, blank, relJmpCode, "");
+	//标号入栈
+	ifSEM.push_back(targetCodeArea.size() - 1);
+	//为假时mov ax,0
+	MOV(targetCodeArea, blank, "ax,", "0");
+	//无条件跳转到开始给t赋值
+	relJmp(targetCodeArea, blank, "jmp", "");
+	//入栈
+	elSEM.push_back(targetCodeArea.size() - 1);
+	//现在生成假跳的目标位置
+	string nowLabel = "x" + to_string(labelId++);
+	MOV(targetCodeArea, nowLabel + ":" + blank , "ax,", "1");
+	//弹对应的栈
+	int nowJmp = ifSEM[ifSEM.size() - 1];
+	ifSEM.pop_back();
+	targetCodeArea[nowJmp].source = nowLabel;
+
+	//开始把ax的值赋给对应的变量
+	nowLabel = "x" + to_string(labelId++);
+	string target = nowQuar.target;
+	string tarCode = findBpxxx(target, nowLabel + ":" + blank);
+	//反填
+	nowJmp = elSEM[elSEM.size() - 1];
+	elSEM.pop_back();
+	targetCodeArea[nowJmp].source = nowLabel;
+	if (findTempType(target) == typeName[0])
+	{
+		MOV(targetCodeArea, blank, tarCode + ",", "ax");
+	}
+	else
+	{
+		MOV(targetCodeArea, blank, tarCode + ",", "al");
+	}
+	nowRdlTemp = target;
 }
 
 //处理结束程序
@@ -753,10 +945,24 @@ void TargetCodeGenerator::generateCode()
 				addCalculation(nowQuar);
 			}
 
-			//操作符为乘除时调用对应函数处理
-			if (nowQuar.oper == "MUL" || nowQuar.oper == "DIV")
+			//操作符为乘除时调用对应函数处理,乘和除可以放在一起，就改几行就行
+			if (nowQuar.oper == "MUL")
 			{
 				mulCalculation(nowQuar);
+			}
+
+			//操作符为除除时调用对应函数处理
+			if (nowQuar.oper == "DIV")
+			{
+				divCalculation(nowQuar);
+			}
+
+			//操作符为关系运算时调用对应函数处理
+			if (nowQuar.oper == "GT" || nowQuar.oper == "GE" ||
+				nowQuar.oper == "LT" || nowQuar.oper == "LE" ||
+				nowQuar.oper == "EQ" || nowQuar.oper == "NE")
+			{
+				relCalculation(nowQuar);
 			}
 
 			//操作符为程序结束时调用对应函数处理
@@ -799,7 +1005,7 @@ int TargetCodeGenerator::isNum(string nowStr)
 }
 
 //进行寻址操作
-string TargetCodeGenerator::findBpxxx(string nowOper)
+string TargetCodeGenerator::findBpxxx(string nowOper, string name)
 {
 	//计算真实偏移量,原因查看测试ifwhile文档
 	int trueOffset = findTrueOffset(nowOper);
@@ -819,7 +1025,7 @@ string TargetCodeGenerator::findBpxxx(string nowOper)
 	strDis = "word ptr [bp-" + strDis + "]";
 
 	//装入bx中
-	MOV(targetCodeArea, blank, "bx,", strDis);
+	MOV(targetCodeArea, name, "bx,", strDis);
 
 	//现在bx里面有对应的开始位置的地址
 	//通过偏移量可以确定位置
@@ -837,4 +1043,19 @@ string TargetCodeGenerator::findBpxxx(string nowOper)
 	}
 
 	return strTrueOffset;
+}
+
+//将关系转换成汇编操作符，如LT对应JL
+string TargetCodeGenerator::getRelAsm(string relOper)
+{
+	const int relNum = 6;
+	string rel[6] = { "LT","LE","GT","GE","EQ","NE" };
+	string asmRel[6] = { "JL","JLE","JG","JGE","JE","JNE" };
+
+	for (int i = 0; i < relNum; i++)
+	{
+		if (relOper == rel[i])
+			return asmRel[i];
+	}
+	return "take it boy";
 }
