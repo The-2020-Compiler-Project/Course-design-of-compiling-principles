@@ -8,7 +8,7 @@ int ElemSheet::initOffSet(int beginOffSet) {
     for(auto it=record.begin();it!=record.end();it++){
         it->offSet=beginOffSet;
         ///换名形参确定
-        if(CAT::catVn != it->cat)
+        if(CAT::catVn != it->cat&&CAT::catPoint!=it->cat)
             beginOffSet+=TypeSheet::iterator(it->typePoint).len();
         else beginOffSet+=2;
     }
@@ -33,27 +33,31 @@ pair<CAT, ElemSheet::ElemPoint> ElemSheet::find(const string &findName) {
 ElemSheet::ElemPoint ElemSheet::add(const string &addName, CAT addCat, TypeSheet::typePoint addType) {
     //不进行安全性检查
     ElemNode addNode;
-    addNode.name=addName;
-    addNode.cat=addCat;
-    addNode.typePoint=addType;
+    addNode.name = addName;
+    addNode.cat = addCat;
+    addNode.typePoint = addType;
     ///维持双向链表
-    addNode.next= nullptr;
-    ElemPoint preNode= nullptr;
-    if(this->record.empty()){
+    addNode.next = nullptr;
+    ElemPoint preNode = nullptr;
+    if (this->record.empty()) {
         //链表为空
-        addNode.pre= nullptr;
-    }else{
+        addNode.pre = nullptr;
+    } else {
         //链表不为空
-        preNode=&(this->record.back());
-        addNode.pre=preNode;
+        preNode = &(this->record.back());
+        addNode.pre = preNode;
     }
     this->record.push_back(addNode);
-    this->shine[addName]=(--this->record.end());
-    this->sheetLen+=TypeSheet::iterator(addType).len();
-    ElemPoint ansPoint=&(this->record.back());//通过指针
+    this->shine[addName] = (--this->record.end());
+    ///变量长度的确定不能仅通过类型来判断，还需要语义角色
+    if (addCat == CAT::catPoint || addCat == CAT::catVn)
+        this->sheetLen += 2;
+    else
+        this->sheetLen += TypeSheet::iterator(addType).len();
+    ElemPoint ansPoint = &(this->record.back());//通过指针
     ///维持双向链表
-    if(preNode){
-        preNode->next=&(this->record.back());
+    if (preNode) {
+        preNode->next = &(this->record.back());
     }
     return ansPoint;
 }
@@ -80,7 +84,10 @@ bool ElemSheet::erase(ElemSheet::ElemPoint erasePoint) {
             erasePoint->pre->next=erasePoint->next;
         if(erasePoint->next!= nullptr)
             erasePoint->next->pre=erasePoint->pre;
-        this->sheetLen-=TypeSheet::iterator(erasePoint->typePoint).len();
+        if(erasePoint->cat==CAT::catPoint||erasePoint->cat==CAT::catVn)
+            this->sheetLen-=2;
+        else
+            this->sheetLen-=TypeSheet::iterator(erasePoint->typePoint).len();
         record.erase(it->second);
         shine.erase(it);
         return true;

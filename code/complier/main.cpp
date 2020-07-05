@@ -27,6 +27,7 @@ int main() {
     it.addVariable("a","arr");//6
     it.addVariable("b","node");//2006
     it.addTmpVariable("xx","integer");//4008
+
     it.setOffSet(0);
     cout<<it.getElemIterator("tmp1").offSet()<<endl;
     cout<<it.getElemIterator("tmp2").offSet()<<endl;

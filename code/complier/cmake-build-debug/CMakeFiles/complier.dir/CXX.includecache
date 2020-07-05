@@ -48,6 +48,34 @@ bits/stdc++.h
 bits/stdc++.h
 -
 
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.h
+bits/stdc++.h
+-
+TypeSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h
+../type/cat.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/cat.h
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.cpp
+FunSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.h
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.h
+TypeSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h
+../type/cat.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/cat.h
+ElemSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.h
+bits/stdc++.h
+-
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h
+../type/type.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
+bits/stdc++.h
+-
+
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/main.cpp
 tokenType/tokenType.h
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h
@@ -59,4 +87,10 @@ bits/stdc++.h
 -
 
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/cat.h
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
+bits/stdc++.h
+-
 

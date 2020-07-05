@@ -173,8 +173,8 @@ pair<TypeSheet::iterator, string> FunSheet::iterator::searchConstInfo(const stri
     }
 }
 
-void FunSheet::iterator::addTmpVariable(const string &addName, const string &addType) {
-    bool ans=this->root->addTmpVariable(addName,addType).first;
+void FunSheet::iterator::addTmpVariable(const string &addName, const string &addType,CAT addCat) {
+    bool ans=this->root->addTmpVariable(addName,addType,addCat).first;
     if(!ans){
         cerr<<"FunSheet::iterator::addTmpVariable::添加变量失败"<<endl;
     }
@@ -416,7 +416,7 @@ bool FunSheet::funNode::eraseTmpVariable(ElemSheet::iterator eraseIterator) {
     return ans;
 }
 
-pair<bool, ElemSheet::ElemPoint> FunSheet::funNode::addTmpVariable(const string &addName, const string &addType) {
+pair<bool, ElemSheet::ElemPoint> FunSheet::funNode::addTmpVariable(const string &addName, const string &addType,CAT addCat) {
     ///返回值初始化
     pair<bool, ElemSheet::ElemPoint> ans;
     ans.first=false;
@@ -436,8 +436,8 @@ pair<bool, ElemSheet::ElemPoint> FunSheet::funNode::addTmpVariable(const string 
             return ans;
         }
         else{
-            ///将变量加入变量表
-            ans.second=this->tmpSheet.add(addName,CAT::catV,(TypeSheet::typePoint)search1.second);
+            ///将临时变量加入临时变量表
+            ans.second=this->tmpSheet.add(addName,addCat,(TypeSheet::typePoint)search1.second);
             ans.first= true;
             return ans;
         }

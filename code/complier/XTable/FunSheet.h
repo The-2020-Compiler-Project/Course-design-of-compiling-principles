@@ -46,7 +46,7 @@ private:
         pair<bool, ElemSheet::ElemPoint>
         addParameter(const string &addName, CAT addCat, const string &addType);//增加参数返回成功与否以及指针
         pair<bool, ElemSheet::ElemPoint> addVariable(const string &addName, const string &addType);//增加变量，返回成功以及指针
-        pair<bool, ElemSheet::ElemPoint> addTmpVariable(const string &addName, const string &addType);//增加临时变量，返回成功以及指针
+        pair<bool, ElemSheet::ElemPoint> addTmpVariable(const string &addName, const string &addType,CAT addCat=CAT::catV);//增加临时变量，返回成功以及指针
         bool addConst(const string &addName, const string &addType, const string &addValue);//增加常量，给定名字，类型，常量值，只支持基本类型常量
         pair<bool,TypeSheet::typePoint > addArrType(const string&arrName,const string&typeName,const int&size);//增加数组类型
         pair<bool,TypeSheet::typePoint > addStructType(const string&structName,vector<string>&sonName,vector<string>&sonType);//增加结构体类型
@@ -75,7 +75,7 @@ public:
         void addParameter(const string &addName, CAT addCat, const string &addType) ;///增加一个参数
         void addConst(const string &addName, const string &addType,const string &addValue);///增加一个常量
         void addVariable(const string &addName, const string &addType);///增加一个变量
-        void addTmpVariable(const string &addName, const string &addType);///增加一个临时变量
+        void addTmpVariable(const string &addName, const string &addType,CAT addCat=CAT::catV);///增加一个临时变量
         void addArrType(const string&arrName,const string&typeName,const int&size);///增加数组类型
         void addStructType(const string&structName,vector<string>&sonName,vector<string>&sonType);///增加结构体类型
         ///查询部分

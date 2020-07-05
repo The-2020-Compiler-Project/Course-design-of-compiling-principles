@@ -15,5 +15,6 @@
 //catP,过程
 //catM,主函数
 //catVoid内部特殊标记使用，外部接口不会出现此类型
-enum CAT{catVn,catVf,catT,catD,catC,catV,catF,catP,catM,catVoid};
+//catPoint,指针
+enum CAT{catVn,catVf,catT,catD,catC,catV,catF,catP,catM,catVoid,catPoint};
 #endif //COMPLIER_CAT_H
