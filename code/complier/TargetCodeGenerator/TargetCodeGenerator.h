@@ -1,4 +1,5 @@
 #pragma once
+#include<fstream>
 #include<vector>
 #include<map>
 #include<set>
@@ -24,6 +25,8 @@ struct quar {
 struct active {
 	string oper, o1, o2, target;
 };
+
+
 
 //定义基本块，完成分割基本块，初始化变量活跃，计算活跃变量
 class BaseBlock {
@@ -131,4 +134,10 @@ private:
 
 	//堆栈管理对象，通过调用函数实现堆栈管理
 	StackManager stackManager;
+
+	//目标代码区,生成的代码先存在这里，最后输入文件
+	vector<code> targetCodeArea;
+
+	//语义栈，用于登记待反填的位置(目标代码区的序号)
+	vector<int> SEM;
 };
