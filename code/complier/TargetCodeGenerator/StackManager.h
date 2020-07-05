@@ -48,7 +48,7 @@ public:
 	//汇编把bp赋给sp或把sp赋给bp操作，生成一条mov bp(sp),sp(bp)指令
 	void movp(std::vector<code> &targetCodeArea, string name, string dest, string oper)
 	{
-		MOV(targetCodeArea, name, dest, oper);
+		MOV(targetCodeArea, name, dest, oper); 
 	}
 
 };
