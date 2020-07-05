@@ -5,7 +5,70 @@
 
 using std::ios;
 using std::cout;
-using std::endl; 
+using std::endl;
+
+
+//测试用，实际应该使用符号表的函数
+bool isTemporary(string nowString)
+{
+	if (nowString[0] == 't')
+		return true;
+	return false;
+}
+
+//查找变量相对于变量存储开始位置的偏移量，测试用，实际使用需要符号表的函数
+//查找后要继续处理（加上old sp什么的）
+int findTempOffset(string tempName)
+{
+	//变量相对于存储数据区的偏移量，指向低位
+	/*
+	if (tempName == "a")
+		return 0;
+	if (tempName == "b")
+		return 2;
+	if (tempName == "c")
+		return 4;
+	if (tempName == "t1")
+		return 6;
+	if (tempName == "t2")
+		return 8;
+	if (tempName == "t3")
+		return 10;
+	if (tempName == "t4")
+		return 12;
+	*/
+	if (tempName == "a")
+		return 1;
+	if (tempName == "c")
+		return 3;
+}
+
+//获得数据存储区长度，测试用
+int funDataLen()
+{
+	return 4;
+}
+
+//获得当前函数层次，测试用
+int funLevel()
+{
+	return 0;
+}
+
+//查看变量的层次，从0开始，测试用
+int findTempLevel(string tempName)
+{
+	return 0;
+}
+
+//查看变量的类型，测试用
+string findTempType(string tempName)
+{
+	if (tempName == "a")
+		return typeName[0];
+	if (tempName == "c")
+		return typeName[0];
+}
 
 
 //从文件中读取四元式
@@ -137,13 +200,7 @@ void TargetCodeGenerator::spiltMidCode()
 }
 
 
-//测试用，实际应该使用符号表的函数
-bool isTemporary(string nowString)
-{
-	if (nowString[0] == 't')
-		return true;
-	return false;
-}
+
 
 //判断操作符是否是函数调用，函数声明，主程序声明，过程声明，函数结束，主程序结束，过程结束
 int BaseBlock::isHaveActivity(string nowOp)
@@ -301,48 +358,27 @@ void BaseBlock::checkBlockActive()
 	}
 }
 
-//查找变量相对于变量存储开始位置的偏移量，测试用，实际使用需要符号表的函数
-//查找后要继续处理（加上old sp什么的）
-int findTempOffset(string tempName)
-{
-	//变量相对于存储数据区的偏移量，指向高位
-	if (tempName == "a")
-		return 0;
-	if (tempName == "b")
-		return 2;
-	if (tempName == "c")
-		return 4;
-	if (tempName == "t1")
-		return 6;
-	if (tempName == "t2")
-		return 8;
-	if (tempName == "t3")
-		return 10;
-	if (tempName == "t4")
-		return 12;
-}
 
-//查看变量的层次，从0开始，测试用
-int findTempLevel(string tempName)
-{
-	return 0;
-}
 
-//计算变量存储开始单元相对于old sp存储位置的偏移量，这个函数是我应该实现的
+
+
+//计算变量存储开始单元相对于old sp存储位置(使用oldsp低位的位置)的偏移量，这个函数是我应该实现的
 int TargetCodeGenerator::findBpOffset(string tempName)
 {
 	//查看层次，暂时使用测试函数
 	int tempLevel = findTempLevel(tempName);
 
-	//old sp(2)+返回值(2)+display((层次+1)*2)
+	//返回值(2)+display((层次+1)*2)
 	//由于变量偏移位置给出时也是从零开始，所以一开始可以直接加2
-	int spOffset = 2 + 2 + 2 * (tempLevel + 1);
+	//应该加1，因为计算后指向display表的最后的低位，再加1才是存储开始位置
+	int spOffset = 2 + 2 * (tempLevel + 1) + 1;
 	return spOffset;
 }
 
 //计算所求变量相对于所在层sp的偏移量，这个函数是我应该实现的
 int TargetCodeGenerator::findTrueOffset(string tempName)
 {
+	//在这时我将会把偏移量转化为指向低位的
 	int trueOffset = findBpOffset(tempName) + findTempOffset(tempName);
 	return trueOffset;
 }
@@ -350,36 +386,73 @@ int TargetCodeGenerator::findTrueOffset(string tempName)
 //生成数据段和堆栈段,初始化,在准备生成代码时调用
 void TargetCodeGenerator::initAsm()
 {
+	code nowCode;
+
 	//生成数据段因为所有数据都存在堆栈段，所以数据段为空
-	asmout << "dseg segment" << endl;
-	asmout << "dseg ends" << endl << endl;
+	nowCode.name = "dseg", nowCode.oper = "segment";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+	
+
+	nowCode.name = "dseg", nowCode.oper = "ends";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+	
 
 	//生成数据段
-	asmout << "sseg segment	stack" << endl;
-	asmout << "	        dw 512 dup(?)" << endl;
-	asmout << "sseg ends" << endl << endl;
+	nowCode.name = "sseg", nowCode.oper = "segment", nowCode.dest = "stack";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+	
+
+	nowCode.name = blank, nowCode.oper = "dw", nowCode.dest = "512", nowCode.source = "dup(?)";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+	
+
+	nowCode.name = "sseg", nowCode.oper = "ends";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+	
 
 	//开始程序段，初始化数据段，堆栈段，程序段
-	asmout << "cseg segment" << endl;
-	asmout << "	        assume cs:cseg,ds:dseg" << endl;
-	asmout << "	assume ss:sseg" << endl;
-	asmout << "start:	mov ax,sseg" << endl;	//此处试验段更换
-	asmout << "	        mov ds,ax" << endl;
-	asmout << "	        mov ax,sseg" << endl;
-	asmout << "	        mov ss,ax" << endl << endl;
+	nowCode.name = "cseg", nowCode.oper = "segment";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+	
+
+	nowCode.name = blank, nowCode.oper = "assume",nowCode.dest="cs:cseg,",nowCode.source="ds:dseg";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+	
+
+	nowCode.name = "	assume", nowCode.oper = "ss:sseg";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+	
+
+	nowCode.name = "start:", nowCode.oper = "mov",nowCode.dest="ax,",nowCode.source="sseg";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+	
+
+	nowCode.name = blank, nowCode.oper = "mov", nowCode.dest = "ds,", nowCode.source = "ax";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+	
+
+	nowCode.name = blank, nowCode.oper = "mov", nowCode.dest = "ax,", nowCode.source = "sseg";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+	
+
+	nowCode.name = blank, nowCode.oper = "mov", nowCode.dest = "ss,", nowCode.source = "ax";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
 
 }
 
-//获得数据存储区长度，测试用
-int funDataLen()
-{
-	return 14;
-}
 
-int funLevel()
-{
-	return 0;
-}
 
 //处理程序开始四元式
 void TargetCodeGenerator::programBegin(quar nowQuar)
@@ -389,28 +462,32 @@ void TargetCodeGenerator::programBegin(quar nowQuar)
 
 	//开始分配程序的堆栈空间
 	//首先将bp存入，为old sp
-	asmout << "	        ";			//为了汇编语句对齐
-	stackManager.push(asmout, "bp");
-
-	//将bp移到sp的位置
-	asmout << "	        ";			//为了汇编语句对齐
-	stackManager.movp(asmout, "bp", "sp");
+	stackManager.push(targetCodeArea, blank, "bp");
+	//mov bp，sp
+	stackManager.movp(targetCodeArea, blank, "bp,", "sp");
 
 	//确定需要的存储单元，查表确定数据存储区的长度后计算，old sp已经加入了，就不用算了
+	//现在bp指向old sp的低位，通过[bp]可以取出old sp
 	//(返回值(2)+display((当前函数层次数+1)*2)+数据存储区长度（不用乘，可以直接得到存储单元数))
 	int dataLenth = funDataLen();
 	int nowLevel = funLevel();
 	int storeLenth = 2 + (nowLevel + 1) * 2 + dataLenth;
 	
 	//通过减小sp来开辟存储空间
-	asmout << "	        ";			//为了汇编语句对齐
-	stackManager.subSp(asmout, to_string(storeLenth));
+	stackManager.subSp(targetCodeArea, blank, to_string(storeLenth));
 
 	//计算display表，之前已经获取过当前层次了，直接用就行了
 	//因为是程序开始，所以直接2个存储单元赋值就行了
-	asmout << "	        ";			//为了汇编语句对齐
-	MOV(asmout, "[bp+5]", "bp");
+	MOV(targetCodeArea, blank, "word ptr [bp-4],", "bp");
 
+}
+
+//在display表中查找位置，输入变量层次，返回指向低位的偏移量
+int TargetCodeGenerator::findInDisplay(int Level)
+{
+	//返回值(2)+(Level+1)*2
+	int place = 2 + (Level + 1) * 2;
+	return place;
 }
 
 //处理赋值
@@ -429,11 +506,97 @@ void TargetCodeGenerator::assignCalculation(quar nowQuar)
 		}
 	}
 
-	if (isNum)		//如果是数字
+	//开始进行LD过程
+	string o1Code = "";	//先计算，之后统一生成指令
+	if (isNum)		//如果是数字,则只需将其放到寄存器中
 	{
-		string o2 = nowQuar.o2;
-
+		//计算源操作数形式
+		o1Code = o1;
+		//MOV(targetCodeArea, blank, "ax,", o1);
+		//更改nowRdlTemp的值
+		nowRdlTemp = "const";	//const代表常值
 	}
+	else
+	{
+		//计算真实偏移量,原因查看测试ifwhile文档
+		int trueOffset = findTrueOffset(o1);
+
+		//查display表确定这个变量所在的活动记录开始位置
+		//表的前缀可以计算得出，所有的东西计算后变为汇编代码即可
+		//查看目标操作数的层次
+		int o1Level = findTempLevel(o1);
+
+		//在display表中查找目标位置
+		int o1Dis = findInDisplay(o1Level);
+
+		//将地址装到bx中，通过[bp-xxx]找到
+		string strDis = to_string(o1Dis);
+
+		//因为地址为2个存储单元，所以为word ptr
+		strDis = "word ptr [bp-" + strDis + "]";
+
+		//装入bx中
+		MOV(targetCodeArea, blank, "bx,", strDis);
+
+		//现在bx里面有对应的开始位置的地址
+		//通过偏移量可以确定位置
+		//暂时没考虑优化，没省去ppt中st指令，后续可能会加
+		string strTrueOffset = to_string(trueOffset);
+		//查表确定变量的类型（长度）
+		string nowType = findTempType(o1);
+		if (nowType == typeName[0])
+		{
+			strTrueOffset = "word ptr [bx-" + strTrueOffset + "]";
+		}
+		else if(nowType==typeName[2]||nowType==typeName[3])
+		{
+			strTrueOffset = "byte ptr [bx-" + strTrueOffset + "]";
+		}
+
+		//计算源操作数形式
+		o1Code = strTrueOffset;
+		//MOV(targetCodeArea, blank, "ax,", strTrueOffset);
+
+		//更改nowRdlTemp的值
+		nowRdlTemp = o1;	//变量名
+	}
+
+	//生成mov指令
+	MOV(targetCodeArea, blank, "ax,", o1Code);
+
+	//开始进行ST过程,target一定不是数字
+	//开始寻址
+	string target = nowQuar.target;
+
+	//计算真实偏移量,原因查看测试ifwhile文档
+	int trueOffset = findTrueOffset(target);
+	//查看目标操作数的层次
+	int targetLevel = findTempLevel(target);
+	//在display表中查找目标位置
+	int targetDis = findInDisplay(targetLevel);
+	//将目标位置装到bx中，以[bp-xxx]的形式
+	string strDis = to_string(targetDis);
+	//因为地址为2个存储单元，所以为word ptr
+	strDis = "word ptr [bp-" + strDis + "]";
+	//装入bx中
+	MOV(targetCodeArea, blank, "bx,", strDis);
+
+	//现在bx里面有对应的开始位置的地址
+	//通过偏移量可以确定位置
+	//暂时没考虑优化，没省去ppt中st指令，后续可能会加
+	string strTrueOffset = to_string(trueOffset);
+	string nowType = findTempType(target);
+	if (nowType == typeName[0])
+	{
+		strTrueOffset = "word ptr [bx-" + strTrueOffset + "],";
+	}
+	else if (nowType == typeName[2] || nowType == typeName[3])
+	{
+		strTrueOffset = "byte ptr [bx-" + strTrueOffset + "],";
+	}
+	MOV(targetCodeArea, blank, strTrueOffset, "ax");
+	//更改nowRdlTemp的值
+	nowRdlTemp = "0";	//清空
 }
 
 //处理加减乘除
@@ -447,6 +610,32 @@ void TargetCodeGenerator::numCalculation(quar nowQuar)
 	}
 }
 
+//处理结束程序
+void TargetCodeGenerator::programEnd(quar nowQuar)
+{
+	//生成结束中断语句等等阴间东西
+	//结束中断
+	code nowCode;
+	nowCode.name = blank, nowCode.oper = "mov", nowCode.dest = "ah,", nowCode.source = "4ch";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+	
+
+	nowCode.name = blank, nowCode.oper = blank, nowCode.dest = "int", nowCode.source = "21h";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+	
+
+	nowCode.name = "cseg", nowCode.oper = "ends", nowCode.dest = "", nowCode.source = "";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+	
+
+	nowCode.name = blank, nowCode.oper = "end", nowCode.dest = "start", nowCode.source = "";
+	targetCodeArea.push_back(nowCode);
+	nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+}
+
 //生成目标代码
 void TargetCodeGenerator::generateCode()
 {
@@ -454,7 +643,6 @@ void TargetCodeGenerator::generateCode()
 	{
 		BaseBlockColl[i].checkBlockActive();
 	}
-	int a = 1;
 
 	//打开目标文件
 	asmout.open("../target.asm", ios::out);
@@ -474,14 +662,20 @@ void TargetCodeGenerator::generateCode()
 		for (int j = 0; j < BaseBlockColl[i].BaseBlockQuar.size(); j++)
 		{
 			//取得当前四元式操作数
-			quar nowQuar = BaseBlockColl[i].BaseBlockQuar[i];
+			quar nowQuar = BaseBlockColl[i].BaseBlockQuar[j];
 
 			//操作符为程序开始时调用对应函数处理
 			if (nowQuar.oper == "beginprogram")
 			{
 				programBegin(nowQuar);
 				//测试用break，别忘了删掉
-				break;
+				//break;
+			}
+
+			//操作符为赋值时调用对应函数处理
+			if (nowQuar.oper == "assign")
+			{
+				assignCalculation(nowQuar);
 			}
 
 			//操作符为加减乘除时调用对应函数处理
@@ -490,10 +684,30 @@ void TargetCodeGenerator::generateCode()
 			{
 				numCalculation(nowQuar);
 			}
+
+			//操作符为程序结束时调用对应函数处理
+			if (nowQuar.oper == "endProgram")
+			{
+				programEnd(nowQuar);
+			}
+
 		}
 
 		//测试用break，别忘了删掉
-		break;
+		//break;
+	}
+	int a = 1;
+	for (int i = 0; i < targetCodeArea.size(); i++)
+	{
+		if (targetCodeArea[i].name.size() > 0)
+			asmout << targetCodeArea[i].name;
+		if (targetCodeArea[i].oper.size() > 0)
+			asmout << " " << targetCodeArea[i].oper;
+		if (targetCodeArea[i].dest.size() > 0)
+			asmout << " " << targetCodeArea[i].dest;
+		if (targetCodeArea[i].source.size() > 0)
+			asmout << " " << targetCodeArea[i].source;
+		asmout << endl;
 	}
 	asmout.close();
 }
