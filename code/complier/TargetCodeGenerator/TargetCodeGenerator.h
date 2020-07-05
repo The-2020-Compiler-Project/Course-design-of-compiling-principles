@@ -104,8 +104,11 @@ public:
 	//处理加减
 	void addCalculation(quar nowQuar);
 
-	//处理乘除
+	//处理乘
 	void mulCalculation(quar nowQuar);
+
+	//处理除
+	void divCalculation(quar nowQuar);
 
 	//处理关系运算
 	void relCalculation(quar nowQuar);
@@ -120,13 +123,16 @@ public:
 	int isNum(string nowStr);
 
 	//进行寻址操作
-	string findBpxxx(string nowOper);
+	string findBpxxx(string nowOper, string name);
 
 	//基本块集合
 	vector<BaseBlock> BaseBlockColl;
 
 	//四元式集合
 	vector<quar> AllQuarColl;
+
+	//将关系转换成汇编操作符，如LT对应JL
+	string getRelAsm(string relOper);
 private:
 	//紧接着基本块开始的语句
 	const int SpiltQuarSize = 5;
@@ -147,6 +153,18 @@ private:
 	//目标代码区,生成的代码先存在这里，最后输入文件
 	vector<code> targetCodeArea;
 
-	//语义栈，用于登记待反填的位置(目标代码区的序号)
-	vector<int> SEM;
+	//语义栈，用于登记if待反填的位置(目标代码区的序号)
+	vector<int> ifSEM;
+
+	//语义栈，用于登记else待反填的位置
+	vector<int> elSEM;
+
+	//语义栈，用于登记do待反填的位置
+	vector<int> doSEM;
+
+	//语义栈，用于登记 给we反填 的位置
+	vector<int> whSEM;
+
+	//标号顺序，防止标号重复
+	int labelId = 0;
 };
