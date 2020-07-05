@@ -1,55 +1,90 @@
 #pragma once
-#include<fstream>
 #include<string>
+#include"type.h"
 
 using std::string;
-using std::ofstream;
 using std::endl;
 
-//Éú³ÉÖ¸ÁîµÄ²Ù×÷ÔÚÕâÀï¶¨Òå£¬×¢ÒâÕâÀïÖ»ÓĞÉú³É»ã±àÖ¸ÁîµÄ²Ù×÷£¬±ğµÄÉ¶¶¼Ã»ÓĞ
+const string blank = "	       ";
 
-//ÒÆ¶¯Ö¸Áî£¬o1ºÍdest²»ÄÜÍ¬Ê±Îª´æ´¢µ¥Ôª
-inline void MOV(ofstream &outfile, string dest, string o1)
+//ç”ŸæˆæŒ‡ä»¤çš„æ“ä½œåœ¨è¿™é‡Œå®šä¹‰ï¼Œæ³¨æ„è¿™é‡Œåªæœ‰ç”Ÿæˆæ±‡ç¼–æŒ‡ä»¤çš„æ“ä½œï¼Œåˆ«çš„å•¥éƒ½æ²¡æœ‰
+
+//ç›®æ ‡ä»£ç 
+struct code {
+	//æ ‡å·ï¼Œæ“ä½œç¬¦ï¼Œç›®æ ‡æ“ä½œæ•°ï¼Œæºæ“ä½œæ•°
+	string name, oper, dest, source;
+};
+ 
+//ç§»åŠ¨æŒ‡ä»¤ï¼Œo1å’Œdestä¸èƒ½åŒæ—¶ä¸ºå­˜å‚¨å•å…ƒ
+inline void MOV(std::vector<code> &targetCodeArea, string name, string dest, string o1)
 {
-	outfile << "mov " << dest << "," << o1 << endl;
+	code nowCode;
+	nowCode.name = name, nowCode.oper = "mov";
+	nowCode.dest = dest, nowCode.source = o1;
+	targetCodeArea.push_back(nowCode);
+	//outfile << "mov " << dest << "," << o1 << endl;
 }
 
-//¼ÓÖ¸Áî£¬o1ºÍdest²»ÄÜÍ¬Ê±Îª´æ´¢µ¥Ôª,add dest,o1
-inline void ADD(ofstream &outfile, string dest, string o1)
+//åŠ æŒ‡ä»¤ï¼Œo1å’Œdestä¸èƒ½åŒæ—¶ä¸ºå­˜å‚¨å•å…ƒ,add dest,o1
+inline void ADD(std::vector<code> &targetCodeArea, string name, string dest, string o1)
 {
-	outfile << "add " << dest << "," << o1 << endl;
+	code nowCode;
+	nowCode.name = name, nowCode.oper = "add";
+	nowCode.dest = dest, nowCode.source = o1;
+	targetCodeArea.push_back(nowCode);
+	//outfile << "add " << dest << "," << o1 << endl;
 }
 
-//¼õÖ¸Áî£¬o1ºÍdest²»ÄÜÍ¬Ê±Îª´æ´¢µ¥Ôª,sub dest,o1
-inline void SUB(ofstream &outfile, string dest, string o1)
+//å‡æŒ‡ä»¤ï¼Œo1å’Œdestä¸èƒ½åŒæ—¶ä¸ºå­˜å‚¨å•å…ƒ,sub dest,o1
+inline void SUB(std::vector<code> &targetCodeArea, string name, string dest, string o1)
 {
-	outfile << "sub " << dest << "," << o1 << endl;
+	code nowCode;
+	nowCode.name = name, nowCode.oper = "sub";
+	nowCode.dest = dest, nowCode.source = o1;
+	targetCodeArea.push_back(nowCode);
+	//outfile << "sub " << dest << "," << o1 << endl;
 }
 
-//³ËÖ¸Áî£¬µ¥²Ù×÷Êı£¬²Ù×÷Êı8Î»Ê±ÓëalÏà³Ë£¬·ÅÔÚaxÖĞ¡£16Î»Ê±ÓëaxÏà³Ë£¬½á¹û¸ßÎ»·ÅÔÚdxÖĞ£¬µÍÎ»·ÅÔÚaxÖĞ
-inline void IMUL(ofstream &outfile, string o1)
+//ä¹˜æŒ‡ä»¤ï¼Œå•æ“ä½œæ•°ï¼Œæ“ä½œæ•°8ä½æ—¶ä¸alç›¸ä¹˜ï¼Œæ”¾åœ¨axä¸­ã€‚16ä½æ—¶ä¸axç›¸ä¹˜ï¼Œç»“æœé«˜ä½æ”¾åœ¨dxä¸­ï¼Œä½ä½æ”¾åœ¨axä¸­
+inline void IMUL(std::vector<code> &targetCodeArea, string name, string o1)
 {
-	outfile << "imul " << o1 << endl;
+	code nowCode;
+	nowCode.name = name, nowCode.oper = "imul";
+	nowCode.dest = "", nowCode.source = o1;
+	targetCodeArea.push_back(nowCode);
+	//outfile << "imul " << o1 << endl;
 }
 
-//³ıÖ¸Áî£¬µ¥²Ù×÷Êı£¬²Ù×÷Êı8Î»Ê±ax/Ëû£¬·ÅÔÚalÖĞ¡£16Î»Ê±dx£¬ax/Ëû£¬·ÅÔÚaxÖĞ
-inline void IDIV(ofstream &outfile, string o1)
+//é™¤æŒ‡ä»¤ï¼Œå•æ“ä½œæ•°ï¼Œæ“ä½œæ•°8ä½æ—¶ax/ä»–ï¼Œæ”¾åœ¨alä¸­ã€‚16ä½æ—¶dxï¼Œax/ä»–ï¼Œæ”¾åœ¨axä¸­
+inline void IDIV(std::vector<code> &targetCodeArea, string name, string o1)
 {
-	outfile << "idiv " << o1 << endl;
+	code nowCode;
+	nowCode.name = name, nowCode.oper = "idiv";
+	nowCode.dest = "", nowCode.source = o1;
+	targetCodeArea.push_back(nowCode);
+	//outfile << "idiv " << o1 << endl;
 }
 
-//pushÖ¸Áî£¬µ¥²Ù×÷Êı
-inline void PUSH(ofstream &outfile, string o1)
+//pushæŒ‡ä»¤ï¼Œå•æ“ä½œæ•°
+inline void PUSH(std::vector<code> &targetCodeArea, string name, string o1)
 {
-	outfile << "push " << o1 << endl;
+	code nowCode;
+	nowCode.name = name, nowCode.oper = "push";
+	nowCode.dest = "", nowCode.source = o1;
+	targetCodeArea.push_back(nowCode);
+	//outfile << "push " << o1 << endl;
 }
 
-//popÖ¸Áî£¬µ¥²Ù×÷Êı
-inline void POP(ofstream &outfile, string o1)
+//popæŒ‡ä»¤ï¼Œå•æ“ä½œæ•°
+inline void POP(std::vector<code> &targetCodeArea, string name, string o1)
 {
-	outfile << "pop " << o1 << endl;
+	code nowCode;
+	nowCode.name = name, nowCode.oper = "pop";
+	nowCode.dest = "", nowCode.source = o1;
+	targetCodeArea.push_back(nowCode);
+	//outfile << "pop " << o1 << endl;
 }
 
-//nmd,ÕâĞ©Òõ¼äÖ¸Áî...
-//a.hÖĞÉùÃ÷º¯Êı£¬Èç¹ûc.hÏëÓÃ£¬±ØĞëÔÙa.hµÄÉùÃ÷ÖĞ¼ÓÉÏinline
-//Ì«ËûÂèÒõ¼äÁË
+//nmd,è¿™äº›é˜´é—´æŒ‡ä»¤...
+//a.hä¸­å£°æ˜å‡½æ•°ï¼Œå¦‚æœc.hæƒ³ç”¨ï¼Œå¿…é¡»å†a.hçš„å£°æ˜ä¸­åŠ ä¸Šinline
+//å¤ªä»–å¦ˆé˜´é—´äº†
