@@ -1,16 +1,16 @@
 #pragma once
 //
-// Êı¾İÀàĞÍ¶¨Òå Created by YCJ on 2020/7/1.
+// æ•°æ®ç±»å‹å®šä¹‰ Created by YCJ on 2020/7/1.
 //
 #include <bits/stdc++.h>
 using namespace std;
-//i(ÕûĞÍ)£¬r(ÊµĞÍ)£¬catC(×Ö·ûĞÍ)£¬b(²¼¶ûĞÍ)|| a(Êı×éĞÍ)£¬catD(½á¹¹ĞÍ)
-//ÀàĞÍ¶¨Òå
-const int baseNum = 4;//»ù±¾ÀàĞÍµÄÊıÁ¿
+//i(æ•´å‹)ï¼Œr(å®å‹)ï¼ŒcatC(å­—ç¬¦å‹)ï¼Œb(å¸ƒå°”å‹)|| a(æ•°ç»„å‹)ï¼ŒcatD(ç»“æ„å‹)
+//ç±»å‹å®šä¹‰
+const int baseNum = 4;//åŸºæœ¬ç±»å‹çš„æ•°é‡
 enum TYPEVAL { typeValI, typeValR, typeValC, typeValB, typeValA, typeValD };
-const int typeLen[baseNum] = { 2,6,1,1 };//Ò»Ò»Æ¥Åä
-const string typeName[baseNum] = { "inteter","real","char","bool" };//Óë¹Ø¼ü×ÖÃûÒ»Ò»Æ¥Åä
+const int typeLen[baseNum] = { 2,6,1,1 };//ä¸€ä¸€åŒ¹é…
+const string typeName[baseNum] = { "inteter","real","char","bool" };//ä¸å…³é”®å­—åä¸€ä¸€åŒ¹é…
 const int iLen = 2;
 const int rLen = 6;
 const int cLen = 1;
-const int bLen = 1;
+const int bLen = 1; 
