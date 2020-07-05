@@ -41,6 +41,8 @@ int findTempOffset(string tempName)
 		return 1;
 	if (tempName == "c")
 		return 3;
+	if (tempName == "b")
+		return 5;
 }
 
 //获得数据存储区长度，测试用
@@ -67,6 +69,12 @@ string findTempType(string tempName)
 	if (tempName == "a")
 		return typeName[0];
 	if (tempName == "c")
+		return typeName[0];
+	if (tempName == "b")
+		return typeName[0];
+	if (tempName == "10")
+		return typeName[0];
+	if (tempName == "5")
 		return typeName[0];
 }
 
@@ -495,20 +503,9 @@ void TargetCodeGenerator::assignCalculation(quar nowQuar)
 {
 	string o1 = nowQuar.o1;
 
-	//判断操作数1是否是数字
-	int isNum = 1;
-	for (int i = 0; i < o1.size(); i++)
-	{
-		if (o1[i]<'0' || o1[i]>'9')
-		{
-			isNum = 0;
-			break;
-		}
-	}
-
 	//开始进行LD过程
 	string o1Code = "";	//先计算，之后统一生成指令
-	if (isNum)		//如果是数字,则只需将其放到寄存器中
+	if (isNum(o1))		//如果是数字,则只需将其放到寄存器中
 	{
 		//计算源操作数形式
 		o1Code = o1;
@@ -518,6 +515,7 @@ void TargetCodeGenerator::assignCalculation(quar nowQuar)
 	}
 	else
 	{
+		/*
 		//计算真实偏移量,原因查看测试ifwhile文档
 		int trueOffset = findTrueOffset(o1);
 
@@ -557,17 +555,31 @@ void TargetCodeGenerator::assignCalculation(quar nowQuar)
 		o1Code = strTrueOffset;
 		//MOV(targetCodeArea, blank, "ax,", strTrueOffset);
 
+		*/
+		o1Code = findBpxxx(o1);
 		//更改nowRdlTemp的值
 		nowRdlTemp = o1;	//变量名
 	}
 
+	string nowRe = "";
 	//生成mov指令
-	MOV(targetCodeArea, blank, "ax,", o1Code);
+	if (findTempType(o1) == typeName[0])
+	{
+		MOV(targetCodeArea, blank, "ax,", o1Code);
+		nowRe = "ax";
+	}
+	else
+	{
+		MOV(targetCodeArea, blank, "al,", o1Code);
+		nowRe = "al";
+	}
 
 	//开始进行ST过程,target一定不是数字
+	
 	//开始寻址
-	string target = nowQuar.target;
 
+	string target = nowQuar.target;
+	/*
 	//计算真实偏移量,原因查看测试ifwhile文档
 	int trueOffset = findTrueOffset(target);
 	//查看目标操作数的层次
@@ -594,20 +606,79 @@ void TargetCodeGenerator::assignCalculation(quar nowQuar)
 	{
 		strTrueOffset = "byte ptr [bx-" + strTrueOffset + "],";
 	}
-	MOV(targetCodeArea, blank, strTrueOffset, "ax");
+	*/
+
+	MOV(targetCodeArea, blank, findBpxxx(target) + ",", nowRe);
 	//更改nowRdlTemp的值
 	nowRdlTemp = "0";	//清空
 }
 
 //处理加减乘除
-void TargetCodeGenerator::numCalculation(quar nowQuar)
+void TargetCodeGenerator::addCalculation(quar nowQuar)
 {
-	string nowOper = nowQuar.oper;
-
-	if (nowOper == "ADD")
+	//首先进行LD过程
+	//判断操作数1是否是数字
+	string o1 = nowQuar.o1;
+	string o1Code = "";
+	
+	if (isNum(o1))
 	{
-
+		o1Code = o1;
 	}
+	else
+	{
+		o1Code = findBpxxx(o1);
+	}
+	nowRdlTemp = o1;
+	string nowRe = "";
+	if (findTempType(o1) == typeName[0])
+	{
+		MOV(targetCodeArea, blank, "ax,", o1Code);
+		nowRe = "ax";
+	}
+	else
+	{
+		MOV(targetCodeArea, blank, "al,", o1Code);
+		nowRe = "al";
+	}
+
+	//之后开始add/sub过程
+	string o2 = nowQuar.o2;
+	string o2Code = "";
+
+	if (isNum(o2))
+	{
+		o2Code = o2;
+	}
+	else
+	{
+		o2Code = findBpxxx(o2);
+	}
+	nowRdlTemp = nowQuar.target;
+	if (nowQuar.oper == "ADD")
+	{
+		ADD(targetCodeArea, blank, nowRe + ",", o2Code);
+	}
+	else
+	{
+		SUB(targetCodeArea, blank, nowRe + ",", o2Code);
+	}
+
+	//之后开始ST过程
+	string target = nowQuar.target;
+	string tarCode = "";
+
+	//target必定为变量，不用判断（虽然判断也不麻烦）
+	tarCode = findBpxxx(target);
+	nowRdlTemp = target;
+	MOV(targetCodeArea, blank, tarCode + ",", nowRe);
+
+}
+
+//处理乘除
+void TargetCodeGenerator::mulCalculation(quar nowQuar)
+{
+
 }
 
 //处理结束程序
@@ -668,8 +739,6 @@ void TargetCodeGenerator::generateCode()
 			if (nowQuar.oper == "beginprogram")
 			{
 				programBegin(nowQuar);
-				//测试用break，别忘了删掉
-				//break;
 			}
 
 			//操作符为赋值时调用对应函数处理
@@ -678,11 +747,16 @@ void TargetCodeGenerator::generateCode()
 				assignCalculation(nowQuar);
 			}
 
-			//操作符为加减乘除时调用对应函数处理
-			if (nowQuar.oper == "ADD" ||nowQuar.oper == "SUB" ||
-				nowQuar.oper == "MUL" ||nowQuar.oper == "DIV")
+			//操作符为加减时调用对应函数处理
+			if (nowQuar.oper == "ADD" ||nowQuar.oper == "SUB")
 			{
-				numCalculation(nowQuar);
+				addCalculation(nowQuar);
+			}
+
+			//操作符为乘除时调用对应函数处理
+			if (nowQuar.oper == "MUL" || nowQuar.oper == "DIV")
+			{
+				mulCalculation(nowQuar);
 			}
 
 			//操作符为程序结束时调用对应函数处理
@@ -692,9 +766,6 @@ void TargetCodeGenerator::generateCode()
 			}
 
 		}
-
-		//测试用break，别忘了删掉
-		//break;
 	}
 	int a = 1;
 	for (int i = 0; i < targetCodeArea.size(); i++)
@@ -710,4 +781,60 @@ void TargetCodeGenerator::generateCode()
 		asmout << endl;
 	}
 	asmout.close();
+}
+
+//判断一个字符串是否是数字
+int TargetCodeGenerator::isNum(string nowStr)
+{
+	int isnum = 1;
+	for (int i = 0; i < nowStr.size(); i++)
+	{
+		if (nowStr[i]<'0' || nowStr[i]>'9')
+		{
+			isnum = 0;
+			break;
+		}
+	}
+	return isnum;
+}
+
+//进行寻址操作
+string TargetCodeGenerator::findBpxxx(string nowOper)
+{
+	//计算真实偏移量,原因查看测试ifwhile文档
+	int trueOffset = findTrueOffset(nowOper);
+
+	//查display表确定这个变量所在的活动记录开始位置
+	//表的前缀可以计算得出，所有的东西计算后变为汇编代码即可
+	//查看目标操作数的层次
+	int o1Level = findTempLevel(nowOper);
+
+	//在display表中查找目标位置
+	int o1Dis = findInDisplay(o1Level);
+
+	//将地址装到bx中，通过[bp-xxx]找到
+	string strDis = to_string(o1Dis);
+
+	//因为地址为2个存储单元，所以为word ptr
+	strDis = "word ptr [bp-" + strDis + "]";
+
+	//装入bx中
+	MOV(targetCodeArea, blank, "bx,", strDis);
+
+	//现在bx里面有对应的开始位置的地址
+	//通过偏移量可以确定位置
+	//暂时没考虑优化，没省去ppt中st指令，后续可能会加
+	string strTrueOffset = to_string(trueOffset);
+	//查表确定变量的类型（长度）
+	string nowType = findTempType(nowOper);
+	if (nowType == typeName[0])
+	{
+		strTrueOffset = "word ptr [bx-" + strTrueOffset + "]";
+	}
+	else if (nowType == typeName[2] || nowType == typeName[3])
+	{
+		strTrueOffset = "byte ptr [bx-" + strTrueOffset + "]";
+	}
+
+	return strTrueOffset;
 }
