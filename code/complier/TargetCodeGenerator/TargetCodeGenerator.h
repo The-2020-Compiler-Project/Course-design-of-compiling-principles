@@ -101,8 +101,11 @@ public:
 	//处理赋值
 	void assignCalculation(quar nowQuar);
 
-	//处理加减乘除
-	void numCalculation(quar nowQuar);
+	//处理加减
+	void addCalculation(quar nowQuar);
+
+	//处理乘除
+	void mulCalculation(quar nowQuar);
 
 	//处理关系运算
 	void relCalculation(quar nowQuar);
@@ -112,6 +115,12 @@ public:
 
 	//生成目标代码
 	void generateCode();
+
+	//判断一个字符串是否是数字
+	int isNum(string nowStr);
+
+	//进行寻址操作
+	string findBpxxx(string nowOper);
 
 	//基本块集合
 	vector<BaseBlock> BaseBlockColl;
