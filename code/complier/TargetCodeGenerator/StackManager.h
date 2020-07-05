@@ -1,59 +1,56 @@
 #pragma once
-#include<fstream>
-#include<string>
+
 #include"x86Code.h"
 
-
 using std::string;
-using std::ofstream;
 
-//Õ»¹ÜÀíÆ÷£¬Éú³É´úÂëÊ±ĞèÒª²Ù×÷ss¶ÎÖ¸ÕëµÄÊ±ºòÓ¦¸ÃÊ¹ÓÃÕâÀïÃæµÄº¯Êı
-//Ö÷ÒªĞŞ¸Äbp£¬spÕâÁ½¸ö¼Ä´æÆ÷£¬»¹°üº¬Ò»Ğ©Ñ°Ö·²Ù×÷
+//æ ˆç®¡ç†å™¨ï¼Œç”Ÿæˆä»£ç æ—¶éœ€è¦æ“ä½œssæ®µæŒ‡é’ˆçš„æ—¶å€™åº”è¯¥ä½¿ç”¨è¿™é‡Œé¢çš„å‡½æ•°
+//ä¸»è¦ä¿®æ”¹bpï¼Œspè¿™ä¸¤ä¸ªå¯„å­˜å™¨ï¼Œè¿˜åŒ…å«ä¸€äº›å¯»å€æ“ä½œ
 class StackManager {
 public:
-	//»ã±àpush²Ù×÷£¬Éú³ÉÒ»Ìõpush operÖ¸Áî
-	void push(ofstream &outfile, string oper)
+	//æ±‡ç¼–pushæ“ä½œï¼Œç”Ÿæˆä¸€æ¡push operæŒ‡ä»¤
+	void push(std::vector<code> &targetCodeArea, string name, string oper)
 	{
-		PUSH(outfile, oper);
+		PUSH(targetCodeArea, name, oper);
 	}
 
-	//»ã±àpop²Ù×÷£¬Éú³ÉÒ»Ìõpop operÖ¸Áî
-	void pop(ofstream &outfile, string oper)
+	//æ±‡ç¼–popæ“ä½œï¼Œç”Ÿæˆä¸€æ¡pop operæŒ‡ä»¤
+	void pop(std::vector<code> &targetCodeArea, string name, string oper)
 	{
-		POP(outfile, oper);
+		POP(targetCodeArea, name, oper);
 	}
 
 
-	//»ã±à¼õÉÙsp²Ù×÷£¬Éú³ÉÒ»Ìõsub sp£¬operÖ¸Áî
-	void subSp(ofstream &outfile, string oper)
+	//æ±‡ç¼–å‡å°‘spæ“ä½œï¼Œç”Ÿæˆä¸€æ¡sub spï¼ŒoperæŒ‡ä»¤
+	void subSp(std::vector<code> &targetCodeArea, string name, string oper)
 	{
-		SUB(outfile, "sp", oper);
+		SUB(targetCodeArea, name, "sp,", oper);
 	}
 
-	//»ã±àÔö¼Ósp²Ù×÷£¬Éú³ÉÒ»Ìõadd sp£¬operÖ¸Áî
-	void addbSp(ofstream &outfile, string oper)
+	//æ±‡ç¼–å¢åŠ spæ“ä½œï¼Œç”Ÿæˆä¸€æ¡add spï¼ŒoperæŒ‡ä»¤
+	void addbSp(std::vector<code> &targetCodeArea, string name, string oper)
 	{
-		ADD(outfile, "sp", oper);
+		ADD(targetCodeArea, name, "sp,", oper);
 	}
 
-	//»ã±à¼õÉÙbp²Ù×÷£¬Éú³ÉÒ»Ìõsub bp£¬operÖ¸Áî
-	void subBp(ofstream &outfile, string oper)
+	//æ±‡ç¼–å‡å°‘bpæ“ä½œï¼Œç”Ÿæˆä¸€æ¡sub bpï¼ŒoperæŒ‡ä»¤
+	void subBp(std::vector<code> &targetCodeArea, string name, string oper)
 	{
-		SUB(outfile, "bp", oper);
+		SUB(targetCodeArea, name, "bp,", oper);
 	}
 
-	//»ã±àÔö¼Óbp²Ù×÷£¬Éú³ÉÒ»Ìõadd bp£¬operÖ¸Áî
-	void addBp(ofstream &outfile, string oper)
+	//æ±‡ç¼–å¢åŠ bpæ“ä½œï¼Œç”Ÿæˆä¸€æ¡add bpï¼ŒoperæŒ‡ä»¤
+	void addBp(std::vector<code> &targetCodeArea, string name, string oper)
 	{
-		ADD(outfile, "bp", oper);
+		ADD(targetCodeArea, name, "bp,", oper);
 	}
 
-	//»ã±à°Ñbp¸³¸øsp»ò°Ñsp¸³¸øbp²Ù×÷£¬Éú³ÉÒ»Ìõmov bp(sp),sp(bp)Ö¸Áî
-	void movp(ofstream &outfile, string dest, string oper)
+	//æ±‡ç¼–æŠŠbpèµ‹ç»™spæˆ–æŠŠspèµ‹ç»™bpæ“ä½œï¼Œç”Ÿæˆä¸€æ¡mov bp(sp),sp(bp)æŒ‡ä»¤
+	void movp(std::vector<code> &targetCodeArea, string name, string dest, string oper)
 	{
-		MOV(outfile, dest, oper);
+		MOV(targetCodeArea, name, dest, oper);
 	}
 
 };
 
-//nmd,ÕâĞ©Òõ¼äÖ¸Áî...
+//nmd,è¿™äº›é˜´é—´æŒ‡ä»¤...
