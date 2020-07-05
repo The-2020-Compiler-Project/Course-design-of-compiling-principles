@@ -1,5 +1,5 @@
 //
-// Created by Lenovo on 2020/7/2.
+// Created by YCJ on 2020/7/2.
 //
 //成员信息表定义
 #ifndef COMPLIER_ELEMSHEET_H
@@ -9,6 +9,7 @@
 #include "TypeSheet.h"
 #include "..\type\cat.h"
 using namespace std;
+
 class ElemSheet {
     int sheetLen=0;//成员表所有成员的总长度
     class ElemNode{
@@ -50,6 +51,5 @@ public:
     ElemPoint add(const string&addName,CAT addCat,TypeSheet::typePoint addType);//增加新的一项，传入名字、种类、类型
     pair<CAT,ElemPoint> find(const string &findName);//查找一个名字为name的标识符，返回安全指针
 };
-
 
 #endif //COMPLIER_ELEMSHEET_H

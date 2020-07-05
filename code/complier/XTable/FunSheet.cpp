@@ -180,6 +180,24 @@ void FunSheet::iterator::addTmpVariable(const string &addName, const string &add
     }
 }
 
+void FunSheet::iterator::addArrType(const string &arrName, const string &typeName, const int &size) {
+    auto it=this->root->addArrType(arrName,typeName,size);
+    if(!it.first){
+        cerr<<"FunSheet::iterator::addArrType::数组类型定义错误"<<endl;
+    }
+}
+
+void FunSheet::iterator::addStructType(const string &structName, vector<string> &sonName, vector<string> &sonType) {
+    auto it =this->root->addStructType(structName,sonName,sonType);
+    if(it.first==0){
+        cerr<<"FunSheet::iterator::addStructType::结构体定义失败"<<endl;
+    }
+}
+
+void FunSheet::iterator::setOffSet(int beginOffSet) {
+    this->root->setOffSet(beginOffSet);
+}
+
 FunSheet::funNode* FunSheet::funNode::addFun(const string &addName, CAT addCat, const string& addType="") {
     ///安全性检查
     auto safeAns = this->find(addName);
@@ -430,4 +448,74 @@ int FunSheet::funNode::len() {
     return this->parmSheet.len()+this->tmpSheet.len()+this->elemSheet.len();
 }
 
+pair<bool,TypeSheet::typePoint > FunSheet::funNode::addArrType(const string &arrName, const string &typeName, const int &size) {
+    ///返回值初始化
+    pair<bool,TypeSheet::typePoint>ans;
+    ans.first=false;
+    ans.second= nullptr;
+    ///安全性检查
+    auto safeAns=this->find(arrName);
+    if(safeAns.second!= nullptr){
+        cerr<<"FunSheet::funNode::addArrType::数组定义企图使用已用的本地标识符"<<endl;
+        return ans;
+    }
+    auto typeSafeAns=this->search(typeName);
+    if(typeSafeAns.first!=CAT::catD){
+        cerr<<"FunSheet::funNode::addArrType::数组未定义的类型标识符定义数组"<<endl;
+        return ans;
+    }
+    if(size<=0){
+        cerr<<"FunSheet::funNode::addArrType::数组大小定义错误"<<endl;
+        return ans;
+    }
+    ans.first=true;
+    ans.second=this->typeSheet.addArrType(arrName,(TypeSheet::typePoint)typeSafeAns.second,size);
+    return ans;
+}
 
+pair<bool, TypeSheet::typePoint>
+FunSheet::funNode::addStructType(const string &structName, vector<string> &sonName, vector<string> &sonType) {
+    ///返回值初始化
+    pair<bool,TypeSheet::typePoint>ans;
+    ans.first=false;
+    ans.second= nullptr;
+    ///安全性检查
+    auto safeAns=this->find(structName);
+    if(safeAns.second!= nullptr){
+        cerr<<"FunSheet::funNode::addStructType::结构体定义企图使用已用的本地标识符"<<endl;
+        return ans;
+    }
+    ///数目匹配检查
+    if(sonName.size()!=sonType.size()){
+        cerr<<"FunSheet::funNode::addStructType::结构体定义中域名个数与域名类型个数不匹配"<<endl;
+        return ans;
+    }
+    ///类型定义检查
+    vector<TypeSheet::typePoint >sonTypePoint;
+    for(auto & typeName : sonType) {
+        auto typeSafeAns = this->search(typeName);
+        if (typeSafeAns.first != CAT::catD) {
+            cerr << "FunSheet::funNode::addStructType::结构体定义企图使用未定义的全局类型标识符" << endl;
+            return ans;
+        }
+        sonTypePoint.push_back((TypeSheet::typePoint)typeSafeAns.second);
+    }
+    ///域名重复检查
+    unordered_map<string,bool>sameCheck;
+    for(auto & it : sonName){
+        if(sameCheck[it]){
+            cerr << "FunSheet::funNode::addStructType::结构体定义企图使用相同的域名" << endl;
+            return ans;
+        }
+        sameCheck[it]=true;
+    }
+    ans.first=true;
+    ans.second=this->typeSheet.addStructType(structName,sonName,sonTypePoint);
+    return ans;
+}
+
+void FunSheet::funNode::setOffSet(int beginOffSet) {
+    int next=this->parmSheet.initOffSet(beginOffSet);
+    next=this->elemSheet.initOffSet(next);
+    this->tmpSheet.initOffSet(next);
+}

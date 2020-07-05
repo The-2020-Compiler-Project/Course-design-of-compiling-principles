@@ -5,7 +5,7 @@
 #ifndef COMPLIER_CAT_H
 #define COMPLIER_CAT_H
 //标识符类语义角色
-//catVn:换名形参
+//catVn:换名形参,即指针
 //catVf:赋值形参
 ///catT!!!!!!!!!!!!!!因符号表设计者的脑瘫，这个语义角色被废弃了
 //catD,类型标识符

@@ -13,7 +13,6 @@
 using namespace std;
 typedef unsigned long long ull;
 
-
 class FunSheet {
 public:
     struct iterator;
@@ -49,10 +48,11 @@ private:
         pair<bool, ElemSheet::ElemPoint> addVariable(const string &addName, const string &addType);//增加变量，返回成功以及指针
         pair<bool, ElemSheet::ElemPoint> addTmpVariable(const string &addName, const string &addType);//增加临时变量，返回成功以及指针
         bool addConst(const string &addName, const string &addType, const string &addValue);//增加常量，给定名字，类型，常量值，只支持基本类型常量
+        pair<bool,TypeSheet::typePoint > addArrType(const string&arrName,const string&typeName,const int&size);//增加数组类型
+        pair<bool,TypeSheet::typePoint > addStructType(const string&structName,vector<string>&sonName,vector<string>&sonType);//增加结构体类型
         ///删除部分
         bool eraseTmpVariable(ElemSheet::iterator eraseIterator);//删除临时变量
-        void insertElem(const string &name);//插入元素
-        void findFun(const string &name);//查询函数
+        void setOffSet(int beginOffSet);//设定偏移量
     };
     typedef funNode* funPoint;
     funNode *root;//根节点
@@ -69,15 +69,15 @@ public:
         int len();//函数数据区长度
         int parameterNum();//函数参数个数
         ///判断临时变量
-        bool isTmpVariable(const string&tmpName);//本地判断，是否为其他类型标识符无法判断出来
+        bool isTmpVariable(const string&tmpName);///本地判断，是否为其他类型标识符无法判断出来
         ///定义性部分
         iterator addFunction(const string&name,CAT cat,const string& type="");///增加一个函数/过程
         void addParameter(const string &addName, CAT addCat, const string &addType) ;///增加一个参数
         void addConst(const string &addName, const string &addType,const string &addValue);///增加一个常量
         void addVariable(const string &addName, const string &addType);///增加一个变量
         void addTmpVariable(const string &addName, const string &addType);///增加一个临时变量
-        void addArrType();///增加数组类型
-        void addStructType();///增加结构体类型
+        void addArrType(const string&arrName,const string&typeName,const int&size);///增加数组类型
+        void addStructType(const string&structName,vector<string>&sonName,vector<string>&sonType);///增加结构体类型
         ///查询部分
         pair<bool,CAT> find(const string&findName);///本地查询一个标识符，获取是否定义以及语义角色
         pair<bool,CAT> search(const string&searchName);///全局查找一个标识符，获取是否定义以及语义角色
@@ -102,10 +102,6 @@ public:
 
 };
 
-
-
 extern FunSheet xTable;
-
-
 
 #endif //COMPLIER_FUNSHEET_H

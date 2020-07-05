@@ -1,5 +1,5 @@
 //
-// Created by Lenovo on 2020/7/2.
+// Created by YCJ on 2020/7/2.
 //
 
 #include "ElemSheet.h"
@@ -7,7 +7,10 @@
 int ElemSheet::initOffSet(int beginOffSet) {
     for(auto it=record.begin();it!=record.end();it++){
         it->offSet=beginOffSet;
-        beginOffSet+=TypeSheet::iterator(it->typePoint).len();
+        ///换名形参确定
+        if(CAT::catVn != it->cat)
+            beginOffSet+=TypeSheet::iterator(it->typePoint).len();
+        else beginOffSet+=2;
     }
     return beginOffSet;
 }
