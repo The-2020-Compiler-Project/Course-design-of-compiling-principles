@@ -123,6 +123,33 @@ complier/fast:
 	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/build
 .PHONY : complier/fast
 
+GrammarAction/GrammarAction.o: GrammarAction/GrammarAction.cpp.o
+
+.PHONY : GrammarAction/GrammarAction.o
+
+# target to build an object file
+GrammarAction/GrammarAction.cpp.o:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.o
+.PHONY : GrammarAction/GrammarAction.cpp.o
+
+GrammarAction/GrammarAction.i: GrammarAction/GrammarAction.cpp.i
+
+.PHONY : GrammarAction/GrammarAction.i
+
+# target to preprocess a source file
+GrammarAction/GrammarAction.cpp.i:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.i
+.PHONY : GrammarAction/GrammarAction.cpp.i
+
+GrammarAction/GrammarAction.s: GrammarAction/GrammarAction.cpp.s
+
+.PHONY : GrammarAction/GrammarAction.s
+
+# target to generate assembly for a file
+GrammarAction/GrammarAction.cpp.s:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.s
+.PHONY : GrammarAction/GrammarAction.cpp.s
+
 STable/STable.o: STable/STable.cpp.o
 
 .PHONY : STable/STable.o
@@ -294,6 +321,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... complier"
 	@echo "... edit_cache"
+	@echo "... GrammarAction/GrammarAction.o"
+	@echo "... GrammarAction/GrammarAction.i"
+	@echo "... GrammarAction/GrammarAction.s"
 	@echo "... STable/STable.o"
 	@echo "... STable/STable.i"
 	@echo "... STable/STable.s"

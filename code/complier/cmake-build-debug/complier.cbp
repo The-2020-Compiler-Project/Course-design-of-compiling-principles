@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAction/GrammarAction.cpp">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAction/GrammarAction.h">
+			<Option target="complier"/>
+		</Unit>
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.cpp">
 			<Option target="complier"/>
 		</Unit>
