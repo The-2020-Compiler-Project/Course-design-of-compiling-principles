@@ -119,6 +119,9 @@
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/cat.h">
 			<Option target="complier"/>
 		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/quatName.h">
+			<Option target="complier"/>
+		</Unit>
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h">
 			<Option target="complier"/>
 		</Unit>

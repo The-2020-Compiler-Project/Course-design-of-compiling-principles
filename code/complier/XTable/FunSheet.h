@@ -41,6 +41,7 @@ private:
         ///查询部分
         pair<CAT, void *> find(const string &findName);//全局搜索，查找一个名字为name的标识符,cat用来判断如何使用返回的指针
         pair<CAT, void *> search(const string &searchName);//全局搜索，查找一个名字为name的标识符,cat用来判断如何使用返回的指针
+        int getLevel(const string&searchName);///全局查找一个标识符的层次号
         ///插入部分
         funNode *addFun(const string &name, CAT cat, const string &type);//增加子函数
         pair<bool, ElemSheet::ElemPoint>
@@ -81,6 +82,7 @@ public:
         ///查询部分
         pair<bool,CAT> find(const string&findName);///本地查询一个标识符，获取是否定义以及语义角色
         pair<bool,CAT> search(const string&searchName);///全局查找一个标识符，获取是否定义以及语义角色
+        int getLevel(const string&searchName);///全局查找一个标识符的层次号
         ///迭代器获取部分
         iterator getFunIterator(const string&funName);///获取函数迭代器,全局性质
         ElemSheet::iterator getElemIterator(const string&elemNaem);///获取变量、参数、临时变量的迭代器，全局性质

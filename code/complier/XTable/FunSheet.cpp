@@ -198,6 +198,11 @@ void FunSheet::iterator::setOffSet(int beginOffSet) {
     this->root->setOffSet(beginOffSet);
 }
 
+int FunSheet::iterator::getLevel(const string &searchName) {
+    return this->root->getLevel(searchName);
+}
+
+
 FunSheet::funNode* FunSheet::funNode::addFun(const string &addName, CAT addCat, const string& addType="") {
     ///安全性检查
     auto safeAns = this->find(addName);
@@ -518,4 +523,20 @@ void FunSheet::funNode::setOffSet(int beginOffSet) {
     int next=this->parmSheet.initOffSet(beginOffSet);
     next=this->elemSheet.initOffSet(next);
     this->tmpSheet.initOffSet(next);
+}
+
+int FunSheet::funNode::getLevel(const string &searchName) {
+    int times=this->level;
+    funPoint pNode=this;
+    pair<CAT, void *> ans;
+    ans.first=CAT::catVoid;
+    ans.second= nullptr;
+    while(times>=0){
+        ans=pNode->find(searchName);
+        if(ans.second!= nullptr)
+            return times;
+        pNode=pNode->pFunPoint;
+        times--;
+    }
+    return times;
 }
