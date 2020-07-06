@@ -122,8 +122,11 @@ public:
 	//判断一个字符串是否是数字
 	int isNum(string nowStr);
 
-	//进行寻址操作
+	//进行寻址操作,适用于局部变量
 	string findBpxxx(string nowOper, string name);
+
+	//进行寻址操作，适用于参数
+	string findParaxxx(string nowOper, string name, map<string, int> &paraMap);
 
 	//基本块集合
 	vector<BaseBlock> BaseBlockColl;
@@ -167,4 +170,12 @@ private:
 
 	//标号顺序，防止标号重复
 	int labelId = 0;
+
+	//函数名字栈，用于生成对应的开始标号
+	vector<string> funStack;
+
+	//参数表集合，每一个函数有一个参数表，记录了变量名和偏移量
+	//比如最后一个参数的偏移量为1，表现为word/byte ptr [bp+1(偏移量)]
+	vector<map<string, int>> paraStack;
+	map<string, int> nowParaMap;
 };
