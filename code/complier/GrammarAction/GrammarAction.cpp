@@ -146,6 +146,7 @@ void GrammarAction::pushFunCallStack(const string &funName) {
 }
 
 void GrammarAction::moveParameter() {
+    ///增加参数类型匹配
     auto it =this->funStack.top().getFunIterator(this->funCall.top());
     stack<string>paraName;
     int num=it.parameterNum();
@@ -155,6 +156,9 @@ void GrammarAction::moveParameter() {
     }
     auto paraIteraotor=it.beginParameter();
     while(num--){
+        if(this->funStack.top().getElemIterator(paraName.top()).type().name()!=paraIteraotor.type().name()){
+            cerr<<"参数类型不匹配::"<<it.name()<<endl;
+        }
         if(paraIteraotor.cat()==CAT::catVn){//换名形参
             this->genetQuat(quatName::moveFalsePar,paraName.top(),empty,empty);
         }else{//赋值形参
