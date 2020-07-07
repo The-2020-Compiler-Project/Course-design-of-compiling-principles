@@ -39,19 +39,23 @@ int findTempOffset(string tempName)
 		return 12;
 	*/
 	if (tempName == "a")
-		return 1;
+		return 0;
 	if (tempName == "c")
-		return 3;
+		return 2;
 	if (tempName == "b")
-		return 5;
+		return 4;
 	if (tempName == "d")
-		return 7;
+		return 6;
+	if (tempName == "e")
+		return 8;
+	if (tempName == "f")
+		return 10;
 }
 
 //获得数据存储区长度，测试用
 int funDataLen()
 {
-	return 4;
+	return 12;
 }
 
 //获得当前函数层次，测试用
@@ -69,7 +73,7 @@ int findTempLevel(string tempName)
 //查看变量的类型，测试用
 string findTempType(string tempName)
 {
-	if (tempName == "a")
+	/*if (tempName == "a")
 		return typeName[0];
 	if (tempName == "c")
 		return typeName[0];
@@ -81,6 +85,8 @@ string findTempType(string tempName)
 		return typeName[0];
 	if (tempName == "5")
 		return typeName[0];
+		*/
+	return typeName[0];
 }
 
 //查看参数的类型，测试用
@@ -398,7 +404,7 @@ int TargetCodeGenerator::findBpOffset(string tempName)
 int TargetCodeGenerator::findTrueOffset(string tempName)
 {
 	//在这时我将会把偏移量转化为指向低位的
-	int trueOffset = findBpOffset(tempName) + findTempOffset(tempName);
+	int trueOffset = findBpOffset(tempName) + findTempOffset(tempName) + 1;
 	return trueOffset;
 }
 
@@ -479,10 +485,6 @@ void TargetCodeGenerator::programBegin(quar nowQuar)
 	//这个函数中应该通过符号表的接口，给符号表发送programbegin命令
 	//这个可以先放放，等到讨论的时候问问
 
-	//更换为当前参数表,遇到endFuction再弹栈
-	nowParaMap = paraStack[paraStack.size() - 1];
-
-
 	//开始分配程序的堆栈空间
 	//首先将bp存入，为old sp
 	stackManager.push(targetCodeArea, blank, "bp");
@@ -514,9 +516,21 @@ int TargetCodeGenerator::findInDisplay(int Level)
 }
 
 //处理赋值
-void TargetCodeGenerator::assignCalculation(quar nowQuar)
+void TargetCodeGenerator::assignCalculation(quar nowQuar, string name)
 {
 	string o1 = nowQuar.o1;
+
+	//首先如果有标号，生成标号
+	/*if (name != blank && name != "")
+	{
+		//假跳的目标
+		NOP(targetCodeArea, name);
+		//弹对应的栈
+		int nowJmp = ifSEM[ifSEM.size() - 1];
+		ifSEM.pop_back();
+		targetCodeArea[nowJmp].source = name;
+	}*/
+	returnLabel(name);
 
 	//开始进行LD过程
 	string o1Code = "";	//先计算，之后统一生成指令
@@ -530,14 +544,9 @@ void TargetCodeGenerator::assignCalculation(quar nowQuar)
 	else
 	{
 		//判断是否是参数，采取对应的操作
-		if (nowParaMap.find(o1) != nowParaMap.end())
-		{
-			o1Code = findParaxxx(o1, blank, nowParaMap);
-		}
-		else
-		{
-			o1Code = findBpxxx(o1, blank);
-		}
+		//现在不用了，直接寻址就行
+		//o1Code = findXxx(o1, blank, nowParaMap);
+		o1Code = findBpxxx(o1, blank);
 		//更改nowRdlTemp的值
 		nowRdlTemp = o1;	//变量名
 	}
@@ -560,22 +569,23 @@ void TargetCodeGenerator::assignCalculation(quar nowQuar)
 	//开始寻址
 	string target = nowQuar.target;
 	string tarCode = "";
-	if (nowParaMap.find(target) != nowParaMap.end())
-	{
-		tarCode = findParaxxx(target, blank, nowParaMap);
-	}
-	else
-	{
-		tarCode = findBpxxx(target, blank);
-	}
+	tarCode = findBpxxx(target, blank);
+	//tarCode = findXxx(target, blank, nowParaMap);
 	MOV(targetCodeArea, blank, tarCode + ",", nowRe);
 	//更改nowRdlTemp的值
 	nowRdlTemp = "0";	//清空
 }
 
 //处理加减
-void TargetCodeGenerator::addCalculation(quar nowQuar)
+void TargetCodeGenerator::addCalculation(quar nowQuar, string name)
 {
+	//首先如果有标号，生成标号
+	/*if (name != blank && name != "")
+	{
+		NOP(targetCodeArea, name);
+	}*/
+	returnLabel(name);
+
 	//首先进行LD过程
 	//判断操作数1是否是数字
 	string o1 = nowQuar.o1;
@@ -587,14 +597,8 @@ void TargetCodeGenerator::addCalculation(quar nowQuar)
 	}
 	else
 	{
-		if (nowParaMap.find(o1) != nowParaMap.end())
-		{
-			o1Code = findParaxxx(o1, blank, nowParaMap);
-		}
-		else
-		{
-			o1Code = findBpxxx(o1, blank);
-		}
+		o1Code = findBpxxx(o1, blank);
+		//o1Code = findXxx(o1, blank, nowParaMap);
 	}
 	nowRdlTemp = o1;
 	string nowRe = "";
@@ -619,15 +623,8 @@ void TargetCodeGenerator::addCalculation(quar nowQuar)
 	}
 	else
 	{
-		//o2Code = findBpxxx(o2, blank);
-		if (nowParaMap.find(o2) != nowParaMap.end())
-		{
-			o2Code = findParaxxx(o2, blank, nowParaMap);
-		}
-		else
-		{
-			o2Code = findBpxxx(o2, blank);
-		}
+		o2Code = findBpxxx(o2, blank);
+		//o2Code = findXxx(o2, blank, nowParaMap);
 	}
 	nowRdlTemp = nowQuar.target;
 	if (nowQuar.oper == quatName::ADD)
@@ -644,24 +641,24 @@ void TargetCodeGenerator::addCalculation(quar nowQuar)
 	string tarCode = "";
 
 	//target必定为变量，不用判断（虽然判断也不麻烦）
-	//tarCode = findBpxxx(target, blank);
-	if (nowParaMap.find(target) != nowParaMap.end())
-	{
-		tarCode = findParaxxx(target, blank, nowParaMap);
-	}
-	else
-	{
-		tarCode = findBpxxx(target, blank);
-	}
+	tarCode = findBpxxx(target, blank);
+	//tarCode = findXxx(target, blank, nowParaMap);
 	nowRdlTemp = target;
 	MOV(targetCodeArea, blank, tarCode + ",", nowRe);
 
 }
 
 //处理乘
-void TargetCodeGenerator::mulCalculation(quar nowQuar)
+void TargetCodeGenerator::mulCalculation(quar nowQuar, string name)
 {
 	//我先默认都是int乘int，如果有其他奇怪的操作我就加个预处理，先处理成对应的样子
+
+	//首先如果有标号，生成标号
+	/*if (name != blank && name != "")
+	{
+		NOP(targetCodeArea, name);
+	}*/
+	returnLabel(name);
 
 	//进行LD过程
 	string o1 = nowQuar.o1;
@@ -673,15 +670,8 @@ void TargetCodeGenerator::mulCalculation(quar nowQuar)
 	}
 	else
 	{
-		//o1Code = findBpxxx(o1, blank);
-		if (nowParaMap.find(o1) != nowParaMap.end())
-		{
-			o1Code = findParaxxx(o1, blank, nowParaMap);
-		}
-		else
-		{
-			o1Code = findBpxxx(o1, blank);
-		}
+		o1Code = findBpxxx(o1, blank);
+		//o1Code = findXxx(o1, blank, nowParaMap);
 	}
 	nowRdlTemp = o1;	//ax寄存器内的东西
 
@@ -709,15 +699,8 @@ void TargetCodeGenerator::mulCalculation(quar nowQuar)
 	}
 	else
 	{
-		//o2Code = findBpxxx(o2, blank);
-		if (nowParaMap.find(o2) != nowParaMap.end())
-		{
-			o2Code = findParaxxx(o2, blank, nowParaMap);
-		}
-		else
-		{
-			o2Code = findBpxxx(o2, blank);
-		}
+		o2Code = findBpxxx(o2, blank);
+		//o2Code = findXxx(o2, blank, nowParaMap);
 	}
 	nowRdlTemp = nowQuar.target;
 	IMUL(targetCodeArea, blank, o2Code);
@@ -725,23 +708,23 @@ void TargetCodeGenerator::mulCalculation(quar nowQuar)
 	//开始ST过程
 	string target = nowQuar.target;
 	string tarCode = "";
-	//tarCode = findBpxxx(target, blank);
-	if (nowParaMap.find(target) != nowParaMap.end())
-	{
-		tarCode = findParaxxx(target, blank, nowParaMap);
-	}
-	else
-	{
-		tarCode = findBpxxx(target, blank);
-	}
+	tarCode = findBpxxx(target, blank);
+	//tarCode = findXxx(target, blank, nowParaMap);
 	MOV(targetCodeArea, blank, tarCode + ",", "ax");
 
 }
 
 //处理除
-void TargetCodeGenerator::divCalculation(quar nowQuar)
+void TargetCodeGenerator::divCalculation(quar nowQuar, string name)
 {
 	//我先默认都是int除int，如果有其他奇怪的操作我就加个预处理，先处理成对应的样子
+
+	//首先如果有标号，生成标号
+	/*if (name != blank && name != "")
+	{
+		NOP(targetCodeArea, name);
+	}*/
+	returnLabel(name);
 
 	//进行LD过程
 	string o1 = nowQuar.o1;
@@ -753,15 +736,8 @@ void TargetCodeGenerator::divCalculation(quar nowQuar)
 	}
 	else
 	{
-		//o1Code = findBpxxx(o1, blank);
-		if (nowParaMap.find(o1) != nowParaMap.end())
-		{
-			o1Code = findParaxxx(o1, blank, nowParaMap);
-		}
-		else
-		{
-			o1Code = findBpxxx(o1, blank);
-		}
+		o1Code = findBpxxx(o1, blank);
+		//o1Code = findXxx(o1, blank, nowParaMap);
 	}
 	nowRdlTemp = o1;	//ax寄存器内的东西
 
@@ -789,15 +765,8 @@ void TargetCodeGenerator::divCalculation(quar nowQuar)
 	}
 	else
 	{
-		//o2Code = findBpxxx(o2, blank);
-		if (nowParaMap.find(o2) != nowParaMap.end())
-		{
-			o2Code = findParaxxx(o2, blank, nowParaMap);
-		}
-		else
-		{
-			o2Code = findBpxxx(o2, blank);
-		}
+		o2Code = findBpxxx(o2, blank);
+		//o2Code = findXxx(o2, blank, nowParaMap);
 	}
 	nowRdlTemp = nowQuar.target;
 	IDIV(targetCodeArea, blank, o2Code);
@@ -805,22 +774,22 @@ void TargetCodeGenerator::divCalculation(quar nowQuar)
 	//开始ST过程
 	string target = nowQuar.target;
 	string tarCode = "";
-	//tarCode = findBpxxx(target, blank);
-	if (nowParaMap.find(target) != nowParaMap.end())
-	{
-		tarCode = findParaxxx(target, blank, nowParaMap);
-	}
-	else
-	{
-		tarCode = findBpxxx(target, blank);
-	}
+	tarCode = findBpxxx(target, blank);
+	//tarCode = findXxx(target, blank, nowParaMap);
 	MOV(targetCodeArea, blank, tarCode + ",", "ax");
 
 }
 
 //处理关系运算
-void TargetCodeGenerator::relCalculation(quar nowQuar)
+void TargetCodeGenerator::relCalculation(quar nowQuar, string name)
 {
+	//首先如果有标号，生成标号
+	/*if (name != blank && name != "")
+	{
+		NOP(targetCodeArea, name);
+	}*/
+	returnLabel(name);
+
 	//首先进行cmp o1，o2环节
 	//先LD
 	string o1 = nowQuar.o1;
@@ -832,15 +801,8 @@ void TargetCodeGenerator::relCalculation(quar nowQuar)
 	}
 	else
 	{
-		//o1Code = findBpxxx(o1, blank);
-		if (nowParaMap.find(o1) != nowParaMap.end())
-		{
-			o1Code = findParaxxx(o1, blank, nowParaMap);
-		}
-		else
-		{
-			o1Code = findBpxxx(o1, blank);
-		}
+		o1Code = findBpxxx(o1, blank);
+		//o1Code = findXxx(o1, blank, nowParaMap);
 	}
 	nowRdlTemp = o1;	//ax寄存器内的东西
 	if (findTempType(o1) == typeName[0])
@@ -863,15 +825,8 @@ void TargetCodeGenerator::relCalculation(quar nowQuar)
 	}
 	else
 	{
-		//o2Code = findBpxxx(o2, blank);
-		if (nowParaMap.find(o2) != nowParaMap.end())
-		{
-			o2Code = findParaxxx(o2, blank, nowParaMap);
-		}
-		else
-		{
-			o2Code = findBpxxx(o2, blank);
-		}
+		o2Code = findBpxxx(o2, blank);
+		//o2Code = findXxx(o2, blank, nowParaMap);
 	}
 	//寄存器不变，就不存了
 	//该cmp了
@@ -891,7 +846,7 @@ void TargetCodeGenerator::relCalculation(quar nowQuar)
 	elSEM.push_back(targetCodeArea.size() - 1);
 	//现在生成假跳的目标位置
 	string nowLabel = "x" + to_string(labelId++);
-	MOV(targetCodeArea, nowLabel + ":" + blank , "ax,", "1");
+	MOV(targetCodeArea, nowLabel, "ax,", "1");
 	//弹对应的栈
 	int nowJmp = ifSEM[ifSEM.size() - 1];
 	ifSEM.pop_back();
@@ -901,15 +856,8 @@ void TargetCodeGenerator::relCalculation(quar nowQuar)
 	nowLabel = "x" + to_string(labelId++);
 	string target = nowQuar.target;
 	string tarCode = "";
-	//string tarCode = findBpxxx(target, nowLabel + ":" + blank);
-	if (nowParaMap.find(target) != nowParaMap.end())
-	{
-		tarCode = findParaxxx(target, nowLabel + ":" + blank, nowParaMap);
-	}
-	else
-	{
-		tarCode = findBpxxx(target, nowLabel + ":" + blank);
-	}
+	tarCode = findBpxxx(target, nowLabel);
+	//tarCode = findXxx(target, nowLabel + ":" + blank, nowParaMap);
 	//反填
 	nowJmp = elSEM[elSEM.size() - 1];
 	elSEM.pop_back();
@@ -925,12 +873,54 @@ void TargetCodeGenerator::relCalculation(quar nowQuar)
 	nowRdlTemp = target;
 }
 
+//处理if跳转(假跳)
+void TargetCodeGenerator::ifCalculation(quar nowQuar, string name)
+{
+	//首先如果有标号，生成标号
+	/*if (name != blank && name != "")
+	{
+		NOP(targetCodeArea, name);
+	}*/
+	returnLabel(name);
+
+	//开始寻址
+	string o1 = nowQuar.o1;
+	string o1Code = "";
+	if (isNum(o1))
+	{
+		o1Code = o1;
+	}
+	else
+	{
+		o1Code = findBpxxx(o1, blank);
+		//o1Code = findXxx(o1, blank, nowParaMap);
+	}
+
+	//该cmp了
+	MOV(targetCodeArea, blank, "ax,", "0");
+	CMP(targetCodeArea, blank, "ax,", o1Code);
+	//该跳转了
+	relJmp(targetCodeArea, blank, "je", "");
+	//入if栈
+	ifSEM.push_back(targetCodeArea.size() - 1);
+	nowRdlTemp = "const";
+}
+
+//处理else跳转(无条件)
+void TargetCodeGenerator::elCalculation(quar nowQuar, string name)
+{
+	returnLabel(name);
+	//直接跳转就行，之后反填
+	relJmp(targetCodeArea, blank, "jmp", "");
+	//入else栈
+	elSEM.push_back(targetCodeArea.size() - 1);
+
+}
+
 //处理结束程序
 void TargetCodeGenerator::programEnd(quar nowQuar)
 {
 	//生成结束中断语句等等阴间东西
-	//参数表集合弹栈
-	paraStack.pop_back();
 	//函数栈弹栈
 	funStack.pop_back();
 
@@ -988,8 +978,8 @@ void TargetCodeGenerator::generateCode()
 			if (nowQuar.oper == quatName::beginProgram)
 			{
 				funStack.push_back(nowQuar.o1);
-				nowParaMap.clear();
-				paraStack.push_back(nowParaMap);
+				//四元式序号++
+				prevQuarNum++;
 			}
 
 			//操作符为程序开始时调用对应函数处理,对应
@@ -999,30 +989,43 @@ void TargetCodeGenerator::generateCode()
 				{
 					programBegin(nowQuar);
 				}
+				prevQuarNum++;
 			}
 
 			//操作符为赋值时调用对应函数处理
 			if (nowQuar.oper == quatName::Assign)
 			{
-				assignCalculation(nowQuar);
+				string nowName = "";
+				nowName = getName(prevQuarNum);
+				assignCalculation(nowQuar, nowName);
+				prevQuarNum++;
 			}
 
 			//操作符为加减时调用对应函数处理
 			if (nowQuar.oper == quatName::ADD ||nowQuar.oper == quatName::SUB)
 			{
-				addCalculation(nowQuar);
+				string nowName = "";
+				nowName = getName(prevQuarNum);
+				addCalculation(nowQuar, nowName);
+				prevQuarNum++;
 			}
 
-			//操作符为乘除时调用对应函数处理,乘和除可以放在一起，就改几行就行
+			//操作符为乘时调用对应函数处理,乘和除可以放在一起，就改几行就行
 			if (nowQuar.oper == quatName::MUL)
 			{
-				mulCalculation(nowQuar);
+				string nowName = "";
+				nowName = getName(prevQuarNum);
+				mulCalculation(nowQuar, nowName);
+				prevQuarNum++;
 			}
 
-			//操作符为除除时调用对应函数处理
+			//操作符为除时调用对应函数处理
 			if (nowQuar.oper == quatName::DIV)
 			{
-				divCalculation(nowQuar);
+				string nowName = "";
+				nowName = getName(prevQuarNum);
+				divCalculation(nowQuar, nowName);
+				prevQuarNum++;
 			}
 
 			//操作符为关系运算时调用对应函数处理
@@ -1030,14 +1033,46 @@ void TargetCodeGenerator::generateCode()
 				nowQuar.oper == quatName::LT || nowQuar.oper == quatName::LE ||
 				nowQuar.oper == quatName::EQ || nowQuar.oper == "NE")
 			{
-				relCalculation(nowQuar);
+				string nowName = "";
+				nowName = getName(prevQuarNum);
+				relCalculation(nowQuar, nowName);
+				prevQuarNum++;
 			}
+
+			//操作符为if时调用对应函数处理
+			if (nowQuar.oper == quatName::beginIf)
+			{
+				string nowName = "";
+				nowName = getName(prevQuarNum);
+				ifCalculation(nowQuar, nowName);
+				prevQuarNum++;
+			}
+
+			//操作符为else时调用对应函数处理
+			if (nowQuar.oper == quatName::Else)
+			{
+				string nowName = "";
+				nowName = getName(prevQuarNum);
+				elCalculation(nowQuar, nowName);
+				prevQuarNum++;
+			}
+
+			//操作符为endif时调用对应函数处理
+			if (nowQuar.oper == quatName::endIf)
+			{
+				prevQuarNum++;
+				int as = 1;
+			}
+
 
 			//操作符为程序结束时调用对应函数处理
 			if (nowQuar.oper == quatName::endFunction)
 			{
 				programEnd(nowQuar);
+				prevQuarNum++;
 			}
+
+			//prevQuarNum++;
 
 		}
 	}
@@ -1045,7 +1080,11 @@ void TargetCodeGenerator::generateCode()
 	for (int i = 0; i < targetCodeArea.size(); i++)
 	{
 		if (targetCodeArea[i].name.size() > 0)
+		{
 			asmout << targetCodeArea[i].name;
+			if (targetCodeArea[i].name[0] == 'x')
+				asmout << ":" + blank;
+		}
 		if (targetCodeArea[i].oper.size() > 0)
 			asmout << " " << targetCodeArea[i].oper;
 		if (targetCodeArea[i].dest.size() > 0)
@@ -1072,7 +1111,7 @@ int TargetCodeGenerator::isNum(string nowStr)
 	return isnum;
 }
 
-//进行寻址操作,适用于局部变量
+//进行寻址操作
 string TargetCodeGenerator::findBpxxx(string nowOper, string name)
 {
 	//计算真实偏移量,原因查看测试ifwhile文档
@@ -1113,28 +1152,6 @@ string TargetCodeGenerator::findBpxxx(string nowOper, string name)
 	return strTrueOffset;
 }
 
-//进行寻址操作，适用于参数
-//在进行函数声明时，必须先把他的参数表取出来
-string TargetCodeGenerator::findParaxxx(string nowOper, string name, map<string, int> &paraMap)
-{
-	//查看参数的偏移量
-	int nowOffset = paraMap[nowOper];
-	string paraOffset = to_string(nowOffset);
-
-	//查表确定参数的类型（长度）
-	string nowType = findParaType(nowOper);
-	if (nowType == typeName[0])
-	{
-		paraOffset = "word ptr [bx+" + paraOffset + "]";
-	}
-	else
-	{
-		paraOffset = "byte ptr [bx+" + paraOffset + "]";
-	}
-
-	return paraOffset;
-}
-
 //将关系转换成汇编操作符，如LT对应JL
 string TargetCodeGenerator::getRelAsm(string relOper)
 {
@@ -1148,4 +1165,48 @@ string TargetCodeGenerator::getRelAsm(string relOper)
 			return asmRel[i];
 	}
 	return "take it boy";
+}
+
+//用于判断之前是否是需要生成标号，if用这个
+string TargetCodeGenerator::getName(int prevQuarName)
+{
+	string nowName = "";
+	if (AllQuarColl[prevQuarNum].oper == quatName::Else)
+	{
+		nowName = "x" + to_string(labelId);
+		labelId++;
+	}
+	else if (AllQuarColl[prevQuarNum].oper == quatName::endIf)
+	{
+		nowName = "x" + to_string(labelId);
+		labelId++;
+	}
+	else
+	{
+		nowName = blank;
+	}
+	return nowName;
+}
+
+//如果需要的话生成标号，之后反填
+void TargetCodeGenerator::returnLabel(string name)
+{
+	if (name != blank && name != "")
+	{
+		//假跳的目标
+		NOP(targetCodeArea, name);
+		//弹对应的栈
+		int nowJmp;
+		if (AllQuarColl[prevQuarNum].oper == quatName::Else)
+		{
+			nowJmp = ifSEM[ifSEM.size() - 1];
+			ifSEM.pop_back();
+		}
+		else if (AllQuarColl[prevQuarNum].oper == quatName::endIf)
+		{
+			nowJmp = elSEM[elSEM.size() - 1];
+			elSEM.pop_back();
+		}
+		targetCodeArea[nowJmp].source = name;
+	}
 }
