@@ -12,19 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="963a1c0c-ea8a-4c80-836f-d43e70e13fa3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GrammarAction/GrammarAction.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GrammarAction/GrammarAction.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/complier.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/complier.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrammarAction/GrammarAction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarAction/GrammarAction.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrammarAction/GrammarAction.h" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarAction/GrammarAction.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STable/PTtable.txt" beforeDir="false" afterPath="$PROJECT_DIR$/STable/PTtable.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,36 +27,56 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/GrammarAction/GrammarAction.h">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="1121">
-                    <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
-                    <folding>
-                      <element signature="e#105#134#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GrammarAction/GrammarAction.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+              <folding>
+                <element signature="e#105#134#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GrammarAction/GrammarAction.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+            <state relative-caret-position="1650">
+              <caret line="184" column="33" selection-start-line="184" selection-start-column="33" selection-end-line="184" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#2#0" />
+                <element signature="e#65#150#0" />
+                <element signature="e#66#140#0" />
+                <element signature="e#142#212#0" />
+                <element signature="e#449#492#0" />
+                <element signature="e#568#629#0" />
+                <element signature="e#673#711#0" />
+                <element signature="e#774#811#0" />
+                <element signature="e#965#1031#0" />
+                <element signature="e#1067#1104#0" />
+                <element signature="e#1414#1552#0" />
+                <element signature="e#1528#1568#0" />
+                <element signature="e#1946#1985#0" />
+                <element signature="e#2102#2136#0" />
+                <element signature="e#2248#2279#0" />
+                <element signature="e#2335#2367#0" />
+                <element signature="e#2424#2484#0" />
+                <element signature="e#2514#2777#0" />
+                <element signature="e#3213#3250#0" />
+                <element signature="e#3312#3341#0" />
+                <element signature="e#3448#3483#0" />
+                <element signature="e#3543#3584#0" />
+                <element signature="e#3609#3673#0" />
+                <element signature="e#3707#3747#0" />
+                <element signature="e#4340#4371#0" />
+                <element signature="e#4441#4477#0" />
+                <element signature="e#4684#4726#0" />
+                <element signature="e#4752#4789#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#0#2#0" />
                 <element signature="e#169#235#1" />
@@ -91,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/STable/STable.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="53" />
+            <state relative-caret-position="346">
+              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
               <folding>
                 <element signature="e#0#2#0" />
                 <element signature="e#92#127#0" expanded="true" />
@@ -131,11 +142,12 @@
       <find>catT</find>
       <find>TypeNode</find>
       <find>set</find>
-      <find>add</find>
       <find>erase</find>
       <find>len</find>
       <find>+=</find>
       <find>-=</find>
+      <find>add</find>
+      <find>top</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -187,17 +199,16 @@
         <option value="$PROJECT_DIR$/XTable/FunSheet.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/type/quatName.h" />
-        <option value="$PROJECT_DIR$/GrammarAction/GrammarAction.cpp" />
         <option value="$PROJECT_DIR$/GrammarAction/GrammarAction.h" />
+        <option value="$PROJECT_DIR$/GrammarAction/GrammarAction.cpp" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="762" />
-    <option name="y" value="96" />
-    <option name="width" value="980" />
-    <option name="height" value="1090" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="682" />
+    <option name="width" value="1245" />
+    <option name="height" value="1088" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -205,7 +216,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -213,10 +223,21 @@
               <item name="complier" type="b2602c69:ProjectViewProjectNode" />
               <item name="complier" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="complier" type="b2602c69:ProjectViewProjectNode" />
+              <item name="complier" type="462c0819:PsiDirectoryNode" />
+              <item name="type" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="complier" type="b2602c69:ProjectViewProjectNode" />
+              <item name="complier" type="462c0819:PsiDirectoryNode" />
+              <item name="XTable" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -289,7 +310,8 @@
       <workItem from="1593995016737" duration="117000" />
       <workItem from="1593999010436" duration="847000" />
       <workItem from="1593999901486" duration="636000" />
-      <workItem from="1594002373485" duration="5765000" />
+      <workItem from="1594002373485" duration="5911000" />
+      <workItem from="1594073846891" duration="6817000" />
     </task>
     <task id="LOCAL-00001" summary="初步实现了sTable">
       <created>1593508908172</created>
@@ -337,7 +359,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156779000" />
+    <option name="totallyTimeSpent" value="163742000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -349,10 +371,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="610" y="77" width="784" height="872" extended-state="1" />
+    <frame x="546" y="0" width="996" height="870" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29752067" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.14837153" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -771,13 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/type/quatName.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/XTable/TypeSheet.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="636">
@@ -805,10 +820,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/STable/STable.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#92#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/type/quatName.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#2#0" />
             <element signature="e#169#235#1" />
@@ -824,30 +857,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GrammarAction/GrammarAction.cpp">
+    <entry file="file://$PROJECT_DIR$/GrammarAction/GrammarAction.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/STable/STable.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="53" />
+        <state relative-caret-position="268">
+          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
           <folding>
-            <element signature="e#0#2#0" />
-            <element signature="e#92#127#0" expanded="true" />
+            <element signature="e#105#134#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GrammarAction/GrammarAction.h">
+    <entry file="file://$PROJECT_DIR$/GrammarAction/GrammarAction.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1121">
-          <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+        <state relative-caret-position="1650">
+          <caret line="184" column="33" selection-start-line="184" selection-start-column="33" selection-end-line="184" selection-end-column="33" />
           <folding>
-            <element signature="e#105#134#0" expanded="true" />
+            <element signature="e#0#2#0" />
+            <element signature="e#65#150#0" />
+            <element signature="e#66#140#0" />
+            <element signature="e#142#212#0" />
+            <element signature="e#449#492#0" />
+            <element signature="e#568#629#0" />
+            <element signature="e#673#711#0" />
+            <element signature="e#774#811#0" />
+            <element signature="e#965#1031#0" />
+            <element signature="e#1067#1104#0" />
+            <element signature="e#1414#1552#0" />
+            <element signature="e#1528#1568#0" />
+            <element signature="e#1946#1985#0" />
+            <element signature="e#2102#2136#0" />
+            <element signature="e#2248#2279#0" />
+            <element signature="e#2335#2367#0" />
+            <element signature="e#2424#2484#0" />
+            <element signature="e#2514#2777#0" />
+            <element signature="e#3213#3250#0" />
+            <element signature="e#3312#3341#0" />
+            <element signature="e#3448#3483#0" />
+            <element signature="e#3543#3584#0" />
+            <element signature="e#3609#3673#0" />
+            <element signature="e#3707#3747#0" />
+            <element signature="e#4340#4371#0" />
+            <element signature="e#4441#4477#0" />
+            <element signature="e#4684#4726#0" />
+            <element signature="e#4752#4789#0" />
           </folding>
         </state>
       </provider>

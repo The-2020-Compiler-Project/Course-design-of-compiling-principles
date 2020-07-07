@@ -8,25 +8,29 @@
 #include "..\type\quatName.h"
 #include "..\XTable\FunSheet.h"
 #include <bits/stdc++.h>
+
 using namespace std;
 //语义动作,纯函数接口
 //四元式的格式(operator,object,object,object)
 //空：_
+static const string fileAddr=R"(..\Files\quat.txt)"
 class GrammarAction {
-    const string begin="(";
-    const string end=")";
-    const string separator=",";
+    const string begin="( ";
+    const string end=" )";
+    const string separator=" , ";
     const string empty="_";
-    const string fileName=R"(..\Files\quat.txt)";//中间代码所在文件地址
-
+    ;//中间代码所在文件地址
+    int tmpIndex=0;//临时变量的标号
+    fstream fin;
 
     stack<FunSheet::iterator> funStack;//函数栈
     stack<string>object;//运算对象栈
     stack<string>ope;//运算符栈
     stack<string>funCall;//函数调用栈
-    void genetQuat(string a,string b,string c,string d);//生成四元式
+    void genetQuat(const string& a,const string& b,const string& c,const string& d);//生成四元式
+    string getTmpName(string Cat="");
 public:
-
+    GrammarAction(const string &fileName=fileAddr);
     void pushFunStack(FunSheet::iterator pushIterator);//将函数迭代器压入函数栈
     void beginProgram();//生成函数定义四元式
     void beginFunction();//生成代码段开始四元式
