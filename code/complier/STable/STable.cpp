@@ -23,7 +23,7 @@ int STable::insertNt(int num) {
     }
     else{
         int ans=(ntSheet[num]=ntRSheet.size());
-        ntRSheet.push_back(ntRSheet.size());
+        ntRSheet.push_back(num);
         return ans;
     }
 }
@@ -34,7 +34,7 @@ int STable::inserRt(double num) {
     }
     else{
         int ans=(rtSheet[num]=rtRSheet.size());
-        rtRSheet.push_back(rtRSheet.size());
+        rtRSheet.push_back(num);
         return ans;
     }
 }
@@ -88,6 +88,14 @@ string STable::searchIt(int index) {
 void STable::init(const string& ktName, const string& ptName) {
     ktSheet.read(ktName);
     ptSheet.read(ptName);
+}
+
+string STable::searchNt(int index) {
+    return to_string(ntRSheet[index]);
+}
+
+string STable::searchCt(int index) {
+    return ctSheet.search(index);
 }
 
 
