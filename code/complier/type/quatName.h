@@ -28,6 +28,7 @@ namespace quatName{
     const string GT="GT";
     const string GE="GE";
     const string EQ="EQ";
+    const string NEQ="NEQ";///新增加的不等于ha号
     const string beginWhile="beginWhile";
     const string Do="Do";
     const string endWhile="endWhile";
