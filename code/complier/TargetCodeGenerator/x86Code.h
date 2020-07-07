@@ -105,6 +105,15 @@ inline void relJmp(std::vector<code> &targetCodeArea, string name, string relJmp
 	targetCodeArea.push_back(nowCode);
 }
 
+//nop指令
+inline void NOP(std::vector<code> &targetCodeArea, string name)
+{
+	code nowCode;
+	nowCode.name = name, nowCode.oper = "nop";
+	nowCode.dest = "", nowCode.source = "";
+	targetCodeArea.push_back(nowCode);
+}
+
 //nmd,这些阴间指令...
 //a.h中声明函数，如果c.h想用，必须再a.h的声明中加上inline
 //太他妈阴间了
