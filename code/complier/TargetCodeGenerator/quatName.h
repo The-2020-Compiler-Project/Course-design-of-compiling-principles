@@ -2,10 +2,10 @@
 #include <string>
 using namespace std;
 
-//命名规范
-//多个单词采取驼峰式命名法，即xxxYyyyZzzzTttt，如beginFunction
-//单个单词为开头大写，如Else
-//缩写单词为全大写，如ADD，MUL
+//鍛藉悕瑙勮寖
+//澶氫釜鍗曡瘝閲囧彇椹煎嘲寮忓懡鍚嶆硶锛屽嵆xxxYyyyZzzzTttt锛屽beginFunction
+//鍗曚釜鍗曡瘝涓哄紑澶村ぇ鍐欙紝濡侲lse
+//缂╁啓鍗曡瘝涓哄叏澶у啓锛屽ADD锛孧UL
 namespace quatName {
 	const string beginProgram = "beginProgram";
 	const string beginFunction = "beginFunction";
@@ -22,6 +22,7 @@ namespace quatName {
 	const string GT = "GT";
 	const string GE = "GE";
 	const string EQ = "EQ";
+	const string NEQ = "NEQ";
 	const string beginWhile = "beginWhile";
 	const string Do = "Do";
 	const string endWhile = "endWhile";
