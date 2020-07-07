@@ -53,7 +53,7 @@ private:
   void CallStatement();                 //<调用语句>··············判断标识符
   void CallFunction();                  //<函数调用语句>···········判断标识符
   void CallProcedure();                 //<过程调用语句>···········判断标识符
-  void RealParameterList();             //<实在参数表>
+  int RealParameterList();             //<实在参数表>
   void RealParameter();                 //<实在参数>
   void Expression();                    //<表达式>
   void Item();                          //<项>

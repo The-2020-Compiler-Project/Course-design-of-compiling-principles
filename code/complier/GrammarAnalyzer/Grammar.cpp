@@ -551,16 +551,33 @@ void Grammar::Statement(){
     if(word.symbol == IDENTIFIER){
         string name = sTable.searchIt(word.loc);
         auto pr=Fun_It.find(name);
-        if(! pr.first) ERROR('!');
-        if(pr.second == catV){
-            AssignStatement();
-        }
-        else if(pr.second == catF || pr.second == catP){
-            CallStatement();
+//////////////////////////////////////////////////////////////////////////
+        if(pr.first){
+            if(pr.second == catV){
+                AssignStatement();
+            }
+            else if(pr.second == catF || pr.second == catP){
+                auto tmp = Fun_It;
+                Fun_It = Fun_It.getFunIterator(name);
+                //此时进入调用语句，函数迭代器时改函数的迭代器
+                CallStatement();
+                //退出调用语句，函数迭代器恢复到当前函数
+                Fun_It = tmp;
+            }
+            else{
+                ERROR('!');
+            }
         }
         else{
-            ERROR('!');
+            auto tmp = Fun_It;
+            Fun_It = Fun_It.getFunIterator(name);
+            if(!Fun_It.useful()) ERROR('!');
+            //此时进入调用语句，函数迭代器时改函数的迭代器
+            CallStatement();
+            //退出调用语句，函数迭代器恢复到当前函数
+            Fun_It = tmp;
         }
+////////////////////////////////////////////////////////////////////////////        
         
     }
     else if(word.symbol == RESULT){
@@ -733,20 +750,16 @@ void Grammar::WhileStatement(){
 
 //<调用语句>
 void Grammar::CallStatement(){
+    //此时函数迭代器已经是当前调用的函数的迭代器
     if(word.symbol != IDENTIFIER)
         ERROR('!');
 
-    //判断标识符类型
-    string name = sTable.searchIt(word.loc);
-    auto pr=Fun_It.find(name);
-    if(!pr.first) ERROR('!');      //未找到标识符报错
-    
-    if(pr.second == catF){
+    if(Fun_It.cat() == catF){
         CallFunction();
         //−，popObjectStack
         _action.popObjectStack();
     }
-    else if(pr.second == catP)
+    else if(Fun_It.cat() == catP)
         CallProcedure();
     else
     {
@@ -757,22 +770,24 @@ void Grammar::CallStatement(){
 
 //<函数调用语句>
 void Grammar::CallFunction(){
+    //此时函数迭代器已经是当前调用的函数的迭代器
     if(word.symbol != IDENTIFIER)
         ERROR('!');
-    
-    //判断标识符类型
-    string name = sTable.searchIt(word.loc);
-    auto pr=Fun_It.find(name);
-    if(!pr.first) ERROR('!');      //未找到标识符报错
-    if(pr.second != catF) ERROR('!'); //标识符不是函数报错
+        
+    if(Fun_It.cat() != catF) ERROR('!'); //标识符不是函数报错
     
     //string，pushFunCallStack
-    _action.pushFunCallStack(name);
+    _action.pushFunCallStack(Fun_It.name());
 
 
     NEXT;
-    if(word.symbol == LEFT_BRACKET)
-        RealParameterList();
+
+    if(word.symbol == LEFT_BRACKET){
+        //参数个数判断
+        int parameter_num=Fun_It.parameterNum();
+        int count=RealParameterList();
+        if(count != parameter_num) ERROR('!');
+    }
 
     //−,moveParameter
     _action.moveParameter();
@@ -786,21 +801,24 @@ void Grammar::CallFunction(){
 
 //<过程调用语句>
 void Grammar::CallProcedure(){
+    //此时函数迭代器已经是当前调用的函数的迭代器
     if(word.symbol != IDENTIFIER)
         ERROR('!');
     
     //判断标识符类型
-    string name = sTable.searchIt(word.loc);
-    auto pr=Fun_It.find(name);
-    if(!pr.first) ERROR('!');      //未找到标识符报错
-    if(pr.second != catP) ERROR('!'); //标识符不是过程报错
+    if(Fun_It.cat() != catP) ERROR('!'); //标识符不是过程报错
 
     //string，pushFunCallStack
-    _action.pushFunCallStack(name);
+    _action.pushFunCallStack(Fun_It.name());
 
     NEXT;
-    if(word.symbol == LEFT_BRACKET)
-        RealParameterList();
+
+    if(word.symbol == LEFT_BRACKET){
+        //参数个数判断
+        int parameter_num=Fun_It.parameterNum();
+        int count=RealParameterList();
+        if(count != parameter_num) ERROR('!');
+    }
 
     //−,moveParameter
     _action.moveParameter();
@@ -810,19 +828,23 @@ void Grammar::CallProcedure(){
     _action.popFunCallStack();
 }
 
-//<实在参数表>
-void Grammar::RealParameterList(){
+//<实在参数表>  返回参数个数
+int Grammar::RealParameterList(){
     if(word.symbol != LEFT_BRACKET)
         ERROR('!');
     NEXT;
+    int count=0;
     RealParameter();
+    count++;
     while(word.symbol == COMMA){
         NEXT;
         RealParameter();
+        count++;
     }
     if(word.symbol != RIGHT_BRACKET)
         ERROR('!');
     NEXT;
+    return count;
 }
 
 //<实在参数>
@@ -860,34 +882,54 @@ void Grammar::Factor(){
     if(word.symbol == IDENTIFIER){
         string name = sTable.searchIt(word.loc);
         auto pr=Fun_It.find(name);
-        if(!pr.first) ERROR('!');      //未找到标识符报错
+//////////////////////////////////////////////////////////////////////
+        if(pr.first){
+            if(pr.second == catV){
+                Variable();
+            }
+            else if(pr.second == catF){
+                auto tmp = Fun_It;
+                Fun_It = Fun_It.getFunIterator(name);
+                //此时进入调用语句，函数迭代器是该函数的迭代器
+                CallFunction();
+                //退出调用语句，函数迭代器恢复到当前函数
+                Fun_It = tmp;
+            }
+            else if(pr.second == catC){
+                //类型检查，是否为整数
+                auto e_it = Fun_It.getElemIterator(name);
+                auto t_it = e_it.type();
+                TYPEVAL t = t_it.tVal();
+                if(t != typeValI)
+                    ERROR('!');
+                NEXT;
 
-        if(pr.second == catV){
-            Variable();
-        }
-        else if(pr.second == catF){
-            CallFunction();
-        }
-        else if(pr.second == catC){
-            auto e_it = Fun_It.getElemIterator(name);
-            auto t_it = e_it.type();
-            TYPEVAL t = t_it.tVal();
-            if(t != typeValI)
+                //0+string,pushObjectStack
+                string tmp="0";
+                _action.pushObjectStack(tmp+name);
+            }
+            else{
                 ERROR('!');
-            NEXT;
-            //0+string,pushObjectStack
-            string tmp="0";
-            _action.pushObjectStack(tmp+name);
+            }
         }
         else{
-            ERROR('!');
+            auto tmp = Fun_It;
+            Fun_It = Fun_It.getFunIterator(name);
+            if(!Fun_It.useful()) ERROR('!');
+            //此时进入调用语句，函数迭代器是该函数的迭代器
+            CallFunction();
+            //退出调用语句，函数迭代器恢复到当前函数
+            Fun_It = tmp;
         }
+////////////////////////////////////////////////////////////////////
     }
     else if(word.symbol == NUMBER){
         string num = sTable.searchNt(word.loc);
         string tmp = "0";
+
         //0+string,pushObjectStack
         _action.pushObjectStack(tmp+num);
+
         NEXT;
     }
     else if(word.symbol == LEFT_BRACKET){
