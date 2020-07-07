@@ -1156,7 +1156,7 @@ string TargetCodeGenerator::findBpxxx(string nowOper, string name)
 string TargetCodeGenerator::getRelAsm(string relOper)
 {
 	const int relNum = 6;
-	string rel[6] = { "LT","LE","GT","GE","EQ","NE" };
+	string rel[6] = { "LT","LE","GT","GE","EQ","NEQ" };
 	string asmRel[6] = { "JL","JLE","JG","JGE","JE","JNE" };
 
 	for (int i = 0; i < relNum; i++)
