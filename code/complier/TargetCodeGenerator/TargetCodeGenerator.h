@@ -99,19 +99,25 @@ public:
 	void programBegin(quar nowQuar);
 
 	//处理赋值
-	void assignCalculation(quar nowQuar);
+	void assignCalculation(quar nowQuar, string name);
 
 	//处理加减
-	void addCalculation(quar nowQuar);
+	void addCalculation(quar nowQuar, string name);
 
 	//处理乘
-	void mulCalculation(quar nowQuar);
+	void mulCalculation(quar nowQuar, string name);
 
 	//处理除
-	void divCalculation(quar nowQuar);
+	void divCalculation(quar nowQuar, string name);
 
 	//处理关系运算
-	void relCalculation(quar nowQuar);
+	void relCalculation(quar nowQuar, string name);
+
+	//处理if跳转(假跳)
+	void ifCalculation(quar nowQuar, string name);
+
+	//处理else跳转(无条件)
+	void elCalculation(quar nowQuar, string name);
 
 	//处理结束程序
 	void programEnd(quar nowQuar);
@@ -122,11 +128,14 @@ public:
 	//判断一个字符串是否是数字
 	int isNum(string nowStr);
 
-	//进行寻址操作,适用于局部变量
+	//进行寻址操作
 	string findBpxxx(string nowOper, string name);
 
 	//进行寻址操作，适用于参数
-	string findParaxxx(string nowOper, string name, map<string, int> &paraMap);
+	//string findParaxxx(string nowOper, string name, map<string, int> &paraMap);
+
+	//进行寻址操作，封装两种寻址
+	//string findXxx(string nowOper, string name, map<string, int> &paraMap);
 
 	//基本块集合
 	vector<BaseBlock> BaseBlockColl;
@@ -136,6 +145,12 @@ public:
 
 	//将关系转换成汇编操作符，如LT对应JL
 	string getRelAsm(string relOper);
+
+	//用于判断之前是否是需要生成标号，if用这个
+	string getName(int prevQuarNum);
+
+	//如果需要的话生成标号，之后反填
+	void returnLabel(string name);
 private:
 	//紧接着基本块开始的语句
 	const int SpiltQuarSize = 5;
@@ -175,7 +190,10 @@ private:
 	vector<string> funStack;
 
 	//参数表集合，每一个函数有一个参数表，记录了变量名和偏移量
-	//比如最后一个参数的偏移量为1，表现为word/byte ptr [bp+1(偏移量)]
-	vector<map<string, int>> paraStack;
-	map<string, int> nowParaMap;
+	//比如最后一个参数的偏移量为3(因为还有返回地址)，表现为word/byte ptr [bp+1(偏移量)]
+	//vector<map<string, int>> paraStack;
+	//map<string, int> nowParaMap;
+
+	//前一条四元式进行到哪了,用于查看前一条四元式是否符合一些条件
+	int prevQuarNum = -1;
 };
