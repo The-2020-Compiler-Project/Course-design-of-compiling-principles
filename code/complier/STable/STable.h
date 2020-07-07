@@ -74,6 +74,10 @@ public:
 
     string searchIt(int index);
 
+    string searchNt(int index);
+
+    string searchCt(int index);
+
     STable() : ktSheet(Lprime), ptSheet(Sprime), itSheet(Lprime), ctSheet(Sprime), stSheet(Lprime) {
         init();
     }

@@ -11,12 +11,16 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="963a1c0c-ea8a-4c80-836f-d43e70e13fa3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GrammarAction/GrammarAction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarAction/GrammarAction.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GrammarAction/GrammarAction.h" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarAction/GrammarAction.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/STable/PTtable.txt" beforeDir="false" afterPath="$PROJECT_DIR$/STable/PTtable.txt" afterDir="false" />
     </list>
+=======
+    <list default="true" id="963a1c0c-ea8a-4c80-836f-d43e70e13fa3" name="Default Changelist" comment="" />
+>>>>>>> Stashed changes
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +46,13 @@
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GrammarAction/GrammarAction.cpp">
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.cpp">
+>>>>>>> Stashed changes
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1650">
               <caret line="184" column="33" selection-start-line="184" selection-start-column="33" selection-end-line="184" selection-end-column="33" />
@@ -84,6 +93,52 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
+            <state relative-caret-position="240">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+=======
+            <state relative-caret-position="636">
+              <caret line="89" column="25" selection-start-line="89" selection-start-column="25" selection-end-line="89" selection-end-column="25" />
+>>>>>>> Stashed changes
+              <folding>
+                <element signature="e#0#2#0" />
+                <element signature="e#169#235#1" />
+                <element signature="e#237#1286#1" />
+                <element signature="e#349#554#0" />
+                <element signature="e#665#959#0" />
+                <element signature="e#965#1257#0" />
+                <element signature="e#1288#3042#1" />
+                <element signature="e#1398#2379#0" />
+                <element signature="e#2385#2819#0" />
+                <element signature="e#2825#2988#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/STable/STable.h">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
+            <state relative-caret-position="346">
+              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+=======
+            <state relative-caret-position="336">
+              <caret line="74" column="31" lean-forward="true" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
+>>>>>>> Stashed changes
+              <folding>
+                <element signature="e#0#2#0" />
+                <element signature="e#92#127#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< Updated upstream
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
               <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
@@ -103,18 +158,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/STable/STable.h">
+        <entry file="file://$PROJECT_DIR$/GrammarAnalyzer/Grammar.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            <state relative-caret-position="30">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
               <folding>
-                <element signature="e#0#2#0" />
-                <element signature="e#92#127#0" expanded="true" />
+                <element signature="e#261#269#0" expanded="true" />
+                <element signature="e#401#408#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+>>>>>>> Stashed changes
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -205,8 +270,13 @@
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+<<<<<<< Updated upstream
   <component name="ProjectFrameBounds">
     <option name="x" value="682" />
+=======
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="681" />
+>>>>>>> Stashed changes
     <option name="width" value="1245" />
     <option name="height" value="1088" />
   </component>
@@ -216,6 +286,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -223,6 +294,7 @@
               <item name="complier" type="b2602c69:ProjectViewProjectNode" />
               <item name="complier" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< Updated upstream
             <path>
               <item name="complier" type="b2602c69:ProjectViewProjectNode" />
               <item name="complier" type="462c0819:PsiDirectoryNode" />
@@ -233,11 +305,12 @@
               <item name="complier" type="462c0819:PsiDirectoryNode" />
               <item name="XTable" type="462c0819:PsiDirectoryNode" />
             </path>
+=======
+>>>>>>> Stashed changes
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -312,6 +385,10 @@
       <workItem from="1593999901486" duration="636000" />
       <workItem from="1594002373485" duration="5911000" />
       <workItem from="1594073846891" duration="6817000" />
+<<<<<<< Updated upstream
+=======
+      <workItem from="1594113470253" duration="211000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="初步实现了sTable">
       <created>1593508908172</created>
@@ -359,7 +436,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="163742000" />
+=======
+    <option name="totallyTimeSpent" value="164005000" />
+>>>>>>> Stashed changes
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -371,10 +452,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< Updated upstream
     <frame x="546" y="0" width="996" height="870" extended-state="0" />
     <editor active="true" />
+=======
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+>>>>>>> Stashed changes
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.14837153" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18632708" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -838,25 +923,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#2#0" />
-            <element signature="e#169#235#1" />
-            <element signature="e#237#1286#1" />
-            <element signature="e#349#554#0" />
-            <element signature="e#665#959#0" />
-            <element signature="e#965#1257#0" />
-            <element signature="e#1288#3042#1" />
-            <element signature="e#1398#2379#0" />
-            <element signature="e#2385#2819#0" />
-            <element signature="e#2825#2988#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GrammarAction/GrammarAction.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
@@ -904,5 +970,90 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
+=======
+    <entry file="file://$PROJECT_DIR$/STable/PTtable.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarAnalyzer/Grammar.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="e#261#269#0" expanded="true" />
+            <element signature="e#401#408#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarAnalyzer/Grammar.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding>
+            <element signature="e#1#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/STable.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="89" column="25" selection-start-line="89" selection-start-column="25" selection-end-line="89" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#2#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#169#235#1" />
+            <element signature="e#237#1286#1" />
+            <element signature="e#349#554#0" />
+            <element signature="e#665#959#0" />
+            <element signature="e#965#1257#0" />
+            <element signature="e#1288#3042#1" />
+            <element signature="e#1398#2379#0" />
+            <element signature="e#2385#2819#0" />
+            <element signature="e#2825#2988#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/STable.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="74" column="31" lean-forward="true" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#92#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> Stashed changes
   </component>
 </project>
