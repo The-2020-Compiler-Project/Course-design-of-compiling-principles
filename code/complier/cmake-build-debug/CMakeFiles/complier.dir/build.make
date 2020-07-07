@@ -148,6 +148,32 @@ CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAction/GrammarAction.cpp -o CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.s
 
+CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.o: CMakeFiles/complier.dir/flags.make
+CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.o: ../GrammarAnalyzer/Grammar.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.o -c /cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAnalyzer/Grammar.cpp
+
+CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAnalyzer/Grammar.cpp > CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.i
+
+CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAnalyzer/Grammar.cpp -o CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.s
+
+CMakeFiles/complier.dir/Lexical/lexical.cpp.o: CMakeFiles/complier.dir/flags.make
+CMakeFiles/complier.dir/Lexical/lexical.cpp.o: ../Lexical/lexical.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/complier.dir/Lexical/lexical.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/complier.dir/Lexical/lexical.cpp.o -c /cygdrive/e/Course-design-of-compiling-principles/code/complier/Lexical/lexical.cpp
+
+CMakeFiles/complier.dir/Lexical/lexical.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/complier.dir/Lexical/lexical.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/Course-design-of-compiling-principles/code/complier/Lexical/lexical.cpp > CMakeFiles/complier.dir/Lexical/lexical.cpp.i
+
+CMakeFiles/complier.dir/Lexical/lexical.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/Lexical/lexical.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/Lexical/lexical.cpp -o CMakeFiles/complier.dir/Lexical/lexical.cpp.s
+
 # Object files for target complier
 complier_OBJECTS = \
 "CMakeFiles/complier.dir/main.cpp.o" \
@@ -156,7 +182,9 @@ complier_OBJECTS = \
 "CMakeFiles/complier.dir/XTable/FunSheet.cpp.o" \
 "CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o" \
 "CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o" \
-"CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.o"
+"CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.o" \
+"CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.o" \
+"CMakeFiles/complier.dir/Lexical/lexical.cpp.o"
 
 # External object files for target complier
 complier_EXTERNAL_OBJECTS =
@@ -168,9 +196,11 @@ complier.exe: CMakeFiles/complier.dir/XTable/FunSheet.cpp.o
 complier.exe: CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o
 complier.exe: CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o
 complier.exe: CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.o
+complier.exe: CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.o
+complier.exe: CMakeFiles/complier.dir/Lexical/lexical.cpp.o
 complier.exe: CMakeFiles/complier.dir/build.make
 complier.exe: CMakeFiles/complier.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable complier.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable complier.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/complier.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

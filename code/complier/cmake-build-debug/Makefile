@@ -150,6 +150,60 @@ GrammarAction/GrammarAction.cpp.s:
 	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.s
 .PHONY : GrammarAction/GrammarAction.cpp.s
 
+GrammarAnalyzer/Grammar.o: GrammarAnalyzer/Grammar.cpp.o
+
+.PHONY : GrammarAnalyzer/Grammar.o
+
+# target to build an object file
+GrammarAnalyzer/Grammar.cpp.o:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.o
+.PHONY : GrammarAnalyzer/Grammar.cpp.o
+
+GrammarAnalyzer/Grammar.i: GrammarAnalyzer/Grammar.cpp.i
+
+.PHONY : GrammarAnalyzer/Grammar.i
+
+# target to preprocess a source file
+GrammarAnalyzer/Grammar.cpp.i:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.i
+.PHONY : GrammarAnalyzer/Grammar.cpp.i
+
+GrammarAnalyzer/Grammar.s: GrammarAnalyzer/Grammar.cpp.s
+
+.PHONY : GrammarAnalyzer/Grammar.s
+
+# target to generate assembly for a file
+GrammarAnalyzer/Grammar.cpp.s:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.s
+.PHONY : GrammarAnalyzer/Grammar.cpp.s
+
+Lexical/lexical.o: Lexical/lexical.cpp.o
+
+.PHONY : Lexical/lexical.o
+
+# target to build an object file
+Lexical/lexical.cpp.o:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/Lexical/lexical.cpp.o
+.PHONY : Lexical/lexical.cpp.o
+
+Lexical/lexical.i: Lexical/lexical.cpp.i
+
+.PHONY : Lexical/lexical.i
+
+# target to preprocess a source file
+Lexical/lexical.cpp.i:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/Lexical/lexical.cpp.i
+.PHONY : Lexical/lexical.cpp.i
+
+Lexical/lexical.s: Lexical/lexical.cpp.s
+
+.PHONY : Lexical/lexical.s
+
+# target to generate assembly for a file
+Lexical/lexical.cpp.s:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/Lexical/lexical.cpp.s
+.PHONY : Lexical/lexical.cpp.s
+
 STable/STable.o: STable/STable.cpp.o
 
 .PHONY : STable/STable.o
@@ -324,6 +378,12 @@ help:
 	@echo "... GrammarAction/GrammarAction.o"
 	@echo "... GrammarAction/GrammarAction.i"
 	@echo "... GrammarAction/GrammarAction.s"
+	@echo "... GrammarAnalyzer/Grammar.o"
+	@echo "... GrammarAnalyzer/Grammar.i"
+	@echo "... GrammarAnalyzer/Grammar.s"
+	@echo "... Lexical/lexical.o"
+	@echo "... Lexical/lexical.i"
+	@echo "... Lexical/lexical.s"
 	@echo "... STable/STable.o"
 	@echo "... STable/STable.i"
 	@echo "... STable/STable.s"

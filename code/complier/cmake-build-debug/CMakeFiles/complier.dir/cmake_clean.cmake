@@ -6,6 +6,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o"
   "CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o"
   "CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.o"
+  "CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.o"
+  "CMakeFiles/complier.dir/Lexical/lexical.cpp.o"
   "complier.pdb"
   "complier.exe"
   "libcomplier.dll.a"

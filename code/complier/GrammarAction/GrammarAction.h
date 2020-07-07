@@ -13,7 +13,7 @@ using namespace std;
 //语义动作,纯函数接口
 //四元式的格式(operator,object,object,object)
 //空：_
-static const string fileAddr=R"(..\Files\quat.txt)"
+static const string fileAddr=R"(..\Files\quat.txt)";
 class GrammarAction {
     const string begin="( ";
     const string end=" )";

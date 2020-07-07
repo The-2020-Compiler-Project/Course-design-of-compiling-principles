@@ -6,7 +6,14 @@
 
 using namespace std;
 int main() {
-    auto it =xTable.creatMain("main");
+    sTable.insertNt(123);
+    sTable.insertNt(124);
+    sTable.insertNt(125);
+    sTable.insertCt("c");
+    sTable.insertCt("x");
+    cout<<sTable.searchCt(0);
+    cout<<sTable.searchCt(1);
+    /*auto it =xTable.creatMain("main");
     it.addArrType("arr","integer",1000);
     auto type=it.getTypeIterator("arr");
     cout<<type.len()<<endl;
@@ -38,6 +45,6 @@ int main() {
     cout<<it.getElemIterator("xx").offSet()<<endl;
     cout<<"########################"<<endl;
     cout<<it.getElemIterator("b").type().structType("b").len()<<endl;
-    cout<<it.getElemIterator("b").type().sonOffSet("a")<<endl;
+    cout<<it.getElemIterator("b").type().sonOffSet("a")<<endl;*/
     return 0;
 }
