@@ -119,6 +119,18 @@ public:
 	//处理else跳转(无条件)
 	void elCalculation(quar nowQuar, string name);
 
+	//处理endIf(无动作，NOP,为了嵌套才搞了这个)
+	void endIfCalculation(quar nowQuar, string name);
+
+	//处理wh语句
+	void whCalculation(quar nowQuar, string name);
+
+	//处理do跳转(假跳)
+	void doCalculation(quar nowQuar, string name);
+
+	//处理we跳转(无条件)
+	void weCalculation(quar nowQuar, string name);
+
 	//处理结束程序
 	void programEnd(quar nowQuar);
 
@@ -130,12 +142,6 @@ public:
 
 	//进行寻址操作
 	string findBpxxx(string nowOper, string name);
-
-	//进行寻址操作，适用于参数
-	//string findParaxxx(string nowOper, string name, map<string, int> &paraMap);
-
-	//进行寻址操作，封装两种寻址
-	//string findXxx(string nowOper, string name, map<string, int> &paraMap);
 
 	//基本块集合
 	vector<BaseBlock> BaseBlockColl;
@@ -149,8 +155,11 @@ public:
 	//用于判断之前是否是需要生成标号，if用这个
 	string getName(int prevQuarNum);
 
-	//如果需要的话生成标号，之后反填
+	//如果需要的话生成标号，之后反填,if用这个
 	void returnLabel(string name);
+
+	//如果需要的话生成标号，之后反填,while用这个
+	void returnWeLabel(string name, quar nowQuar);
 private:
 	//紧接着基本块开始的语句
 	const int SpiltQuarSize = 5;
@@ -189,11 +198,6 @@ private:
 	//函数名字栈，用于生成对应的开始标号
 	vector<string> funStack;
 
-	//参数表集合，每一个函数有一个参数表，记录了变量名和偏移量
-	//比如最后一个参数的偏移量为3(因为还有返回地址)，表现为word/byte ptr [bp+1(偏移量)]
-	//vector<map<string, int>> paraStack;
-	//map<string, int> nowParaMap;
-
 	//前一条四元式进行到哪了,用于查看前一条四元式是否符合一些条件
 	int prevQuarNum = -1;
-};
+}; 
