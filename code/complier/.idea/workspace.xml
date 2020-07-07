@@ -12,10 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="963a1c0c-ea8a-4c80-836f-d43e70e13fa3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrammarAction/GrammarAction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarAction/GrammarAction.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrammarAction/GrammarAction.h" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarAction/GrammarAction.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STable/PTtable.txt" beforeDir="false" afterPath="$PROJECT_DIR$/STable/PTtable.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,72 +30,42 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GrammarAction/GrammarAction.h">
+        <entry file="file://$PROJECT_DIR$/GrammarAnalyzer/Grammar.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-              <folding>
-                <element signature="e#105#134#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/GrammarAction/GrammarAction.cpp">
+        <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1650">
-              <caret line="184" column="33" selection-start-line="184" selection-start-column="33" selection-end-line="184" selection-end-column="33" />
+            <state relative-caret-position="150">
+              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
               <folding>
-                <element signature="e#0#2#0" />
-                <element signature="e#65#150#0" />
-                <element signature="e#66#140#0" />
-                <element signature="e#142#212#0" />
-                <element signature="e#449#492#0" />
-                <element signature="e#568#629#0" />
-                <element signature="e#673#711#0" />
-                <element signature="e#774#811#0" />
-                <element signature="e#965#1031#0" />
-                <element signature="e#1067#1104#0" />
-                <element signature="e#1414#1552#0" />
-                <element signature="e#1528#1568#0" />
-                <element signature="e#1946#1985#0" />
-                <element signature="e#2102#2136#0" />
-                <element signature="e#2248#2279#0" />
-                <element signature="e#2335#2367#0" />
-                <element signature="e#2424#2484#0" />
-                <element signature="e#2514#2777#0" />
-                <element signature="e#3213#3250#0" />
-                <element signature="e#3312#3341#0" />
-                <element signature="e#3448#3483#0" />
-                <element signature="e#3543#3584#0" />
-                <element signature="e#3609#3673#0" />
-                <element signature="e#3707#3747#0" />
-                <element signature="e#4340#4371#0" />
-                <element signature="e#4441#4477#0" />
-                <element signature="e#4684#4726#0" />
-                <element signature="e#4752#4789#0" />
+                <element signature="e#1#33#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/STable/Sheet.h">
+        <entry file="file://$PROJECT_DIR$/STable/PTtable.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="450">
+              <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/STable/STable.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2670">
+              <caret line="89" column="25" selection-start-line="89" selection-start-column="25" selection-end-line="89" selection-end-column="25" />
               <folding>
                 <element signature="e#0#2#0" />
-                <element signature="e#169#235#1" />
-                <element signature="e#237#1286#1" />
-                <element signature="e#349#554#0" />
-                <element signature="e#665#959#0" />
-                <element signature="e#965#1257#0" />
-                <element signature="e#1288#3042#1" />
-                <element signature="e#1398#2379#0" />
-                <element signature="e#2385#2819#0" />
-                <element signature="e#2825#2988#0" />
               </folding>
             </state>
           </provider>
@@ -105,12 +74,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/STable/STable.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            <state relative-caret-position="2460">
+              <caret line="82" selection-start-line="82" selection-end-line="82" selection-end-column="26" />
               <folding>
                 <element signature="e#0#2#0" />
                 <element signature="e#92#127#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GrammarAnalyzer/Grammar.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+              <folding>
+                <element signature="e#261#269#0" expanded="true" />
+                <element signature="e#401#408#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -197,18 +188,18 @@
         <option value="$PROJECT_DIR$/XTable/ElemSheet.cpp" />
         <option value="$PROJECT_DIR$/XTable/FunSheet.h" />
         <option value="$PROJECT_DIR$/XTable/FunSheet.cpp" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/type/quatName.h" />
         <option value="$PROJECT_DIR$/GrammarAction/GrammarAction.h" />
         <option value="$PROJECT_DIR$/GrammarAction/GrammarAction.cpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="682" />
+    <option name="x" value="681" />
     <option name="width" value="1245" />
-    <option name="height" value="1088" />
+    <option name="height" value="1089" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -226,12 +217,12 @@
             <path>
               <item name="complier" type="b2602c69:ProjectViewProjectNode" />
               <item name="complier" type="462c0819:PsiDirectoryNode" />
-              <item name="type" type="462c0819:PsiDirectoryNode" />
+              <item name="GrammarAnalyzer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="complier" type="b2602c69:ProjectViewProjectNode" />
               <item name="complier" type="462c0819:PsiDirectoryNode" />
-              <item name="XTable" type="462c0819:PsiDirectoryNode" />
+              <item name="STable" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -312,6 +303,7 @@
       <workItem from="1593999901486" duration="636000" />
       <workItem from="1594002373485" duration="5911000" />
       <workItem from="1594073846891" duration="6817000" />
+      <workItem from="1594113470253" duration="42000" />
     </task>
     <task id="LOCAL-00001" summary="初步实现了sTable">
       <created>1593508908172</created>
@@ -359,7 +351,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163742000" />
+    <option name="totallyTimeSpent" value="163836000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -371,7 +363,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="546" y="0" width="996" height="870" extended-state="0" />
+    <frame x="545" y="0" width="996" height="871" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.14837153" />
@@ -495,53 +487,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tokenType/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/LexAnalyzer/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="146" column="28" lean-forward="true" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
-          <folding>
-            <element signature="e#270#3386#1" />
-            <element signature="e#463#2681#0" />
-            <element signature="e#2695#3156#0" />
-            <element signature="e#3162#3207#0" />
-            <element signature="e#3213#3384#0" />
-            <element signature="e#3388#3473#1" />
-            <element signature="e#3646#3851#0" />
-            <element signature="e#3922#3977#0" />
-            <element signature="e#4124#4391#0" />
-            <element signature="e#4397#4671#0" />
-            <element signature="e#4821#6077#0" />
-            <element signature="e#6083#6608#0" />
-            <element signature="e#6746#7444#0" />
-            <element signature="e#7450#7838#0" />
-            <element signature="e#7844#7882#0" />
-            <element signature="e#7886#8047#1" />
-            <element signature="e#7996#8045#0" />
-            <element signature="e#8049#8113#1" />
-            <element signature="e#8228#8323#0" />
-            <element signature="e#8324#8448#0" />
-            <element signature="e#8449#8842#0" />
-            <element signature="e#8843#8934#0" />
-            <element signature="e#8935#9051#0" />
-            <element signature="e#9052#9139#0" />
-            <element signature="e#9140#9248#0" />
-            <element signature="e#9249#9339#0" />
-            <element signature="e#9340#11281#0" />
-            <element signature="e#11282#13648#0" />
-            <element signature="e#13649#16492#0" />
-            <element signature="e#16493#18177#0" />
-            <element signature="e#18178#19455#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/tmp/Grammar.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -560,13 +505,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="2" column="9" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/STable/PTtable.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -664,16 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/STable/STable.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#2#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/bits/basic_string.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -711,13 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="345" selection-start-line="345" selection-end-line="345" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -810,27 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
-          <folding>
-            <element signature="e#1#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/STable/STable.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#2#0" />
-            <element signature="e#92#127#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/type/quatName.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -900,6 +800,69 @@
             <element signature="e#4441#4477#0" />
             <element signature="e#4684#4726#0" />
             <element signature="e#4752#4789#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/PTtable.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/STable.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2670">
+          <caret line="89" column="25" selection-start-line="89" selection-start-column="25" selection-end-line="89" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#2#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STable/STable.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2460">
+          <caret line="82" selection-start-line="82" selection-end-line="82" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#92#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarAnalyzer/Grammar.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="e#261#269#0" expanded="true" />
+            <element signature="e#401#408#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarAnalyzer/Grammar.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding>
+            <element signature="e#1#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
