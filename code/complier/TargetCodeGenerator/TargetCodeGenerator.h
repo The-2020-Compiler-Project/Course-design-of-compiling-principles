@@ -131,6 +131,27 @@ public:
 	//处理we跳转(无条件)
 	void weCalculation(quar nowQuar, string name);
 
+	//处理数组取值getAddress
+	void getAdrCalculation(quar nowQuar, string name);
+
+	//处理函数声明开始beginFunction
+	void beginFunCalculation(quar nowQuar);
+
+	//处理返回值assignResult ？
+	void resultCalculation(quar nowQuar, string name);
+
+	//处理函数声明结束endFunction
+	void endFunCalculation(quar nowQuar, string name);
+
+	//处理传参数四元式moveTurePar或moveFalsePar
+	void parCalculation(pair<quar, int> nowQuar, string name, int index);
+
+	//处理函数调用Call
+	void callCalculation(quar nowQuar, string name);
+
+	//处理结构体取地址getSonAddres
+	void getSonCalculation(quar nowQuat, string name);
+
 	//处理结束程序
 	void programEnd(quar nowQuar);
 
@@ -142,6 +163,12 @@ public:
 
 	//进行寻址操作
 	string findBpxxx(string nowOper, string name);
+
+	//生成指针对应的操作数代码
+	string findPointxxx(string nowOper, string name);
+
+	//封装三种寻址形式
+	string findXxx(string nowOper, string name);
 
 	//基本块集合
 	vector<BaseBlock> BaseBlockColl;
@@ -158,8 +185,6 @@ public:
 	//如果需要的话生成标号，之后反填,if用这个
 	void returnLabel(string name);
 
-	//如果需要的话生成标号，之后反填,while用这个
-	void returnWeLabel(string name, quar nowQuar);
 private:
 	//紧接着基本块开始的语句
 	const int SpiltQuarSize = 5;
@@ -200,4 +225,7 @@ private:
 
 	//前一条四元式进行到哪了,用于查看前一条四元式是否符合一些条件
 	int prevQuarNum = -1;
+
+	//记录call之前的传参四元式
+	vector<pair<quar,int>> paraColl;
 }; 
