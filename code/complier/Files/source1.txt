@@ -1,0 +1,13 @@
+program Hello://简单函数调用
+	var a,b : integer ;
+	procedure ex(var a,b:integer ) ;
+		 var c,d : integer ;
+	begin
+		c:=3;
+		c:=a+b ;
+	end;
+begin
+	a := 2;
+    b :=2*5+a;
+    ex(a,b)
+end.

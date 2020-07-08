@@ -77,7 +77,7 @@ string TypeSheet::iterator::name() {
 
 TypeSheet::iterator TypeSheet::iterator::arrType() {
     if(this->root->arrSheet== nullptr){
-        cerr<<"TypeSheet::iterator::非数组类型企图获取数组类型信息"<<endl;
+        cerr<<"TypeSheet::iterator::Non array type attempted to get array type information"<<endl;
         return TypeSheet::iterator(nullptr);
     }
     return TypeSheet::iterator(this->root->arrSheet->arrType);
@@ -85,11 +85,11 @@ TypeSheet::iterator TypeSheet::iterator::arrType() {
 
 TypeSheet::iterator TypeSheet::iterator::structType(const string &elemName) {
     if(this->root->structSheet== nullptr){
-        cerr<<"TypeSheet::iterator::非结构体类型企图获取结构体域名类型信息"<<endl;
+        cerr<<"TypeSheet::iterator::An unstructured type attempted to obtain structure domain name type information"<<endl;
         return TypeSheet::iterator(nullptr);
     }
     if(this->root->structSheet->record.find(elemName)==this->root->structSheet->record.end() ){
-        cerr<<"TypeSheet::iterator::结构体企图获取非法域名的类型信息"<<endl;
+        cerr<<"TypeSheet::iterator::Structure attempts to obtain type information of illegal domain name"<<endl;
         return TypeSheet::iterator(nullptr);
     }
     return TypeSheet::iterator(this->root->structSheet->record[elemName]);
@@ -104,12 +104,16 @@ int TypeSheet::iterator::arrSize() {
 
 int TypeSheet::iterator::sonOffSet(const string &elemName) {
     if(this->root->structSheet== nullptr){
-        cerr<<"TypeSheet::iterator::sonOffSet::非结构体类型企图获取结构体域名类型偏移量"<<endl;
+        cerr<<"TypeSheet::iterator::sonOffSet::Nonstructural type attempted to get structure domain name type offset"<<endl;
         return -1;
     }
     if(this->root->structSheet->record.find(elemName)==this->root->structSheet->record.end() ){
-        cerr<<"TypeSheet::iterator::结构体企图获取非法域名的偏移量"<<endl;
+        cerr<<"TypeSheet::iterator::Structure attempted to get the offset of illegal domain name"<<endl;
         return -1;
     }
     return (this->root->structSheet->offset[elemName]);
+}
+
+bool TypeSheet::iterator::useful() {
+    return this->root != nullptr;
 }

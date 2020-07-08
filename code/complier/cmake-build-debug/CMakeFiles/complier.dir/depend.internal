@@ -56,12 +56,16 @@ CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
 CMakeFiles/complier.dir/main.cpp.o
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/ElemSheet.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/FunSheet.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/./XTable/TypeSheet.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/./type/cat.h
- /cygdrive/e/Course-design-of-compiling-principles/code/complier/./type/type.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAction/GrammarAction.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAnalyzer/Grammar.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/Lexical/lexical.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/main.cpp
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/cat.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/quatName.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h

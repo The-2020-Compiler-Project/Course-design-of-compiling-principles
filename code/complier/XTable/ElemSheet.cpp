@@ -71,12 +71,12 @@ ElemSheet::iterator ElemSheet::begin() {
 
 bool ElemSheet::erase(ElemSheet::ElemPoint erasePoint) {
     if(erasePoint== nullptr){
-        cerr<<"ElemSheet::erase::试图删除无效项"<<endl;
+        cerr<<"ElemSheet::erase::An attempt was made to delete an invalid item"<<endl;
         return false;
     }else{
         auto it=shine.find(erasePoint->name);
         if(it==shine.end()){
-            cerr<<"ElemSheet::erase::试图删除不属于本成员信息表的项"<<endl;
+            cerr<<"ElemSheet::erase::An attempt was made to delete an item that does not belong to this member information table"<<endl;
             return false;
         }
         ///删除，并维护链表、双向指针、哈希表
@@ -110,7 +110,7 @@ string ElemSheet::iterator::name() {
 
 int ElemSheet::iterator::offSet() {
     if(this->root->offSet==-1){
-        cerr<<"ElemSheet::iterator::offSet::偏移量未初始化"<<endl;
+        cerr<<"ElemSheet::iterator::offSet::Offset not initialized"<<endl;
     }
     return this->root->offSet;
 }

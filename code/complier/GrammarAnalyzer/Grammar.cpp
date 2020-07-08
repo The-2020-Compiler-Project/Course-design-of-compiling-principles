@@ -3,15 +3,18 @@
 #include <stack>
 #include <vector>
 //extern STable sTable;
-
+ofstream output("../main/token.txt");
 // 读下一个token
-#define NEXT word=_lexical.next()
+#define NEXT {                 \
+    word=_lexical.next();       \
+    output<<word.symbol<<endl; \
+}
 
 //错误处理，DEBUG用
 #define ERROR(cat)  {                                 \                                        
-            cout<<"Line "<<word.row<<": "<<cat<<endl; \
+            cerr<<"Line "<<word.row<<": "<<cat<<endl; \
             exit(1);                                  \
-        }                         
+        }
 
 Grammar::Grammar(lexical& LA,GrammarAction& action):_lexical(LA) ,_action(action){}
 
@@ -19,7 +22,7 @@ token Pre_word;
 
 string tmp_record;
 
-FunSheet::iterator Fun_It;
+FunSheet::iterator Fun_It,son_It;
 
 //可能需要一个类型栈，一个参数栈
 
@@ -42,10 +45,10 @@ void Grammar::analyzer(){
 //<程序>
 void Grammar::Program(){                  //<程序>
     if(word.symbol != PROGRAM)
-        ERROR('!');
+    ERROR("expected program!");
     NEXT;
     if(word.symbol != IDENTIFIER)         //填符号表
-        ERROR('!');
+    ERROR("expected identifier！");
     //创建主函数
     string name = sTable.searchIt(word.loc);
     Fun_It = xTable.creatMain(name);
@@ -57,12 +60,15 @@ void Grammar::Program(){                  //<程序>
     _action.beginProgram();
 
     if(word.symbol != COLON)
-        ERROR('!');
+    ERROR("expected \':\'!");
     NEXT;
     SubProgram();
     if(word.symbol != PERIOD)
-        ERROR('!');
+    ERROR("expected \'.\'!");
     NEXT;
+
+    cout<<"succeed!"<<endl;
+    output.close();
 }
 
 //<分程序>
@@ -89,7 +95,7 @@ void Grammar::SubProgram(){             //<分程序>
 //<常量说明部分>
 void Grammar::ConstDecl(){            //<常量说明部分>
     if(word.symbol != CONST)
-        ERROR('!');
+    ERROR("expected const!");
     NEXT;
     ConstDef();
     while(word.symbol == COMMA){
@@ -97,37 +103,37 @@ void Grammar::ConstDecl(){            //<常量说明部分>
         ConstDef();
     }
     if(word.symbol != SEMICOLON)
-        ERROR('!');
+    ERROR("expected \';\'!");
     NEXT;
 }
 
 //<常量定义>
-void Grammar::ConstDef(){             
-    if(word.symbol != IDENTIFIER)     
-        ERROR('!'); 
-    
+void Grammar::ConstDef(){
+    if(word.symbol != IDENTIFIER)
+    ERROR("expected identifiler!");
+
     //记录标识符                     
     string name = sTable.searchIt(word.loc);
     //重定义判断  
     auto pr = Fun_It.find(name);
-    if(pr.first) ERROR('!');  
+    if(pr.first) ERROR("identifiler redefined! : "+name);
 
     NEXT;                             //记录标识符
     if(word.symbol != EQUAL)
-        ERROR('!');
+    ERROR("expected \'=\'!");
     NEXT;
     auto _pr=IsConst();
     Fun_It.addConst(name,_pr.second,_pr.first);
 }
 
 //<常量>       first---value, second---type
-pair<string,string> Grammar::IsConst(){ 
+pair<string,string> Grammar::IsConst(){
     bool isNeg = false;
     if(word.symbol == PLUS || word.symbol == MINUS){
         if(word.symbol == MINUS) isNeg = true;
         NEXT;
         if(word.symbol != NUMBER)
-            ERROR('!');
+        ERROR("must be number!");
         //记录值
         string num = sTable.searchNt(word.loc);
         NEXT;
@@ -152,60 +158,60 @@ pair<string,string> Grammar::IsConst(){
     }
     else
     {
-        ERROR('!');
+        ERROR("must be number or character!");
     }
-    
+
 }
 
 //<变量说明部分>
-void Grammar::VarDecl(){            
+void Grammar::VarDecl(){
     if(word.symbol != VAR)
-        ERROR('!');
+    ERROR("expected var!");
     NEXT;
     VarDef();
     if(word.symbol != SEMICOLON)
-        ERROR('!');
+    ERROR("expected \';\'!");
     NEXT;
     while(word.symbol == IDENTIFIER){
         VarDef();
         if(word.symbol != SEMICOLON)
-            ERROR('!');
+        ERROR("expected \';\'!");
         NEXT;
     }
 }
 
 //<变量说明>
-void Grammar::VarDef(){             
+void Grammar::VarDef(){
     if(word.symbol != IDENTIFIER)
-        ERROR('!');
+    ERROR("expected identifier!");
     //记录标识符
     string name = sTable.searchIt(word.loc);
     //判断重定义
     auto pr = Fun_It.find(name);
-    if(pr.first) ERROR('!');
+    if(pr.first) ERROR("identifier redefined! : "+name);
 
     vector<string> nameV;
     //标识符存入向量
     nameV.push_back(name);
-    
+
     NEXT;
     while(word.symbol == COMMA){
         NEXT;
         if(word.symbol != IDENTIFIER)
-            ERROR('!');
-        
+        ERROR("expected identifier!");
+
         //记录标识符
         name = sTable.searchIt(word.loc);
         //判断重定义
         pr = Fun_It.find(name);
-        if(pr.first) ERROR('!');
+        if(pr.first) ERROR("identifier redefined! : "+name);
         //标识符存入向量
         nameV.push_back(name);
 
         NEXT;
     }
     if(word.symbol != COLON)
-        ERROR('!');
+    ERROR("expected \':\'!");
     NEXT;
     string _type=Type();
     //增加变量定义
@@ -217,12 +223,13 @@ void Grammar::VarDef(){
 string Grammar::Type(){
     if(word.symbol == IDENTIFIER){
         string name = sTable.searchIt(word.loc);
-        auto pr=Fun_It.find(name);
-        if(!pr.first || pr.second != catD) ERROR('!');      //未找到标识符或语义角色不是类型报错
+        auto pr=Fun_It.search(name);
+        if(!pr.first ) ERROR("identifier undefined: "+name+"!");      //未找到标识符或语义角色不是类型报错
+        if(pr.second != catD) ERROR("identifier must be type!");
         NEXT;
         return name;
     }
-    else          
+    else
         return BasicType();
     // 返回类型表指针？
     // 其他用户自定义数据类型
@@ -233,42 +240,42 @@ string Grammar::BasicType(){
     if(word.symbol == INTEGER)
     {
         NEXT;
-        return "int";
+        return "integer";
     }
     else if (word.symbol == CHAR)
     {
         NEXT;
         return "char";
     }
-    // else if (word.symbol == BOOL)
-    // {
-    //     NEXT;
-    //     return;
-    // }
-    // else if (word.symbol == REAL)
-    // {
-    //     NEXT;
-    //     return;
-    // }
+        // else if (word.symbol == BOOL)
+        // {
+        //     NEXT;
+        //     return;
+        // }
+        // else if (word.symbol == REAL)
+        // {
+        //     NEXT;
+        //     return;
+        // }
     else
     {
-        ERROR('!');
-    }   
+        ERROR("must be basic type!");
+    }
 }
 
 //<类型定义部分>
 void Grammar::TypeDecl(){
     if(word.symbol != TYPE)
-        ERROR('!');
+    ERROR("expected type!");
     NEXT;
     TypeDef();
     if(word.symbol != SEMICOLON)
-        ERROR('!');
+    ERROR("expected \';\'!");
     NEXT;
     while(word.symbol == IDENTIFIER){
         TypeDef();
         if(word.symbol != SEMICOLON)
-            ERROR('!');
+        ERROR("expected \';\'!");
         NEXT;
     }
 }
@@ -276,14 +283,14 @@ void Grammar::TypeDecl(){
 //<类型定义>
 void Grammar::TypeDef(){
     if(word.symbol != IDENTIFIER)
-        ERROR('!');
+    ERROR("expected identifier!");
     //压入类型定义标识符栈
     string name = sTable.searchIt(word.loc);
     TypeIdentifier.push(name);
-    
+
     NEXT;
     if(word.symbol != EQUAL)
-        ERROR('!');
+    ERROR("expected \'=\'!");
     NEXT;
     if(word.symbol == ARRAY){
         ArrayDef();
@@ -293,32 +300,32 @@ void Grammar::TypeDef(){
     }
     else
     {
-        ERROR('!');
+        ERROR("expected array, record! ");
     }
-    
+
 }
 
-//<数组类型定义> 
+//<数组类型定义>
 void Grammar::ArrayDef(){
     if(word.symbol != ARRAY)
-        ERROR('!');
+    ERROR("expected array!");
     NEXT;
     if(word.symbol != LEFT_SQUARE)
-        ERROR('!');
+    ERROR("expected \'[\'!");
     NEXT;
     if(word.symbol != NUMBER)
-        ERROR('!');
+    ERROR("must be integer!");
 
     //记录常数值
-    string number = sTable.searchNt(word.loc); 
+    string number = sTable.searchNt(word.loc);
     int value = stoi(number);
 
     NEXT;
     if(word.symbol != RIGHT_SQUARE)
-        ERROR('!');
+    ERROR("expected \']\'");
     NEXT;
     if(word.symbol != OF)
-        ERROR('!');
+    ERROR("expected of!");
     NEXT;
     // if(word.symbol != IDENTIFIER)
     //     ERROR('!');
@@ -334,20 +341,20 @@ void Grammar::ArrayDef(){
 //<结构体类型定义>
 void Grammar::RecordDef(){
     if(word.symbol != RECORD)
-        ERROR('!');
+    ERROR("expected record!");
     NEXT;
     DomainDef();
     if(word.symbol != SEMICOLON)
-        ERROR('!');
+    ERROR("expected \';\'!");
     NEXT;
     while(word.symbol == IDENTIFIER){
         DomainDef();
         if(word.symbol != SEMICOLON)
-            ERROR('!');
+        ERROR("expected \';\'!");
         NEXT;
     }
     if(word.symbol != END)
-        ERROR('!');
+    ERROR("expected end!");
     NEXT;
     //增加结构体类型定义，域名向量、域名类型向量清空
     string name = TypeIdentifier.top();
@@ -359,14 +366,14 @@ void Grammar::RecordDef(){
 //<域名定义>
 void Grammar::DomainDef(){
     if(word.symbol != IDENTIFIER)
-        ERROR('!');
+    ERROR("expected identifier!");
     //域名标识加入，域名向量
     string name = sTable.searchIt(word.loc);
     DomainName.push_back(name);
 
     NEXT;
     if(word.symbol != COLON)
-        ERROR('!');
+    ERROR("expected \':\'!");
     NEXT;
     string _type=Type();
     //类型标识加入，域名类型向量
@@ -379,7 +386,7 @@ void Grammar::ProcedureDecl(){
     //此时函数迭代器已经是该过程的迭代器
     SubProgram();
     if(word.symbol != SEMICOLON)
-        ERROR('!');
+    ERROR("expected \';\'!");
     NEXT;
     //此时函数迭代器已回到上层
     --Fun_It;
@@ -388,16 +395,16 @@ void Grammar::ProcedureDecl(){
 //<过程首部>
 void Grammar::ProcedureHead(){
     if(word.symbol != PROCEDURE)
-        ERROR('!');
+    ERROR("expected procedure!");
     NEXT;
     if(word.symbol != IDENTIFIER)
-        ERROR('!');
+    ERROR("expected identifier!");
 
     //记录标识符
     string name = sTable.searchIt(word.loc);
     //判断重定义
     auto pr = Fun_It.find(name);
-    if(pr.first) ERROR('!');
+    if(pr.first) ERROR("identifier redefined! : "+name);
     //增加过程
     Fun_It=Fun_It.addFunction(name,catP);
     //此时函数迭代器已进入新过程/函数
@@ -411,7 +418,7 @@ void Grammar::ProcedureHead(){
     if(word.symbol == LEFT_BRACKET)
         FormalParameterList();
     if(word.symbol != SEMICOLON)
-        ERROR('!');
+    ERROR("expected \';\'!");
     NEXT;
     for(auto pr1:ParameterLists){
         for(auto s:pr1.second){
@@ -427,7 +434,7 @@ void Grammar::FunctionDecl(){
     SubProgram();
     //此时函数迭代器已经是该函数的迭代器
     if(word.symbol != SEMICOLON)
-        ERROR('!');
+    ERROR("expected \';\'!");
     NEXT;
     //此时函数迭代器已回到上层
     --Fun_It;
@@ -436,10 +443,10 @@ void Grammar::FunctionDecl(){
 //<函数首部>
 void Grammar::FunctionHead(){
     if(word.symbol != FUNCTION)
-        ERROR('!');
+    ERROR("expected function!");
     NEXT;
     if(word.symbol != IDENTIFIER)
-        ERROR('!');
+    ERROR("expected identifier!");
 
     //记录标识符
     string name = sTable.searchIt(word.loc);
@@ -448,11 +455,11 @@ void Grammar::FunctionHead(){
     if(word.symbol == LEFT_BRACKET)
         FormalParameterList();
     if(word.symbol != COLON)
-        ERROR('!');
+    ERROR("expected \':\'!");
     NEXT;
     string _type=BasicType();
     if(word.symbol != SEMICOLON)
-        ERROR('!');
+    ERROR("expected \';\'!");
     NEXT;
 
     //增加函数
@@ -475,7 +482,7 @@ void Grammar::FunctionHead(){
 //<形式参数表>
 void Grammar::FormalParameterList(){
     if(word.symbol != LEFT_BRACKET)
-        ERROR('!');
+    ERROR("expected \'(\'!");
     NEXT;
     auto pr=FormalParameter();
 
@@ -490,7 +497,7 @@ void Grammar::FormalParameterList(){
         Parameters.clear();
     }
     if(word.symbol != RIGHT_BRACKET)
-        ERROR('!');
+    ERROR("expected \')\'!");
     NEXT;
 }
 
@@ -502,7 +509,7 @@ pair<CAT,string> Grammar::FormalParameter(){
         NEXT;
     }
     if(word.symbol != IDENTIFIER)
-        ERROR('!');
+    ERROR("expected identifier!");
 
     //记录标识符
     string name = sTable.searchIt(word.loc);
@@ -513,8 +520,8 @@ pair<CAT,string> Grammar::FormalParameter(){
     while(word.symbol == COMMA){
         NEXT;
         if(word.symbol != IDENTIFIER)
-            ERROR('!');
-        
+        ERROR("expected identifier!");
+
         //记录标识符
         name = sTable.searchIt(word.loc);
         //加入标识符向量
@@ -523,7 +530,7 @@ pair<CAT,string> Grammar::FormalParameter(){
         NEXT;
     }
     if(word.symbol != COLON)
-        ERROR('!');
+    ERROR("expected \':\'!");
     NEXT;
     string _type=BasicType();
     return make_pair(_cat,_type);
@@ -534,7 +541,7 @@ pair<CAT,string> Grammar::FormalParameter(){
 //<复合语句>
 void Grammar::CompoundStatement(){
     if(word.symbol != BEGIN)
-        ERROR('!');
+    ERROR("expected begin!");
     NEXT;
     Statement();
     while(word.symbol == SEMICOLON){
@@ -542,7 +549,7 @@ void Grammar::CompoundStatement(){
         Statement();
     }
     if(word.symbol != END)
-        ERROR('!');
+    ERROR("expected end!");
     NEXT;
 }
 
@@ -550,35 +557,30 @@ void Grammar::CompoundStatement(){
 void Grammar::Statement(){
     if(word.symbol == IDENTIFIER){
         string name = sTable.searchIt(word.loc);
-        auto pr=Fun_It.find(name);
+        auto pr=Fun_It.search(name);
 //////////////////////////////////////////////////////////////////////////
         if(pr.first){
-            if(pr.second == catV){
+            if(pr.second == catV || pr.second == catVn || pr.second == catVf){
                 AssignStatement();
             }
             else if(pr.second == catF || pr.second == catP){
-                auto tmp = Fun_It;
-                Fun_It = Fun_It.getFunIterator(name);
+                if(! Fun_It.isCallFun((name))) ERROR(Fun_It.name()+" can't call "+name);
+                //pre_It = Fun_It;
+                son_It = Fun_It.getFunIterator(name);
                 //此时进入调用语句，函数迭代器时改函数的迭代器
                 CallStatement();
                 //退出调用语句，函数迭代器恢复到当前函数
-                Fun_It = tmp;
+                //Fun_It = pre_It;
             }
             else{
-                ERROR('!');
+                ERROR("illegal identifier!");
             }
         }
         else{
-            auto tmp = Fun_It;
-            Fun_It = Fun_It.getFunIterator(name);
-            if(!Fun_It.useful()) ERROR('!');
-            //此时进入调用语句，函数迭代器时改函数的迭代器
-            CallStatement();
-            //退出调用语句，函数迭代器恢复到当前函数
-            Fun_It = tmp;
+            ERROR("identifier undefined: "+name+"!");
         }
-////////////////////////////////////////////////////////////////////////////        
-        
+////////////////////////////////////////////////////////////////////////////
+
     }
     else if(word.symbol == RESULT){
         ReturnStatement();
@@ -601,7 +603,7 @@ void Grammar::Statement(){
 void Grammar::AssignStatement(){
     Variable();
     if(word.symbol != ASSIGN)
-        ERROR('!');
+    ERROR("expected \':=\'!");
     NEXT;
     Expression();
     //_,Assign
@@ -611,16 +613,17 @@ void Grammar::AssignStatement(){
 //<变量>
 void Grammar::Variable(){
     if(word.symbol != IDENTIFIER)
-        ERROR('!');
+    ERROR("expected identifier!");
 
     //判断标识符类型
     string name = sTable.searchIt(word.loc);
-    auto pr=Fun_It.find(name);
-    if(! pr.first || pr.second != catV) ERROR('!');    //未找到标识符或语义角色不是变量报错
+    auto pr=Fun_It.search(name);
+    if(! pr.first) ERROR("identifier undefined: "+name+"!");    //未找到标识符或语义角色不是变量报错
+    if(pr.second != catV && pr.second != catVn && pr.second != catVf) ERROR("illegal identifier!");
     auto e_it = Fun_It.getElemIterator(name);
     auto t_it = e_it.type();
     TYPEVAL t = t_it.tVal();
-    
+
     if(t == typeValI || t == typeValC){
         NEXT;
         //string,pushObjectStack
@@ -634,11 +637,11 @@ void Grammar::Variable(){
         _action.pushObjectStack(name);
 
         if(word.symbol != LEFT_SQUARE)
-            ERROR('!');
+        ERROR("expected \'[\'!");
         NEXT;
         Expression();
         if(word.symbol != RIGHT_SQUARE)
-            ERROR('!');
+        ERROR("expected \']\'!");
         NEXT;
 
         //−，getAddress
@@ -653,10 +656,10 @@ void Grammar::Variable(){
 
         NEXT;
         if(word.symbol != PERIOD)
-            ERROR('!');
+        ERROR("expected \'.\'!");
         NEXT;
         if(word.symbol != IDENTIFIER)
-            ERROR('!');
+        ERROR("expected identifier!");
 
         string dname = sTable.searchIt(word.loc);
 
@@ -664,9 +667,9 @@ void Grammar::Variable(){
             auto _it=Fun_It.getElemIterator(name);
             auto _itType=_it.type();
             if(_itType.sonOffSet(dname) == -1)
-                ERROR('!');
+            ERROR(name+"has no member named: "+dname+"!");
         }
-        
+
         //string,pushObjectStack
         _action.pushObjectStack(dname);
 
@@ -680,10 +683,10 @@ void Grammar::Variable(){
 //<返回值语句>
 void Grammar::ReturnStatement(){
     if(word.symbol != RESULT)
-        ERROR('!');
+    ERROR("expected result!");
     NEXT;
     if(word.symbol != ASSIGN)
-        ERROR('!');
+    ERROR("expected \':=\'!");
     NEXT;
     Expression();
 
@@ -694,11 +697,11 @@ void Grammar::ReturnStatement(){
 //<条件语句>
 void Grammar::IfStatement(){
     if(word.symbol != IF)
-        ERROR('!');
+    ERROR("expected if!");
     NEXT;
     Condition();
     if(word.symbol != THEN)
-        ERROR('!');
+    ERROR("expected then!");
     NEXT;
     //−，beginIf
     _action.beginIf();
@@ -709,14 +712,14 @@ void Grammar::IfStatement(){
         _action.Else();
         Statement();
     }
-   // −,endIf
+    // −,endIf
     _action.endIf();
 }
 
 //<条件>
 void Grammar::Condition(){
     Expression();
-    BoolOperator(); 
+    BoolOperator();
     Expression();
     //−，Relation
     _action.Relation();
@@ -725,7 +728,7 @@ void Grammar::Condition(){
 //<while循环语句>
 void Grammar::WhileStatement(){
     if(word.symbol != WHILE)
-        ERROR('!');
+    ERROR("expected while!");
     NEXT;
 
     //−，beginWhile
@@ -733,17 +736,17 @@ void Grammar::WhileStatement(){
 
     Condition();
     if(word.symbol != DO)
-        ERROR('!');
+    ERROR("expected do!");
     NEXT;
 
     //_,Do
     _action.Do();
 
     Statement();
-    if(word.symbol != SEMICOLON)
-        ERROR('!');
+    /*if(word.symbol != SEMICOLON)
+    ERROR("expected \';\'!");
     NEXT;
-
+*/
     //_,endWhile
     _action.endWhile();
 }
@@ -752,41 +755,41 @@ void Grammar::WhileStatement(){
 void Grammar::CallStatement(){
     //此时函数迭代器已经是当前调用的函数的迭代器
     if(word.symbol != IDENTIFIER)
-        ERROR('!');
+    ERROR("expected identifier!");
 
-    if(Fun_It.cat() == catF){
+    if(son_It.cat() == catF){
         CallFunction();
         //−，popObjectStack
         _action.popObjectStack();
     }
-    else if(Fun_It.cat() == catP)
+    else if(son_It.cat() == catP)
         CallProcedure();
     else
     {
-        ERROR('!');
+        ERROR("function or procedure undefined! : "+son_It.name());
     }
-    
+
 }
 
 //<函数调用语句>
 void Grammar::CallFunction(){
     //此时函数迭代器已经是当前调用的函数的迭代器
     if(word.symbol != IDENTIFIER)
-        ERROR('!');
-        
-    if(Fun_It.cat() != catF) ERROR('!'); //标识符不是函数报错
-    
+    ERROR("expected identifier!");
+
+    if(son_It.cat() != catF) ERROR("function undefined! : "+son_It.name()); //标识符不是函数报错
+
     //string，pushFunCallStack
-    _action.pushFunCallStack(Fun_It.name());
+    _action.pushFunCallStack(son_It.name());
 
 
     NEXT;
 
     if(word.symbol == LEFT_BRACKET){
         //参数个数判断
-        int parameter_num=Fun_It.parameterNum();
+        int parameter_num=son_It.parameterNum();
         int count=RealParameterList();
-        if(count != parameter_num) ERROR('!');
+        if(count != parameter_num) ERROR("The number of parameters does not match! :"+son_It.name());
     }
 
     //−,moveParameter
@@ -803,21 +806,21 @@ void Grammar::CallFunction(){
 void Grammar::CallProcedure(){
     //此时函数迭代器已经是当前调用的函数的迭代器
     if(word.symbol != IDENTIFIER)
-        ERROR('!');
-    
+    ERROR("expected identifier!");
+
     //判断标识符类型
-    if(Fun_It.cat() != catP) ERROR('!'); //标识符不是过程报错
+    if(son_It.cat() != catP) ERROR("procedure undefined! : "+son_It.name()); //标识符不是过程报错
 
     //string，pushFunCallStack
-    _action.pushFunCallStack(Fun_It.name());
+    _action.pushFunCallStack(son_It.name());
 
     NEXT;
 
     if(word.symbol == LEFT_BRACKET){
         //参数个数判断
-        int parameter_num=Fun_It.parameterNum();
+        int parameter_num=son_It.parameterNum();
         int count=RealParameterList();
-        if(count != parameter_num) ERROR('!');
+        if(count != parameter_num) ERROR("The number of parameters does not match! :"+son_It.name());
     }
 
     //−,moveParameter
@@ -831,7 +834,7 @@ void Grammar::CallProcedure(){
 //<实在参数表>  返回参数个数
 int Grammar::RealParameterList(){
     if(word.symbol != LEFT_BRACKET)
-        ERROR('!');
+    ERROR("expected \'(\'!");
     NEXT;
     int count=0;
     RealParameter();
@@ -842,7 +845,7 @@ int Grammar::RealParameterList(){
         count++;
     }
     if(word.symbol != RIGHT_BRACKET)
-        ERROR('!');
+    ERROR("expected \')\'!");
     NEXT;
     return count;
 }
@@ -881,19 +884,21 @@ void Grammar::Item(){
 void Grammar::Factor(){
     if(word.symbol == IDENTIFIER){
         string name = sTable.searchIt(word.loc);
-        auto pr=Fun_It.find(name);
+        auto pr=Fun_It.search(name);
 //////////////////////////////////////////////////////////////////////
         if(pr.first){
-            if(pr.second == catV){
+            if(pr.second == catV || pr.second == catVn || pr.second == catVf){
                 Variable();
             }
             else if(pr.second == catF){
-                auto tmp = Fun_It;
-                Fun_It = Fun_It.getFunIterator(name);
+                if(! Fun_It.isCallFun(name)) ERROR(Fun_It.name()+" can't call "+name);
+                //pre_It = Fun_It;
+                son_It = Fun_It.getFunIterator(name);
                 //此时进入调用语句，函数迭代器是该函数的迭代器
                 CallFunction();
                 //退出调用语句，函数迭代器恢复到当前函数
-                Fun_It = tmp;
+                //Fun_It = pre_It;
+                //pre_It=pre_It.getFunIterator("");
             }
             else if(pr.second == catC){
                 //类型检查，是否为整数
@@ -901,7 +906,7 @@ void Grammar::Factor(){
                 auto t_it = e_it.type();
                 TYPEVAL t = t_it.tVal();
                 if(t != typeValI)
-                    ERROR('!');
+                ERROR("must be number");
                 NEXT;
 
                 //0+string,pushObjectStack
@@ -909,17 +914,11 @@ void Grammar::Factor(){
                 _action.pushObjectStack(tmp+name);
             }
             else{
-                ERROR('!');
+                ERROR("illegal identifier!");
             }
         }
         else{
-            auto tmp = Fun_It;
-            Fun_It = Fun_It.getFunIterator(name);
-            if(!Fun_It.useful()) ERROR('!');
-            //此时进入调用语句，函数迭代器是该函数的迭代器
-            CallFunction();
-            //退出调用语句，函数迭代器恢复到当前函数
-            Fun_It = tmp;
+            ERROR("identifier undefined: "+name+"!");
         }
 ////////////////////////////////////////////////////////////////////
     }
@@ -936,13 +935,13 @@ void Grammar::Factor(){
         NEXT;
         Expression();
         if(word.symbol != RIGHT_BRACKET)
-            ERROR('!');
+        ERROR("expected \')\'!");
         NEXT;
     }
     else
     {
-        ERROR('!');
-    }   
+        ERROR("illegal operand!");
+    }
 }
 
 //<加法运算符>
@@ -960,7 +959,7 @@ void Grammar::AddOperator(){
         return;
     }
     else{
-        ERROR('!');
+        ERROR("illegal operator!");
     }
 }
 
@@ -979,7 +978,7 @@ void Grammar::MulOperator(){
         return;
     }
     else{
-        ERROR('!');
+        ERROR("illegal operator!");
     }
 }
 
@@ -1016,6 +1015,6 @@ void Grammar::BoolOperator(){
         return;
     }
     else{
-        ERROR('!');
+        ERROR("illegal operator!");
     }
 }

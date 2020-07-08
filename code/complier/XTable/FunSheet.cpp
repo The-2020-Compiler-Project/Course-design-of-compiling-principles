@@ -26,28 +26,29 @@ FunSheet::iterator::iterator(FunSheet::funNode *point) {
 void FunSheet::iterator::addParameter(const string &addName, CAT addCat, const string &addType) {
     bool ans=this->root->addParameter(addName,addCat,addType).first;
     if(!ans){
-        cerr<<"FunSheet::iterator::addParameter::添加参数失败"<<endl;
+        cerr<<"FunSheet::iterator::addParameter::Failed to add parameter"<<endl;
     }
 }
 
 void FunSheet::iterator::addVariable(const string &addName, const string &addType) {
     bool ans=this->root->addVariable(addName,addType).first;
     if(!ans){
-        cerr<<"FunSheet::iterator::addVariable::添加变量失败"<<endl;
+        cerr<<"FunSheet::iterator::addVariable::Failed to add variable"<<endl;
     }
 }
 
 void FunSheet::iterator::addConst(const string &addName, const string &addType, const string &addValue) {
     bool ans=this->root->addConst(addName,addType,addValue);
     if(ans==0){
-        cerr<<"FunSheet::iterator::addConst::常量添加失败"<<endl;
+        cerr<<"FunSheet::iterator::addConst::Constant addition failed"<<endl;
     }
 }
 
 FunSheet::iterator FunSheet::iterator::addFunction(const string &name, CAT cat, const string &type) {
     auto ans=this->root->addFun(name,cat,type);
     if(ans== nullptr){
-        cerr<<"FunSheet::iterator::addFunction::增加函数失败"<<endl;
+        cerr<<"FunSheet::iterator::addFunction::Failed to add function"<<endl;
+        exit(-1);
     }
     return iterator(ans);
 }
@@ -105,7 +106,7 @@ pair<bool, CAT> FunSheet::iterator::search(const string &searchName) {
 FunSheet::iterator FunSheet::iterator::getFunIterator(const string &funName) {
     ///全局查询符号表寻找标识符
     auto findAns=this->root->search(funName);
-    if(findAns.first!=CAT::catF&&findAns.first!=CAT::catP){
+    if(findAns.first!=CAT::catF && findAns.first!=CAT::catP){
         ///标识符不是函数或者过程，返回空迭代器
         return iterator(nullptr);
     }else{
@@ -158,7 +159,7 @@ pair<TypeSheet::iterator, string> FunSheet::iterator::searchConstInfo(const stri
     ///检查标识符是否已经定义（全局）
     auto safeAns=this->root->search(constName);
     if(safeAns.second== nullptr){
-        cerr<<"FunSheet::iterator::searchConstInfo::不存在对应的标识符"<<endl;
+        cerr<<"FunSheet::iterator::searchConstInfo::There is no corresponding identifier"<<endl;
         return ans;
     }
     else if(safeAns.first==CAT::catC){
@@ -168,7 +169,7 @@ pair<TypeSheet::iterator, string> FunSheet::iterator::searchConstInfo(const stri
         return ans;
     }
     else{
-        cerr<<"FunSheet::iterator::searchConstInfo::标识符不是常量"<<endl;
+        cerr<<"FunSheet::iterator::searchConstInfo::Identifier is not a constant"<<endl;
         return ans;
     }
 }
@@ -176,21 +177,21 @@ pair<TypeSheet::iterator, string> FunSheet::iterator::searchConstInfo(const stri
 void FunSheet::iterator::addTmpVariable(const string &addName, const string &addType,CAT addCat) {
     bool ans=this->root->addTmpVariable(addName,addType,addCat).first;
     if(!ans){
-        cerr<<"FunSheet::iterator::addTmpVariable::添加变量失败"<<endl;
+        cerr<<"FunSheet::iterator::addTmpVariable::Failed to add variable"<<endl;
     }
 }
 
 void FunSheet::iterator::addArrType(const string &arrName, const string &typeName, const int &size) {
     auto it=this->root->addArrType(arrName,typeName,size);
     if(!it.first){
-        cerr<<"FunSheet::iterator::addArrType::数组类型定义错误"<<endl;
+        cerr<<"FunSheet::iterator::addArrType::Array type definition error"<<endl;
     }
 }
 
 void FunSheet::iterator::addStructType(const string &structName, vector<string> &sonName, vector<string> &sonType) {
     auto it =this->root->addStructType(structName,sonName,sonType);
     if(it.first==0){
-        cerr<<"FunSheet::iterator::addStructType::结构体定义失败"<<endl;
+        cerr<<"FunSheet::iterator::addStructType::Structure definition failed"<<endl;
     }
 }
 
@@ -202,21 +203,29 @@ int FunSheet::iterator::getLevel(const string &searchName) {
     return this->root->getLevel(searchName);
 }
 
+bool FunSheet::iterator::isCallFun(const string& name) {
+    //一个函数可以调用自身所属函数以及同级的在他之前的被定义的函数
+    auto it=this->getFunIterator(name);
+    if(!it.useful()){
+        return false;
+    }else return it.level() >= this->level();
+}
+
 
 FunSheet::funNode* FunSheet::funNode::addFun(const string &addName, CAT addCat, const string& addType="") {
     ///安全性检查
     auto safeAns = this->find(addName);
     if (safeAns.second != nullptr) {
-        cerr << "FunSheet::funNode::addFun::已经存在与函数/过程同名的标识符" << endl;
+        cerr << "FunSheet::funNode::addFun::Function / procedure redefinition" << endl;
         return nullptr;
     } else {
         if (addCat != CAT::catF && addCat != CAT::catP) {
-            cerr << "FunSheet::funNode::addFun::函数/过程语义角色错误" << endl;
+            cerr << "FunSheet::funNode::addFun::Function / procedure semantic role error" << endl;
             return nullptr;
         }
     }
     ///创建函数确定函数的名字，种类，类型,层次号,将参数个数初始化为0
-    ///修正
+    ///修正父
     auto ptmp = new(funNode);
     funNode &tmp = *ptmp;
 
@@ -230,17 +239,17 @@ FunSheet::funNode* FunSheet::funNode::addFun(const string &addName, CAT addCat, 
         if (it.first == CAT::catD) {///找到，且种类为类型标识符
             tmp.type = (TypeSheet::typePoint) it.second;
         } else {
-            cerr << "FunSheet::funNode::addFun::企图使用未定义的类型标识符" << endl;
+            cerr << "FunSheet::funNode::addFun::Use undefined type identifier" << endl;
         }
     } else {///过程
         tmp.cat = addCat;
         if (!addType.empty()) {
-            cerr << "FunSheet::funNode::addFun::企图使用给过程定义返回类型" << endl;
+            cerr << "FunSheet::funNode::addFun::An attempt was made to define a return type for a procedure using" << endl;
         }
         tmp.type = nullptr;///无类型
     }
     ///维护树的结构
-    sFunTable[this->name] = ptmp;//向当前活动函数中增加新的子函数
+    sFunTable[addName] = ptmp;//向当前活动函数中增加新的子函数
     tmp.pFunPoint = this;
     //函数表具有的功能设定主函数
     //函数迭代器需要具有的功能：增加参数，设定类型，增加变量,设定入口地址，增加临时变量，
@@ -296,7 +305,7 @@ pair<CAT, void *> FunSheet::funNode::find(const string &findName) {
         return ans;
     }
     //查询是否为子函数
-    if (sFunTable.find(findName) != sFunTable.end()) {
+    if (this->sFunTable.find(findName) != sFunTable.end()) {
         ansCat = sFunTable[findName]->cat;
         ansPoint = sFunTable[findName];
         return ans;
@@ -328,20 +337,20 @@ pair<bool, ElemSheet::ElemPoint> FunSheet::funNode::addParameter(const string &a
     auto safeAns=this->find(addName);
     ///检查标识符是否已经定义
     if(safeAns.second!= nullptr){
-        cerr<<"FunSheet::funNode::addParameter::已经存在与参数同名的标识符"<<endl;
+        cerr<<"FunSheet::funNode::addParameter::An identifier with the same name as the parameter already exists"<<endl;
         return ans;
     }
     else{
         ///检查类型是否定义
         auto search1=this->search(addType);
         if(search1.first!=CAT::catD){
-            cerr<<"FunSheet::funNode::addParameter::企图使用未定义的类型标识符"<<endl;
+            cerr<<"FunSheet::funNode::addParameter::An attempt was made to use an undefined type identifier"<<endl;
             return ans;
         }
         else{
             ///检查语义角色是否设置正确
             if(addCat!=CAT::catVn&&addCat!=CAT::catVf){
-                cerr<<"FunSheet::funNode::addParameter::企图给参数使用其他语义种类"<<endl;
+                cerr<<"FunSheet::funNode::addParameter::An attempt was made to use a different semantic role for the parameter"<<endl;
             }
             ans.second=this->parmSheet.add(addName,addCat,(TypeSheet::typePoint)search1.second);
             ans.first= true;
@@ -361,14 +370,14 @@ FunSheet::funNode::addVariable(const string &addName, const string &addType) {
     auto safeAns=this->find(addName);
     ///检查标识符是否已经定义（局部）
     if(safeAns.second!= nullptr){
-        cerr<<"FunSheet::funNode::addVariable::已经存在与变量同名的标识符"<<endl;
+        cerr<<"FunSheet::funNode::addVariable::An identifier with the same name as the variable already exists"<<endl;
         return ans;
     }
     else{
         ///检查类型定义是否存在（全局）
         auto search1=this->search(addType);
         if(search1.first!=CAT::catD){
-            cerr<<"FunSheet::funNode::addVariable::企图使用未定义的类型标识符"<<endl;
+            cerr<<"FunSheet::funNode::addVariable::An attempt was made to use an undefined type identifier"<<endl;
             return ans;
         }
         else{
@@ -385,14 +394,14 @@ bool FunSheet::funNode::addConst(const string &addName, const string &addType, c
     ///检查标识符是否已经定义（局部）
     auto safeAns=this->find(addName);
     if(safeAns.second!= nullptr){
-        cerr<<"FunSheet::funNode::addConst::已经存在与常量同名的标识符"<<endl;
+        cerr<<"FunSheet::funNode::addConst::An identifier with the same name as the constant already exists"<<endl;
         return false;
     }
     else{
         ///检查类型定义是否存在（全局）
         auto search1=this->search(addType);
         if(search1.first!=CAT::catD){
-            cerr<<"FunSheet::funNode::addConst::企图使用未定义的类型标识符"<<endl;
+            cerr<<"FunSheet::funNode::addConst::An attempt was made to use an undefined type identifier"<<endl;
             return false;
         }
         else{
@@ -416,7 +425,7 @@ bool FunSheet::funNode::isTmpVariable(const string &tmpName) {
 bool FunSheet::funNode::eraseTmpVariable(ElemSheet::iterator eraseIterator) {
     bool ans=this->tmpSheet.erase(eraseIterator);
     if(ans==0){
-        cerr<<"FunSheet::funNode::eraseTmpVariable::临时变量删除错误"<<endl;
+        cerr<<"FunSheet::funNode::eraseTmpVariable::Temporary variable deletion error"<<endl;
     }
     return ans;
 }
@@ -430,14 +439,14 @@ pair<bool, ElemSheet::ElemPoint> FunSheet::funNode::addTmpVariable(const string 
     auto safeAns=this->find(addName);
     ///检查标识符是否已经定义（局部）
     if(safeAns.second!= nullptr){
-        cerr<<"FunSheet::funNode::addTmpVariable::已经存在与临时变量同名的标识符"<<endl;
+        cerr<<"FunSheet::funNode::addTmpVariable::An identifier with the same name as the temporary variable already exists"<<endl;
         return ans;
     }
     else{
         ///检查类型定义是否存在（全局）
         auto search1=this->search(addType);
         if(search1.first!=CAT::catD){
-            cerr<<"FunSheet::funNode::addTmpVariable::企图使用未定义的类型标识符"<<endl;
+            cerr<<"FunSheet::funNode::addTmpVariable::An attempt was made to use an undefined type identifier"<<endl;
             return ans;
         }
         else{
@@ -461,16 +470,16 @@ pair<bool,TypeSheet::typePoint > FunSheet::funNode::addArrType(const string &arr
     ///安全性检查
     auto safeAns=this->find(arrName);
     if(safeAns.second!= nullptr){
-        cerr<<"FunSheet::funNode::addArrType::数组定义企图使用已用的本地标识符"<<endl;
+        cerr<<"FunSheet::funNode::addArrType::An array definition attempted to use a used local identifier"<<endl;
         return ans;
     }
     auto typeSafeAns=this->search(typeName);
     if(typeSafeAns.first!=CAT::catD){
-        cerr<<"FunSheet::funNode::addArrType::数组未定义的类型标识符定义数组"<<endl;
+        cerr<<"FunSheet::funNode::addArrType::Array undefined type identifier defines the array"<<endl;
         return ans;
     }
     if(size<=0){
-        cerr<<"FunSheet::funNode::addArrType::数组大小定义错误"<<endl;
+        cerr<<"FunSheet::funNode::addArrType::Array size definition error"<<endl;
         return ans;
     }
     ans.first=true;
@@ -487,12 +496,12 @@ FunSheet::funNode::addStructType(const string &structName, vector<string> &sonNa
     ///安全性检查
     auto safeAns=this->find(structName);
     if(safeAns.second!= nullptr){
-        cerr<<"FunSheet::funNode::addStructType::结构体定义企图使用已用的本地标识符"<<endl;
+        cerr<<"FunSheet::funNode::addStructType::Structure definition attempted to use a used local identifier"<<endl;
         return ans;
     }
     ///数目匹配检查
     if(sonName.size()!=sonType.size()){
-        cerr<<"FunSheet::funNode::addStructType::结构体定义中域名个数与域名类型个数不匹配"<<endl;
+        cerr<<"FunSheet::funNode::addStructType::The number of domain names in the structure definition does not match the number of domain name types"<<endl;
         return ans;
     }
     ///类型定义检查
@@ -500,7 +509,7 @@ FunSheet::funNode::addStructType(const string &structName, vector<string> &sonNa
     for(auto & typeName : sonType) {
         auto typeSafeAns = this->search(typeName);
         if (typeSafeAns.first != CAT::catD) {
-            cerr << "FunSheet::funNode::addStructType::结构体定义企图使用未定义的全局类型标识符" << endl;
+            cerr << "FunSheet::funNode::addStructType::Structure definition attempted to use an undefined global type identifier" << endl;
             return ans;
         }
         sonTypePoint.push_back((TypeSheet::typePoint)typeSafeAns.second);
@@ -509,7 +518,7 @@ FunSheet::funNode::addStructType(const string &structName, vector<string> &sonNa
     unordered_map<string,bool>sameCheck;
     for(auto & it : sonName){
         if(sameCheck[it]){
-            cerr << "FunSheet::funNode::addStructType::结构体定义企图使用相同的域名" << endl;
+            cerr << "FunSheet::funNode::addStructType::Structure definition attempts to use the same domain name" << endl;
             return ans;
         }
         sameCheck[it]=true;

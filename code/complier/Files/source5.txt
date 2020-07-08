@@ -1,0 +1,21 @@
+program Hello:
+     type
+         node = record
+            len : integer;
+            name : char;
+         end;
+	 var
+         a : integer;
+         b : char;
+	     tree :node;
+	procedure ex(var a,b:integer ) ;
+		 var c: integer ;
+	begin
+		c:=3;
+		c:=a+b;
+	end;
+begin
+    a := 2;
+	ex(a)
+end.
+//参数类型不匹配、以及参数个数不正确测试

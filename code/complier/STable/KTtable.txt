@@ -1,11 +1,25 @@
- program
- var    
+procedure
+fuction
+const
+var
+array
+of
 integer
- real   
- char   
-  begin  
-  end
+char
+begin
+end
+for
+do
+while
+if
+then
+else
+read
+write
 result
 true
 false
 call
+program
+type
+record

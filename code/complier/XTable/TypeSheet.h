@@ -56,7 +56,7 @@ public:
         ///高级接口
         int arrSize();///获取数组大小
         int sonOffSet(const string&elemName);///获取域名的相对偏移量
-
+        bool useful();///判断一个类型迭代器是否可用
         explicit iterator(typePoint root=nullptr):root(root){};
     };
 

@@ -98,6 +98,8 @@ public:
         ///结束性操作
         void setOffSet(int beginOffSet);//设定偏移量
         explicit iterator(funNode*point=nullptr);
+        ///高级接口区域
+        bool isCallFun(const string& name);///判断一个函数是否为自身可调用
     };
 public:
     iterator creatMain(const string& name);//创建主函数

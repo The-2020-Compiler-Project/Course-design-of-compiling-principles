@@ -55,13 +55,17 @@ CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o: ../XTable/TypeSheet.cpp
 CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o: ../XTable/TypeSheet.h
 CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o: ../type/type.h
 
-CMakeFiles/complier.dir/main.cpp.o: .././XTable/ElemSheet.h
-CMakeFiles/complier.dir/main.cpp.o: .././XTable/FunSheet.h
-CMakeFiles/complier.dir/main.cpp.o: .././XTable/TypeSheet.h
-CMakeFiles/complier.dir/main.cpp.o: .././type/cat.h
-CMakeFiles/complier.dir/main.cpp.o: .././type/type.h
+CMakeFiles/complier.dir/main.cpp.o: ../GrammarAction/GrammarAction.h
+CMakeFiles/complier.dir/main.cpp.o: ../GrammarAnalyzer/Grammar.h
+CMakeFiles/complier.dir/main.cpp.o: ../Lexical/lexical.h
 CMakeFiles/complier.dir/main.cpp.o: ../STable/STable.h
 CMakeFiles/complier.dir/main.cpp.o: ../STable/Sheet.h
+CMakeFiles/complier.dir/main.cpp.o: ../XTable/ElemSheet.h
+CMakeFiles/complier.dir/main.cpp.o: ../XTable/FunSheet.h
+CMakeFiles/complier.dir/main.cpp.o: ../XTable/TypeSheet.h
 CMakeFiles/complier.dir/main.cpp.o: ../main.cpp
 CMakeFiles/complier.dir/main.cpp.o: ../tokenType/tokenType.h
+CMakeFiles/complier.dir/main.cpp.o: ../type/cat.h
+CMakeFiles/complier.dir/main.cpp.o: ../type/quatName.h
+CMakeFiles/complier.dir/main.cpp.o: ../type/type.h
 

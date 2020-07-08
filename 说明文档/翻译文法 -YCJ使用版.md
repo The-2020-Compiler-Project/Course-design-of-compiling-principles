@@ -86,7 +86,15 @@ $\color{blue}{【压入某某栈】}$：标识一个标识符用于其他语句
 
 
 
-<语句>					::=    <赋值语句>|<返回值语句>|<条件语句>|<调用语句>|<while循环语句>|<复合语句>|<空>
+<语句>					::=   **<输出语句>**|**<输入语句>**| <赋值语句>|<返回值语句>|<条件语句>|<调用语句>|<while循环语句>|<复合语句>|<空>
+
+**<输出语句>** 		   ::=	output<表达式>$\color{red}{【-，output】}$
+
+**<输入语句>**			::=	input<变量>$\color{red}{【-，input】}$
+
+$\color{red}{【-，output】}$：运算对象弹栈，生成输出四元式。
+
+$\color{red}{【-，input】}$：运算对象弹栈，生成输入四元式。
 
 
 
@@ -97,6 +105,8 @@ $\color{red}{【-，Assign】}$：从运算对象栈中弹出两个元素a、b�
 **赋值语句是否选择扩展，给指针所指向的对象赋值（point，vN），正常赋值）？不太可行，指针、换名形参可能在多个位置；注意判断运算对象的cat，如果为cat::point,cat::vN，则增加一个计算地址的目标代码；如果为V或者VF则检测它的层次号和当前函数的层次号是否符合，如果不符合，则计算地址**
 
 **关键在于地址计算**
+
+
 
 
 
@@ -134,7 +144,7 @@ $\color{red}{【-，Relation】}$：算符弹栈，运算对象弹栈两个，�
 
 
 
-<while循环语句>    ::=    while$\color{red}{【-，beginWhile】}$ <条件> do$\color{red}{【-，Do】}$<语句>；$\color{red}{【-，endWhile】}$
+<while循环语句>    ::=    while$\color{red}{【-，beginWhile】}$ <条件> do$\color{red}{【-，Do】}$<语句>$\color{red}{【-，endWhile】}$
 
 $\color{red}{【-，beginWhile】}$:生成四元式
 
@@ -182,7 +192,7 @@ $\color{red}{【-，popFunCallStack】}$：函数标识符没用了，弹栈
 
 //表达式最终一定会而且只会产生一个变量加入栈中
 
-<表达式>				::=    [-]<项> {<加法运算符>$\color{red}{【string，pushOpeStack】}$<项>$\color{red}{【-，Arithmetic】}$ }
+<表达式>				::=    <项> {<加法运算符>$\color{red}{【string，pushOpeStack】}$<项>$\color{red}{【-，Arithmetic】}$ }
 
 $\color{red}{【-，Arithmetic】}$：弹栈顶运算符、弹栈顶两个操作数，生成一个中间变量压栈，生成四元式
 

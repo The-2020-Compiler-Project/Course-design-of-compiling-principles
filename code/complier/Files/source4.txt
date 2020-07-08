@@ -1,0 +1,26 @@
+program Hello://数组结构体
+    type
+        arr = array [100] of integer;
+        node = record
+                    len : integer;
+                    size : arr;
+               end;
+	var
+	    times:integer;
+	    a,b:integer;
+	    x:arr;
+	    root :node;
+begin
+    times:=0;
+    root.len:=12;
+    root.size := 10;
+    a := 2;
+    b :=2*5+a;
+
+    while times<10 do
+    begin
+        times:=times+1;
+        root.len:=x[times];
+    end;
+    x[10]:=a;
+end.

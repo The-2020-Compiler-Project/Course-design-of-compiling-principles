@@ -8,7 +8,7 @@ GrammarAction::GrammarAction(const string&fileName) {
 }
 
 void GrammarAction::genetQuat(const string& a, const string& b, const string& c, const string& d) {
-    fin<<begin<<a<<this->separator<<b<<this->separator<<c<<this->separator<<d<<end;
+    fin<<begin<<a<<this->separator<<b<<this->separator<<c<<this->separator<<d<<end<<endl;
 }
 
 void GrammarAction::pushFunStack(FunSheet::iterator pushIterator) {
@@ -25,6 +25,7 @@ void GrammarAction::beginFunction() {
 
 void GrammarAction::endFunction() {
     this->genetQuat(quatName::endFunction,empty,empty,empty);
+    this->funStack.pop();
 }
 
 void GrammarAction::Assign() {
@@ -115,10 +116,13 @@ void GrammarAction::Relation() {
         rela=quatName::GT;
     }else if(rela==">="){
         rela=quatName::GE;
-    }else if(rela=="=="){
-        rela=quatName::EQ;
-    }else{
-        cerr<<"未定义的关系运算符"<<endl;
+    }else if(rela=="=") {
+        rela = quatName::EQ;
+    }else if(rela=="<>"){
+        rela = quatName::NEQ;
+    }
+    else{
+        cerr<<"Undefined relational operator"<<endl;
     }
     this->genetQuat(rela,a,b,tmpName);
 }
@@ -145,10 +149,10 @@ void GrammarAction::pushFunCallStack(const string &funName) {
     this->funCall.push(funName);
 }
 
-void GrammarAction::moveParameter() {
+    void GrammarAction::moveParameter() {
     ///增加参数类型匹配
     auto it =this->funStack.top().getFunIterator(this->funCall.top());
-    stack<string>paraName;
+    stack<string>paraName;//实际参数列表
     int num=it.parameterNum();
     for(int i=0;i<num;i++){
         paraName.push(this->object.top());
@@ -157,7 +161,8 @@ void GrammarAction::moveParameter() {
     auto paraIteraotor=it.beginParameter();
     while(num--){
         if(this->funStack.top().getElemIterator(paraName.top()).type().name()!=paraIteraotor.type().name()){
-            cerr<<"参数类型不匹配::"<<it.name()<<endl;
+            cerr<<"Parameter type mismatch::"<<it.name()<<endl;
+            exit(-1);
         }
         if(paraIteraotor.cat()==CAT::catVn){//换名形参
             this->genetQuat(quatName::moveFalsePar,paraName.top(),empty,empty);
@@ -176,7 +181,7 @@ void GrammarAction::Call() {
 void GrammarAction::getResult() {
     ///增加临时变量，表示函数返回值
     string tmpName;
-    this->getTmpName("Return");
+    tmpName=this->getTmpName("Return");
     this->funStack.top().addTmpVariable(tmpName,"integer",CAT::catV);
     this->object.push(tmpName);
     this->genetQuat(quatName::getResult,empty,empty,tmpName);
@@ -211,7 +216,7 @@ void GrammarAction::Arithmetic() {
     }else if(rela=="/"){
         rela=quatName::DIV;
     }else{
-        cerr<<"未定义的算数运算符"<<endl;
+        cerr<<"Undefined arithmetic operator"<<endl;
     }
     this->genetQuat(rela,a,b,tmpName);
 }

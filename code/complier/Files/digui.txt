@@ -1,0 +1,17 @@
+program Hello://递归调用，句点检测
+    var ans,times:integer;
+	procedure fun;
+	begin
+		if times>0 then
+		begin
+            ans:=ans*times;
+            times:=times-1;
+            fun //无参函数调用
+		end;
+
+	end;
+begin
+    times:=10;
+    ans:=1;
+    fun
+end.

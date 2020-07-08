@@ -1,0 +1,8 @@
+program Hello:
+        type arr = array [100] of integer;
+    	var a,b : integer; x:arr;
+    begin
+        a := 2;
+        b :=2*5+a;
+        x[10]:=a;
+end.
