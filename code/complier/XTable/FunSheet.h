@@ -103,7 +103,7 @@ public:
     };
 public:
     iterator creatMain(const string& name);//创建主函数
-
+    iterator getMain();//获取主函数的迭代器
 };
 
 extern FunSheet xTable;

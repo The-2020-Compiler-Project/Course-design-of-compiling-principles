@@ -19,6 +19,10 @@ FunSheet::iterator FunSheet::creatMain(const string &addName) {
     return iterator(root);
 }
 
+FunSheet::iterator FunSheet::getMain() {
+    return FunSheet::iterator(this->root);
+}
+
 FunSheet::iterator::iterator(FunSheet::funNode *point) {
     root=point;
 }
