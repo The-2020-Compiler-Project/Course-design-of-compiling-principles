@@ -1,0 +1,25 @@
+program Hello:
+//函数调用，换名形参,函数重定义检查
+//域名重定义
+	var n,m : integer;
+
+	function fa(var a,b:integer ):integer ;
+		 var c,d : integer ;
+	begin
+		c:=3*5+6;
+		c:=a-b ;
+		result:=fb(xx,yy);
+		result := c
+	end;
+
+	function fb(xx ,yy:integer):integer;
+	    const top=100,low=50;
+	 begin
+        result:=fa(xx,yy);
+	 end;
+
+begin
+	n := 2;
+	m := 4;
+    m :=2* fa(n,m) +n
+end.

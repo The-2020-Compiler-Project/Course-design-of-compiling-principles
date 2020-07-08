@@ -9,80 +9,80 @@
 #include "../STable/STable.h"
 using namespace std;
 typedef enum {
-    PROCEDURE,          // procedure ¹Ø¼ü×Ö
-    FUNCTION,           // function ¹Ø¼ü×Ö
-    CONST,              // const ¹Ø¼ü×Ö   
-    VAR,                // var ¹Ø¼ü×Ö
-    ARRAY,              // array ¹Ø¼ü×Ö
-    OF,                 // of ¹Ø¼ü×Ö
-    INTEGER,            // integer ¹Ø¼ü×Ö
-    CHAR,               // char ¹Ø¼ü×Ö
-    BEGIN,              // begin ¹Ø¼ü×Ö
-    END,                // end ¹Ø¼ü×Ö
-    FOR,                // for ¹Ø¼ü×Ö
-    DO,                 // do ¹Ø¼ü×Ö
-    WHILE,              // while ¹Ø¼ü×Ö
-    IF,                 // if ¹Ø¼ü×Ö
-    THEN,               // then ¹Ø¼ü×Ö
-    ELSE,               // else ¹Ø¼ü×Ö
-    READ,               // read ¹Ø¼ü×Ö
-    WRITE,              // write ¹Ø¼ü×Ö
-    RESULT,             // result¹Ø¼ü×Ö
-    TRUE,               // true¹Ø¼ü×Ö
-    FALSE,              // false¹Ø¼ü×Ö
-    CALL,               // call¹Ø¼ü×Ö
-    PROGRAM,            // program¹Ø¼ü×Ö
-    TYPE,               // type¹Ø¼ü×Ö
-    RECORD,             // record¹Ø¼ü×Ö
+    PROCEDURE,          // procedure å…³é”®å­—
+    FUNCTION,           // function å…³é”®å­—
+    CONST,              // const å…³é”®å­—
+    VAR,                // var å…³é”®å­—
+    ARRAY,              // array å…³é”®å­—
+    OF,                 // of å…³é”®å­—
+    INTEGER,            // integer å…³é”®å­—
+    CHAR,               // char å…³é”®å­—
+    BEGIN,              // begin å…³é”®å­—
+    END,                // end å…³é”®å­—
+    FOR,                // for å…³é”®å­—
+    DO,                 // do å…³é”®å­—
+    WHILE,              // while å…³é”®å­—
+    IF,                 // if å…³é”®å­—
+    THEN,               // then å…³é”®å­—
+    ELSE,               // else å…³é”®å­—
+    READ,               // read å…³é”®å­—
+    WRITE,              // write å…³é”®å­—
+    RESULT,             // resultå…³é”®å­—
+    TRUE,               // trueå…³é”®å­—
+    FALSE,              // falseå…³é”®å­—
+    CALL,               // callå…³é”®å­—
+    PROGRAM,            // programå…³é”®å­—
+    TYPE,               // typeå…³é”®å­—
+    RECORD,             // recordå…³é”®å­—
 
-    IDENTIFIER,         // ±êÊ¶·û
-    NUMBER,             // ÕûÊý   
-    STRING,             // ×Ö·û´®
-    CHARATER,           // char ÀàÐÍµÄ×Ö·û
-    REALNUMBER,         // ÊµÊý
+    IDENTIFIER,         // æ ‡è¯†ç¬¦
+    NUMBER,             // æ•´æ•°
+    STRING,             // å­—ç¬¦ä¸²
+    CHARATER,           // char ç±»åž‹çš„å­—ç¬¦
+    REALNUMBER,         // å®žæ•°
 
-    LEFT_BRACKET,       // ×óÀ¨ºÅ
-    RIGHT_BRACKET,      // ÓÒÀ¨ºÅ
-    LEFT_SQUARE,        // ×ó·½À¨ºÅ
-    RIGHT_SQUARE,       // ÓÒ·½À¨ºÅ
-    SINGLE_QUOTE,       // µ¥ÒýºÅ                      
-    DOUBLE_QUOTE,       // Ë«ÒýºÅ
-    COMMA,              // ¶ººÅ
-    SEMICOLON,          // ·ÖºÅ
-    PERIOD,             // ¾äµã
-    PLUS,               // ¼ÓºÅ
-    MINUS,              // ¼õºÅ
-    ASTERISK,           // ÐÇºÅ£¬³ËºÅ
-    SLASH,              // Ð±¸Ü£¬³ýºÅ
-    COLON,              // Ã°ºÅ
-    EQUAL,              // µÈºÅ
-    ASSIGN,             // ¸³Öµ·û
-    LESS,               // Ð¡ÓÚºÅ
-    LESS_EQUAL,         // Ð¡ÓÚµÈÓÚºÅ
-    GREATER,            // ´óÓÚºÅ
-    GREATER_EQUAL,      // ´óÓÚµÈÓÚºÅ
-    INEQUAL             // ²»µÈºÅ
+    LEFT_BRACKET,       // å·¦æ‹¬å·
+    RIGHT_BRACKET,      // å³æ‹¬å·
+    LEFT_SQUARE,        // å·¦æ–¹æ‹¬å·
+    RIGHT_SQUARE,       // å³æ–¹æ‹¬å·
+    SINGLE_QUOTE,       // å•å¼•å·
+    DOUBLE_QUOTE,       // åŒå¼•å·
+    COMMA,              // é€—å·
+    SEMICOLON,          // åˆ†å·
+    PERIOD,             // å¥ç‚¹
+    PLUS,               // åŠ å·
+    MINUS,              // å‡å·
+    ASTERISK,           // æ˜Ÿå·ï¼Œä¹˜å·
+    SLASH,              // æ–œæ ï¼Œé™¤å·
+    COLON,              // å†’å·
+    EQUAL,              // ç­‰å·
+    ASSIGN,             // èµ‹å€¼ç¬¦
+    LESS,               // å°äºŽå·
+    LESS_EQUAL,         // å°äºŽç­‰äºŽå·
+    GREATER,            // å¤§äºŽå·
+    GREATER_EQUAL,      // å¤§äºŽç­‰äºŽå·
+    INEQUAL             // ä¸ç­‰å·
 }symbolType;
 
 typedef struct
 {
-    symbolType symbol; // ÐÂ·ûºÅµÄÀàÐÍ
-    int loc;//Ã¿¸öµ¥´ÊÔÚËüµÄÀàÐÍÀïÃæµÄÎ»ÖÃ
-    int row;//µ¥´Ê³öÏÖµÄÐÐÊý
+    symbolType symbol; // æ–°ç¬¦å·çš„ç±»åž‹
+    int loc;//æ¯ä¸ªå•è¯åœ¨å®ƒçš„ç±»åž‹é‡Œé¢çš„ä½ç½®
+    int row;//å•è¯å‡ºçŽ°çš„è¡Œæ•°
 }token;
 
 class lexical {
 public:
     token next();
-    lexical(const string& file);   // Ë½ÓÐ»¯¹¹Ôìº¯Êý£¬µ¥ÀýÄ£Ê½
+    lexical(const string& file);   // ç§æœ‰åŒ–æž„é€ å‡½æ•°ï¼Œå•ä¾‹æ¨¡å¼
 private:
-    ifstream sourceFile; // Ô´³ÌÐòÎÄ¼þÊäÈëÁ÷
+    ifstream sourceFile; // æºç¨‹åºæ–‡ä»¶è¾“å…¥æµ
 
-    /*vector<string> IT;    //±êÊ¶·û±í
-    vector<char> CT;      //×Ö·û±í
-    vector<string> ST;    //×Ö·û´®±í
-    vector<int> iT;       //ÕûÊý±í
-    vector<double> rT;    //ÊµÊý±í*/
+    /*vector<string> IT;    //æ ‡è¯†ç¬¦è¡¨
+    vector<char> CT;      //å­—ç¬¦è¡¨
+    vector<string> ST;    //å­—ç¬¦ä¸²è¡¨
+    vector<int> iT;       //æ•´æ•°è¡¨
+    vector<double> rT;    //å®žæ•°è¡¨*/
     friend class Grammar;
 };
 

@@ -16,6 +16,6 @@ program Hello:
 	end;
 begin
     a := 2;
-	ex(a)
+	ex(a,b)
 end.
 //参数类型不匹配、以及参数个数不正确测试

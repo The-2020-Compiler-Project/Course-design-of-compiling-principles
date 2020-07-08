@@ -1,4 +1,4 @@
-program Hello://递归调用，句点检测
+program Hello://递归调用计算阶乘，句点检测
     var ans,times:integer;
 	procedure fun;
 	begin
@@ -6,9 +6,8 @@ program Hello://递归调用，句点检测
 		begin
             ans:=ans*times;
             times:=times-1;
-            fun //无参函数调用
-		end;
-
+            fun //递归调用
+		end
 	end;
 begin
     times:=10;

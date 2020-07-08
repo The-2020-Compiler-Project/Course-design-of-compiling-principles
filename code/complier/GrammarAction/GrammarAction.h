@@ -55,6 +55,8 @@ public:
     void getResult();//生成获取函数返回值的四元式
     void popFunCallStack();//函数表示符弹栈
     void Arithmetic();//生成算数运算四元式
+    void Input();//生成输入四元式
+    void OutPut();//生成输出四元式
 };
 
 #endif //COMPLIER_GRAMMARACTION_H

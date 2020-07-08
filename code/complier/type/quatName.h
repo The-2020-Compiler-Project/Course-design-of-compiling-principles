@@ -40,5 +40,7 @@ namespace quatName{
     const string SUB="SUB";
     const string MUL="MUL";
     const string DIV="DIV";
+    const string Input="input";
+    const string Output="output";
 }
 #endif //COMPLIER_QUATNAME_H

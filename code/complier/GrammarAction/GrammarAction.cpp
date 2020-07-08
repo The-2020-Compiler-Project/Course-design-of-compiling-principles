@@ -221,4 +221,16 @@ void GrammarAction::Arithmetic() {
     this->genetQuat(rela,a,b,tmpName);
 }
 
+void GrammarAction::Input() {
+    string name=this->object.top();
+    this->object.pop();
+    this->genetQuat(quatName::Input,empty,empty,name);
+}
+
+void GrammarAction::OutPut() {
+    string name=this->object.top();
+    this->object.pop();
+    this->genetQuat(quatName::Output,empty,empty,name);
+}
+
 
