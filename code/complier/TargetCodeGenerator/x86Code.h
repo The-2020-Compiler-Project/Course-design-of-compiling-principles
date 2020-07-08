@@ -114,6 +114,42 @@ inline void NOP(std::vector<code> &targetCodeArea, string name)
 	targetCodeArea.push_back(nowCode);
 }
 
+//声明函数指令
+inline void PROC(std::vector<code> &targetCodeArea, string name)
+{
+	code nowCode;
+	nowCode.name = name, nowCode.oper = "proc";
+	nowCode.dest = "near", nowCode.source = "";
+	targetCodeArea.push_back(nowCode);
+}
+
+//ret指令
+inline void RET(std::vector<code> &targetCodeArea, string name)
+{
+	code nowCode;
+	nowCode.name = name, nowCode.oper = "ret";
+	nowCode.dest = "", nowCode.source = "";
+	targetCodeArea.push_back(nowCode);
+}
+
+//endp指令
+inline void ENDP(std::vector<code> &targetCodeArea, string name)
+{
+	code nowCode;
+	nowCode.name = name, nowCode.oper = "endp";
+	nowCode.dest = "", nowCode.source = "";
+	targetCodeArea.push_back(nowCode);
+}
+
+//call指令
+inline void CALL(std::vector<code> &targetCodeArea, string name, string dest)
+{
+	code nowCode;
+	nowCode.name = name, nowCode.oper = "call";
+	nowCode.dest = dest, nowCode.source = "";
+	targetCodeArea.push_back(nowCode);
+}
+
 //nmd,这些阴间指令...
 //a.h中声明函数，如果c.h想用，必须再a.h的声明中加上inline
 //太他妈阴间了
