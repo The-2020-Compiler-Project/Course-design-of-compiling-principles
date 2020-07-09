@@ -56,7 +56,40 @@ RT0:     RET
 READ10 ENDP
 
 
-fun proc near
+fa proc near
+	        push bp
+	        mov bp, sp
+	        sub sp, 18
+	        mov bx, word ptr [bp]
+	        sub bx, 4
+	        mov si, bp
+	        sub si, 4
+	        mov ax, word ptr [bx]
+	        mov word ptr [si], ax
+	        sub si, 2
+	        mov word ptr [si], bp
+
+	        mov bx, word ptr [bp-8]
+	        mov ax, word ptr [bx]
+	        mov bx, word ptr [bp-10]
+	        add ax, word ptr [bx]
+	        mov bx, word ptr [bp-8]
+	        mov word ptr [bx], ax
+
+	        mov bx, word ptr [bp-8]
+	        mov ax, word ptr [bx]
+	        mov bx, word ptr [bp-10]
+	        sub ax, word ptr [bx]
+	        mov bx, word ptr [bp-10]
+	        mov word ptr [bx], ax
+
+	        mov sp, bp
+	        pop bp
+	        ret
+fa endp
+
+
+fb proc near
 	        push bp
 	        mov bp, sp
 	        sub sp, 12
@@ -69,45 +102,89 @@ fun proc near
 	        sub si, 2
 	        mov word ptr [si], bp
 
-	        mov bx, word ptr [bp-4]
-	        mov ax, word ptr [bx-8]
-	        cmp ax, 0
-	        JG x0
-	        mov ax, 0
-	        jmp x1
-x0:	        mov ax, 1
-x1:	        mov bx, word ptr [bp-6]
-	        mov word ptr [bx-8], ax
+
 
 	        mov bx, word ptr [bp-6]
-	        mov ax, 0
-	        cmp ax, word ptr [bx-8]
-	        je x2
+	        sub bx, 8
+	        mov ax, bx
+	        mov si, sp
+	        mov word ptr [si-12], ax
+	        mov bx, word ptr [bp-6]
+	        sub bx, 10
+	        mov ax, bx
+	        mov si, sp
+	        mov word ptr [si-14], ax
+	        call fa
 
-	        mov bx, word ptr [bp-4]
-	        xor ax, ax
-	        xor dx, dx
-	        mov ax, word ptr [bx-6]
-	        mov bx, word ptr [bp-4]
-	        mov cx, word ptr [bx-8]
-	        imul cx
-	        mov bx, word ptr [bp-4]
-	        mov word ptr [bx-6], ax
-
-	        mov bx, word ptr [bp-4]
+	        mov bx, word ptr [bp-6]
 	        mov ax, word ptr [bx-8]
-	        sub ax, 1
-	        mov bx, word ptr [bp-4]
-	        mov word ptr [bx-8], ax
+	        mov bx, word ptr [bp-6]
+	        add ax, word ptr [bx-10]
+	        mov bx, word ptr [bp-6]
+	        mov word ptr [bx-12], ax
 
-	        call fun
+	        mov bx, word ptr [bp-6]
+	        mov ax, word ptr [bx-12]
+	        mov word ptr [bp-2], ax
 
-
-x2:	        nop
 	        mov sp, bp
 	        pop bp
 	        ret
-fun endp
+fb endp
+
+
+fc proc near
+	        push bp
+	        mov bp, sp
+	        sub sp, 22
+	        mov bx, word ptr [bp]
+	        sub bx, 4
+	        mov si, bp
+	        sub si, 4
+	        mov ax, word ptr [bx]
+	        mov word ptr [si], ax
+	        sub si, 2
+	        mov word ptr [si], bp
+
+	        mov bx, word ptr [bp-6]
+	        mov ax, word ptr [bx-8]
+	        mov bx, word ptr [bp-6]
+	        add ax, word ptr [bx-10]
+	        mov bx, word ptr [bp-6]
+	        mov word ptr [bx-12], ax
+
+
+
+	        mov bx, word ptr [bp-6]
+	        mov ax, word ptr [bx-8]
+	        mov si, sp
+	        mov word ptr [si-12], ax
+	        mov bx, word ptr [bp-6]
+	        mov ax, word ptr [bx-10]
+	        mov si, sp
+	        mov word ptr [si-14], ax
+	        call fb
+
+	        mov bx, word ptr [bp-6]
+	        mov si, sp
+	        mov ax, word ptr [si-6]
+	        mov word ptr [bx-14], ax
+
+	        mov bx, word ptr [bp-6]
+	        mov ax, word ptr [bx-12]
+	        mov bx, word ptr [bp-6]
+	        add ax, word ptr [bx-14]
+	        mov bx, word ptr [bp-6]
+	        mov word ptr [bx-16], ax
+
+	        mov bx, word ptr [bp-6]
+	        mov ax, word ptr [bx-16]
+	        mov word ptr [bp-2], ax
+
+	        mov sp, bp
+	        pop bp
+	        ret
+fc endp
 
 start: mov ax, sseg
 	        mov ds, ax
@@ -115,20 +192,57 @@ start: mov ax, sseg
 	        mov ss, ax
 	        push bp
 	        mov bp, sp
-	        sub sp, 16
+	        sub sp, 14
 	        mov word ptr [bp-4], bp
 
-	        mov ax, 62
+	        mov ax, 0
+	        mov N, ax
+	        lea si, N
+	        call READ10
+	        mov ax, N
 	        mov bx, word ptr [bp-4]
-	        mov word ptr [bx-6], ax
+	        mov word ptr [bx-8], ax
 
+	        mov ax, 0
+	        mov N, ax
 	        lea si, N
 	        call READ10
 	        mov ax, N
 	        mov bx, word ptr [bp-4]
 	        mov word ptr [bx-6], ax
 
-	        call fun
+
+
+	        mov bx, word ptr [bp-4]
+	        mov ax, word ptr [bx-8]
+	        mov si, sp
+	        mov word ptr [si-12], ax
+	        mov bx, word ptr [bp-4]
+	        mov ax, word ptr [bx-6]
+	        mov si, sp
+	        mov word ptr [si-14], ax
+	        call fc
+
+	        mov bx, word ptr [bp-4]
+	        mov si, sp
+	        mov ax, word ptr [si-6]
+	        mov word ptr [bx-10], ax
+
+	        xor ax, ax
+	        xor dx, dx
+	        mov ax, 2
+	        mov bx, word ptr [bp-4]
+	        mov cx, word ptr [bx-10]
+	        imul cx
+	        mov bx, word ptr [bp-4]
+	        mov word ptr [bx-12], ax
+
+	        mov bx, word ptr [bp-4]
+	        mov ax, word ptr [bx-12]
+	        mov bx, word ptr [bp-4]
+	        add ax, word ptr [bx-8]
+	        mov bx, word ptr [bp-4]
+	        mov word ptr [bx-6], ax
 
 	        mov bx, word ptr [bp-4]
 	        mov ax, word ptr [bx-6]

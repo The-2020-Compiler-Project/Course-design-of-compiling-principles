@@ -1,0 +1,16 @@
+program Hello://数组连续赋值并求和
+    type arr = array [100] of integer;
+    var a,b,times: integer; x:arr;
+begin
+    input a;
+    b:=0;
+    times:=0;
+     while times<a do
+         begin
+             input x[times];
+             b:=b+x[times];
+             times:=times+1
+         end;
+     output a;
+     output b;
+end.

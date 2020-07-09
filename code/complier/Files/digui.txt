@@ -1,5 +1,5 @@
-program Hello://递归调用计算阶乘测试
-    const top=10;
+program Hello://递归调用计算阶乘演示
+    const top=7;
     var ans,times:integer;
 	procedure fun;
 	begin
@@ -11,9 +11,9 @@ program Hello://递归调用计算阶乘测试
 		end
 	end;
 begin
-    ans:=1+2*3+45;
-    ans:=ans+top;
+    input times;
     input ans;
+    ans:=1;
     fun;
     output ans;
 end.

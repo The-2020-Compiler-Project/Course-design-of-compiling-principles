@@ -1,0 +1,21 @@
+program Hello://结构体连续赋值
+    type
+        node = record
+                    a : integer;
+                    b : integer;
+                    c : integer;
+               end;
+	var
+	    times:integer;
+	    root :node;
+begin
+    output 3;
+    times:=0;
+    input root.a;
+    input root.b;
+    input root.c;
+    times:=times+root.a;
+    times:=times+root.b;
+    times:=times+root.c;
+    output times;
+end.

@@ -1,7 +1,33 @@
-program example:
-//output 表达式测试
-    var a,b : integer ;
+program Hello:  // 4 2 36
+	var n,m : integer;
+
+	procedure fa(var a,b:integer );
+		 var c,d : integer ;
+	begin
+		a:=a+b; //对a、b的值进行改变
+		b:=a-b;
+	end;
+
+	function fb(xx ,yy:integer):integer;
+	    const top=100,low=50;
+	 begin
+        fa(xx,yy);//调用过程改变xx,yy的值
+        result:=xx+yy;
+	 end;
+
+	 function fc(ka, kb:integer):integer;
+	        var e,f,g: integer;
+	 begin
+	    e:=ka+kb;
+	    f:=fb(ka, kb);
+	    g:=e+f;
+	    result:= g;
+	 end;
+
+
 begin
-    a := 2;
-    output 2*5+a
+	input n;
+	input m;
+    m :=2* fc(n,m) +n;//赋值传递
+    output m
 end.

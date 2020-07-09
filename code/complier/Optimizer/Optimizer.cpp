@@ -2,11 +2,15 @@
 #include "../XTable/FunSheet.h"
 bool inline blockend(string& s){
     return s =="beginProgram" || s== "beginFunction" ||s == "endFunction" ||s == "beginIf" || s == "Else" || s =="endIf" || s=="endProgram" ||
-           s == "beginWhile" || s == "Do" || s == "endWhile" || s == "Call" ;
+            s == "beginWhile" || s == "Do" || s == "endWhile" || s == "Call" ;
 }
 
 bool inline specialJudge(string& s){
     return s == "assignResult" || s== "moveTurePar" || s=="moveFalsePar" || s=="output";
+}
+
+bool inline DoNotOptimize(string& s){
+    return s=="moveFalsePar" || s=="getSonAddress";
 }
 
 void trim(string &s)
@@ -22,21 +26,21 @@ void trim(string &s)
 stack<FunSheet::iterator> funS;
 
 DAG_node::DAG_node(string& s):name(s){
-    if(isDigit(s[0]))
-        type=_CONST_;
-    else if(s=="_")
-        type=_VOID_;
-    else{
-        type=_VAR_;
-        auto it=funS.top();
-        if(it.isTmpVariable(s))
-            type = _TMP_;
-        //查找符号表，判断类型
+        if(isDigit(s[0]))
+            type=_CONST_;
+        else if(s=="_")
+            type=_VOID_;
+        else{
+            type=_VAR_;
+            auto it=funS.top();
+            if(it.isTmpVariable(s))
+                type = _TMP_;
+            //查找符号表，判断类型
+        }
     }
-}
 
 Optimizer::Optimizer(const string& s):ifile(s.c_str())
-{
+{   
     DAG_node T;
     DAG tmp;
     tmp.var.push_back(T);
@@ -70,7 +74,7 @@ void Optimizer::divBlock(ifstream& file){
         {
             t.push_back(line);
         }
-
+        
     }
     if(!t.empty())
         TAC.push_back(t);
@@ -117,7 +121,7 @@ int Optimizer::findOperation(string& op,DAG_node& src1,DAG_node& src2){
     for(;it!=dag.rend();it++){
         if(it->op==op && it->lchild == left && it->rchild == right)
         {
-            return it->id;
+            return it->id;    
         }
     }
     if(it == dag.rend())
@@ -192,7 +196,7 @@ string Optimizer::calculate2(string& op,string& a,string& b){
     else if(op=="GE") ans=(na>=nb);
     else if(op=="LE") ans=(na<=nb);
     else if(op=="EQ") ans=(na==nb);
-    else if(op == "NEQ") ans=(na != nb);
+    else if(op == "NEQ") ans=(na != nb); 
     else if(op == "AND") ans=(na && nb);
     else if(op == "OR") ans=(na || nb);
     res += to_string(ans);
@@ -224,14 +228,14 @@ void Optimizer::insert(int loc,DAG_node& src,DAG_node& dest){
 }
 
 bool Optimizer::isVarShielded(DAG_node& a,int loc){
-    auto it=dag.rbegin();
-    for(;it!=dag.rend();it++){
-        if(it->var[0]==a){
-            if((dag.rend()-it)>loc)
+     auto it=dag.rbegin();
+     for(;it!=dag.rend();it++){
+         if(it->var[0]==a){
+             if((dag.rend()-it)>loc)
                 return true;
-        }
-    }
-    return false;
+         }
+     }
+     return false;
 }
 
 void Optimizer::createDAG(vector<string>& tac){
@@ -266,14 +270,14 @@ void Optimizer::createDAG(vector<string>& tac){
         DAG_node node1(src1),node2(src2),node3(dest);
         pair<int,bool> n1,n2;
         n1.first=n2.first=0;
-        if(op!="moveFalsePar") {
+        if(!DoNotOptimize(op)) {
             if (src1 != "_")
                 n1 = new_node(node1);
             if (src2 != "_")
                 n2 = new_node(node2);
         }
         if (op=="Assign")
-        {
+        {   
             int loc=n1.first;
             insert(loc,node3,node1);
         }
@@ -298,18 +302,22 @@ void Optimizer::createDAG(vector<string>& tac){
                     DAG_node tmmmmp;
                     insert(loc,node3,tmmmmp);
                 }
-                else if(op=="moveFalsePar"){
-                    DAG dnode1,dnode2;
+                else if(DoNotOptimize(op)){
+                    DAG dnode1,dnode2,dnode3;
                     dnode1.id=dag.size();
                     dnode1.var.push_back(node1);
                     dnode1.op="NaN";
                     dag.push_back(dnode1);
                     dnode2.id=dag.size();
-                    dnode2.op="moveFalsePar";
+                    dnode2.op="NaN";
                     dnode2.var.push_back(node2);
-                    dnode2.lchild=dnode1.id;
-                    dnode2.rchild=0;
                     dag.push_back(dnode2);
+                    dnode3.id=dag.size();
+                    dnode3.op=op;
+                    dnode3.var.push_back(node3);
+                    dnode3.lchild=dnode1.id;
+                    dnode3.rchild=dnode2.id;
+                    dag.push_back(dnode3);
                 }
                 else{
                     DAG dnode;
@@ -369,7 +377,7 @@ void Optimizer::rebuild(vector<vector<string>>::iterator& _it){
         for(int i=1;i<it.var.size();i++)
         {
             if(it.var[i].type==_VAR_)
-            {
+           {
                 string tmp="( Assign , ";
                 tmp+=it.var[0].name;
                 tmp+=" , _ , ";
@@ -378,7 +386,7 @@ void Optimizer::rebuild(vector<vector<string>>::iterator& _it){
                 _it->push_back(tmp);
             }
         }
-
+        
     }
     string temp="";
     for(char c:end){

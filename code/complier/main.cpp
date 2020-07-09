@@ -4,7 +4,7 @@
 #include "Optimizer/Optimizer.h"
 #include "TargetCodeGenerator/TargetCodeGenerator.h"
 #include <bits/stdc++.h>
-static const string source=R"(..\Files\digui.txt)";
+static const string source=R"(..\Files\source.txt)";
 static const string tokenOutput=R"(..\Files\tokenOutput.txt)";
 static const string middle=R"(..\Files\middle.txt)";
 static const string tokenFile=R"(..\Files\tokenOutput.txt)";
@@ -22,7 +22,7 @@ int main() {
     Optimizer optimizer(exMiddle);
     optimizer.optimize(in);
     in.close();
-
+    xTable.getMain().getTypeIterator("node");
     TargetCodeGenerator tarCode;
     tarCode.read(exMiddle);
     tarCode.spiltMidCode();

@@ -391,53 +391,53 @@ void TargetCodeGenerator::initAsm()
     nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
 
 
-   /* nowCode.name = "PrintAx", nowCode.oper = "proc", nowCode.dest = "", nowCode.source = "";
-    targetCodeArea.push_back(nowCode);
-    nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+    /* nowCode.name = "PrintAx", nowCode.oper = "proc", nowCode.dest = "", nowCode.source = "";
+     targetCodeArea.push_back(nowCode);
+     nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
 
-    nowCode.name = blank, nowCode.oper = "push", nowCode.dest = "si", nowCode.source = "";
-    targetCodeArea.push_back(nowCode);
-    nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+     nowCode.name = blank, nowCode.oper = "push", nowCode.dest = "si", nowCode.source = "";
+     targetCodeArea.push_back(nowCode);
+     nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
 
-    nowCode.name = blank, nowCode.oper = "push", nowCode.dest = "cx", nowCode.source = "";
-    targetCodeArea.push_back(nowCode);
-    nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+     nowCode.name = blank, nowCode.oper = "push", nowCode.dest = "cx", nowCode.source = "";
+     targetCodeArea.push_back(nowCode);
+     nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
 
-    nowCode.name = blank, nowCode.oper = "push", nowCode.dest = "dx", nowCode.source = "";
-    targetCodeArea.push_back(nowCode);
-    nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+     nowCode.name = blank, nowCode.oper = "push", nowCode.dest = "dx", nowCode.source = "";
+     targetCodeArea.push_back(nowCode);
+     nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
 
-    nowCode.name = blank, nowCode.oper = "mov", nowCode.dest = "si,", nowCode.source = "offset Temp+3";
-    targetCodeArea.push_back(nowCode);
-    nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+     nowCode.name = blank, nowCode.oper = "mov", nowCode.dest = "si,", nowCode.source = "offset Temp+3";
+     targetCodeArea.push_back(nowCode);
+     nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
 
-    nowCode.name = blank, nowCode.oper = "xor", nowCode.dest = "cx,", nowCode.source = "cx";
-    targetCodeArea.push_back(nowCode);
-    nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+     nowCode.name = blank, nowCode.oper = "xor", nowCode.dest = "cx,", nowCode.source = "cx";
+     targetCodeArea.push_back(nowCode);
+     nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
 
-    nowCode.name = blank, nowCode.oper = "mov", nowCode.dest = "cl,", nowCode.source = "4";
-    targetCodeArea.push_back(nowCode);
-    nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+     nowCode.name = blank, nowCode.oper = "mov", nowCode.dest = "cl,", nowCode.source = "4";
+     targetCodeArea.push_back(nowCode);
+     nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
 
-    nowCode.name = "MainPart:", nowCode.oper = "mov", nowCode.dest = "dh,", nowCode.source = "al";
-    targetCodeArea.push_back(nowCode);
-    nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+     nowCode.name = "MainPart:", nowCode.oper = "mov", nowCode.dest = "dh,", nowCode.source = "al";
+     targetCodeArea.push_back(nowCode);
+     nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
 
-    nowCode.name = blank, nowCode.oper = "shr", nowCode.dest = "ax,", nowCode.source = "1";
-    targetCodeArea.push_back(nowCode);
-    nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+     nowCode.name = blank, nowCode.oper = "shr", nowCode.dest = "ax,", nowCode.source = "1";
+     targetCodeArea.push_back(nowCode);
+     nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
 
-    nowCode.name = blank, nowCode.oper = "shr", nowCode.dest = "ax,", nowCode.source = "1";
-    targetCodeArea.push_back(nowCode);
-    nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+     nowCode.name = blank, nowCode.oper = "shr", nowCode.dest = "ax,", nowCode.source = "1";
+     targetCodeArea.push_back(nowCode);
+     nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
 
-    nowCode.name = blank, nowCode.oper = "shr", nowCode.dest = "ax,", nowCode.source = "1";
-    targetCodeArea.push_back(nowCode);
-    nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
+     nowCode.name = blank, nowCode.oper = "shr", nowCode.dest = "ax,", nowCode.source = "1";
+     targetCodeArea.push_back(nowCode);
+     nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";
 
-    nowCode.name = blank, nowCode.oper = "shr", nowCode.dest = "ax,", nowCode.source = "1";
-    targetCodeArea.push_back(nowCode);
-    nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";*/
+     nowCode.name = blank, nowCode.oper = "shr", nowCode.dest = "ax,", nowCode.source = "1";
+     targetCodeArea.push_back(nowCode);
+     nowCode.name = nowCode.oper = nowCode.dest = nowCode.source = "";*/
 
 
 
@@ -1078,6 +1078,9 @@ void TargetCodeGenerator::getSonCalculation(quar nowQuar, string name)
 void TargetCodeGenerator::inCalculation(quar nowQuar, string name)
 {
     returnLabel(name);
+    //清空
+    MOV(targetCodeArea, blank, "ax,", "0");
+    MOV(targetCodeArea, blank, "N,", "ax");
     //将存储单元的地址赋给si
     LEA(targetCodeArea, blank, "si,", "N");
     CALLP(targetCodeArea, blank, "READ10");
@@ -1088,6 +1091,7 @@ void TargetCodeGenerator::inCalculation(quar nowQuar, string name)
     string tarCode = findXxx(target, blank);
     //赋值
     MOV(targetCodeArea, blank, tarCode+",", "ax");
+
 }
 
 //处理输出
@@ -1404,34 +1408,34 @@ void TargetCodeGenerator::generateCode()
         if(i==8)
         {
             asmout<<endl<<"PrintAX proc\n"
-                    "     push si\n"
-                    "     push cx\n"
-                    "     push dx    \n"
-                    "     mov si,offset Temp+3;保存存储结果的字符串的最后一个字符偏移地址\n"
-                    "     xor cx,cx           ;对cX清零\n"
-                    "     mov cl,4            ;设置循环次数为4次\n"
-                    " MainPart: mov DH,AL           ;将Al的内容传送给DH\n"
-                    "     shr AX,1\n"
-                    "     shr AX,1\n"
-                    "     shr AX,1\n"
-                    "     shr AX,1\n"
-                    "     and dh,0FH\n"
-                    "     add dh,30H\n"
-                    "     cmp dh,':' \n"
-                    "     ja isLetter \n"
-                    "     jb No       \n"
-                    " isLetter: add dh,7H   \n"
-                    " No: mov [si],dh \n"
-                    "     dec si\n"
-                    " loop MainPart\n"
-                    "print:   mov dx,offset Temp \n"
-                    "     mov ah,09\n"
-                    "     int 21H\n"
-                    "     pop dx\n"
-                    "     pop cx\n"
-                    "     pop si\n"
-                    "     ret\n"
-                    " PrintAX endp"<<endl<<endl;
+                          "     push si\n"
+                          "     push cx\n"
+                          "     push dx    \n"
+                          "     mov si,offset Temp+3;保存存储结果的字符串的最后一个字符偏移地址\n"
+                          "     xor cx,cx           ;对cX清零\n"
+                          "     mov cl,4            ;设置循环次数为4次\n"
+                          " MainPart: mov DH,AL           ;将Al的内容传送给DH\n"
+                          "     shr AX,1\n"
+                          "     shr AX,1\n"
+                          "     shr AX,1\n"
+                          "     shr AX,1\n"
+                          "     and dh,0FH\n"
+                          "     add dh,30H\n"
+                          "     cmp dh,':' \n"
+                          "     ja isLetter \n"
+                          "     jb No       \n"
+                          " isLetter: add dh,7H   \n"
+                          " No: mov [si],dh \n"
+                          "     dec si\n"
+                          " loop MainPart\n"
+                          "print:   mov dx,offset Temp \n"
+                          "     mov ah,09\n"
+                          "     int 21H\n"
+                          "     pop dx\n"
+                          "     pop cx\n"
+                          "     pop si\n"
+                          "     ret\n"
+                          " PrintAX endp"<<endl<<endl;
 
             asmout<<"READ10 PROC NEAR\n"
                     "     XOR DX,DX\n"
