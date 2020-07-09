@@ -4,7 +4,7 @@
 
 #include "GrammarAction.h"
 GrammarAction::GrammarAction(const string&fileName) {
-    this->fin.open(fileName);
+    this->fin.open(fileName,ios::trunc);
 }
 
 void GrammarAction::genetQuat(const string& a, const string& b, const string& c, const string& d) {
@@ -149,25 +149,26 @@ void GrammarAction::pushFunCallStack(const string &funName) {
     this->funCall.push(funName);
 }
 
-    void GrammarAction::moveParameter() {
+void GrammarAction::moveParameter() {
     ///增加参数类型匹配
-    auto it =this->funStack.top().getFunIterator(this->funCall.top());
-    stack<string>paraName;//实际参数列表
-    int num=it.parameterNum();
-    for(int i=0;i<num;i++){
+    auto it = this->funStack.top().getFunIterator(this->funCall.top());
+    stack<string> paraName;//实际参数列表
+    int num = it.parameterNum();
+    for (int i = 0; i < num; i++) {
         paraName.push(this->object.top());
         this->object.pop();
     }
-    auto paraIteraotor=it.beginParameter();
-    while(num--){
-        if(this->funStack.top().getElemIterator(paraName.top()).type().name()!=paraIteraotor.type().name()){
-            cerr<<"Parameter type mismatch::"<<it.name()<<endl;
+    auto paraIteraotor = it.beginParameter();
+    while (num--) {
+        if (paraName.top()[0]=='0' && paraIteraotor.type().name() == "integer") {
+        } else if (this->funStack.top().getElemIterator(paraName.top()).type().name() != paraIteraotor.type().name()) {
+            cerr << "Parameter type mismatch::" << it.name() << endl;
             exit(-1);
         }
-        if(paraIteraotor.cat()==CAT::catVn){//换名形参
-            this->genetQuat(quatName::moveFalsePar,paraName.top(),empty,empty);
-        }else{//赋值形参
-            this->genetQuat(quatName::moveTurePar,paraName.top(),empty,empty);
+        if (paraIteraotor.cat() == CAT::catVn) {//换名形参
+            this->genetQuat(quatName::moveFalsePar, paraName.top(), empty, empty);
+        } else {//赋值形参
+            this->genetQuat(quatName::moveTurePar, paraName.top(), empty, empty);
         }
         ++paraIteraotor;
         paraName.pop();
@@ -230,7 +231,7 @@ void GrammarAction::Input() {
 void GrammarAction::OutPut() {
     string name=this->object.top();
     this->object.pop();
-    this->genetQuat(quatName::Output,empty,empty,name);
+    this->genetQuat(quatName::Output,name,empty,empty);
 }
 
 

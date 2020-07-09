@@ -1,30 +1,39 @@
-program Hello:
+program Hello://函数调用、常量实参、换名形参、变量形参测试
 	var t1,t2: integer ;
 	function fa(var a,b:integer ):integer ;
 		 var c,d : integer ;
+		 function fd(var a,b:integer):integer;
+                  	    const top=100,low=50;
+                  begin
+                          a:=a+b-c;
+                          result:=a*b;
+                  end;
 		 function fc(xx,yy:integer):integer;
          	    const top=100,low=50;
          begin
-                 result :=  fa(xx,yy);
+                 result :=  fd(xx,yy);
          end;
+
 	begin
-		c:=3*5+6;
-		c:=c-b ;
-		result := c
+		c:=3*5+6+a;
+		b:=b+b ;
+		result := fc(c,c)
 	end;
 
 	function fb(xx,yy:integer):integer;
 	    const top=100,low=50;
 	 begin
-        result :=  fa(xx,yy);
+        result :=  fa(xx,xx);
 	 end;
 
 begin
-	t1 := 2;
-	t2 := 3;
-    t2 :=2* {fb(t1,t2)+} t1;
+	input t1;
+	input t2;
+    t2 :=2* fb(t1,t2)+t1;
     while t1<t2 do
         t1 := t1+1;
+    output t1;
+    output t2;
 //
 {}
 end.

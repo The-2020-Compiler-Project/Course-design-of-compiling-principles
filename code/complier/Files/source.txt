@@ -1,6 +1,7 @@
 program example:
+//output ±Ì¥Ô Ω≤‚ ‘
     var a,b : integer ;
 begin
     a := 2;
-    b:=2*5+a
+    output 2*5+a
 end.

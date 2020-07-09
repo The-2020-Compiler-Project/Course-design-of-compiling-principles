@@ -174,6 +174,32 @@ CMakeFiles/complier.dir/Lexical/lexical.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/Lexical/lexical.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/Lexical/lexical.cpp -o CMakeFiles/complier.dir/Lexical/lexical.cpp.s
 
+CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o: CMakeFiles/complier.dir/flags.make
+CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o: ../Optimizer/Optimizer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o -c /cygdrive/e/Course-design-of-compiling-principles/code/complier/Optimizer/Optimizer.cpp
+
+CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/Course-design-of-compiling-principles/code/complier/Optimizer/Optimizer.cpp > CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.i
+
+CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/Optimizer/Optimizer.cpp -o CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.s
+
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o: CMakeFiles/complier.dir/flags.make
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o: ../TargetCodeGenerator/TargetCodeGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o -c /cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/TargetCodeGenerator.cpp
+
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/TargetCodeGenerator.cpp > CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.i
+
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/TargetCodeGenerator.cpp -o CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.s
+
 # Object files for target complier
 complier_OBJECTS = \
 "CMakeFiles/complier.dir/main.cpp.o" \
@@ -184,7 +210,9 @@ complier_OBJECTS = \
 "CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o" \
 "CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.o" \
 "CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.o" \
-"CMakeFiles/complier.dir/Lexical/lexical.cpp.o"
+"CMakeFiles/complier.dir/Lexical/lexical.cpp.o" \
+"CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o" \
+"CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o"
 
 # External object files for target complier
 complier_EXTERNAL_OBJECTS =
@@ -198,9 +226,11 @@ complier.exe: CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o
 complier.exe: CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.o
 complier.exe: CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.o
 complier.exe: CMakeFiles/complier.dir/Lexical/lexical.cpp.o
+complier.exe: CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o
+complier.exe: CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o
 complier.exe: CMakeFiles/complier.dir/build.make
 complier.exe: CMakeFiles/complier.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable complier.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/e/Course-design-of-compiling-principles/code/complier/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable complier.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/complier.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

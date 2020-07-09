@@ -30,6 +30,14 @@ CMakeFiles/complier.dir/Lexical/lexical.cpp.o
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h
+CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/Optimizer/Optimizer.cpp
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/Optimizer/Optimizer.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/cat.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
 CMakeFiles/complier.dir/STable/STable.cpp.o
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.cpp
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h
@@ -38,6 +46,17 @@ CMakeFiles/complier.dir/STable/STable.cpp.o
 CMakeFiles/complier.dir/STable/Sheet.cpp.o
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.cpp
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.h
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/StackManager.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/TargetCodeGenerator.cpp
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/TargetCodeGenerator.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/x86Code.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/cat.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/quatName.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
 CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.cpp
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.h
@@ -59,8 +78,12 @@ CMakeFiles/complier.dir/main.cpp.o
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAction/GrammarAction.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAnalyzer/Grammar.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/Lexical/lexical.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/Optimizer/Optimizer.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/StackManager.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/TargetCodeGenerator.h
+ /cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/x86Code.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.h
  /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/TypeSheet.h

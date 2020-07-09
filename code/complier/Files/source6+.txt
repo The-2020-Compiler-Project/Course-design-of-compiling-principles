@@ -8,18 +8,17 @@ program Hello:
 	begin
 		c:=3*5+6;
 		c:=a-b ;
-		result:=fb(xx,yy);
 		result := c
 	end;
 
 	function fb(xx ,yy:integer):integer;
 	    const top=100,low=50;
 	 begin
-        result:=fa(xx,yy);
+        result:=fa(top,low);
 	 end;
 
 begin
 	n := 2;
 	m := 4;
-    m :=2* fa(n,m) +n
+    m :=2* fb(n,m) +n
 end.

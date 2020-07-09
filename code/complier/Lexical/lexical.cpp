@@ -15,7 +15,8 @@ static char ch;         // 下一个即将读出来的（还没读到它）的�
 static map<string, symbolType> reservedWords;   // 保留字表，建立每个保留字与其类型之前的关系
 
 // 真正的构造函数
-lexical::lexical(const string& file) : sourceFile(file.c_str()) {
+lexical::lexical(const string& file,const string& outFile) : sourceFile(file.c_str()){
+    tokenFile.open(outFile,ios::trunc);
     // 将文件输入流置为参数
 // 读进来文件中的第一个字符备用
     ch = sourceFile.get();
@@ -47,6 +48,8 @@ lexical::lexical(const string& file) : sourceFile(file.c_str()) {
     INSERT_RES("program", PROGRAM);
     INSERT_RES("type", TYPE);
     INSERT_RES("record", RECORD);
+    INSERT_RES("input", INPUT);
+    INSERT_RES("output", OUTPUT);
 
 #undef  INSERT_RES                                                 // 取消定义 INSERT_RES 宏
 
@@ -64,7 +67,20 @@ string Pt_str = "\0";//暂时存储界符，为了方便找到位置
 //extern STable sTable;
 token token1;
 // 读取下一个符号，将符号类型存入 symbol,位置存入loc,行数存入row
+static bool first=true;
 token lexical::next() {
+    if(first){first=false;}
+    else{
+        if(token1.symbol<27){
+            tokenFile<<"Kt"<<"   "<<sTable.searchKt(token1.loc)<<"    "<<token1.loc<<endl;
+        }else if(token1.symbol>32){
+            tokenFile<<"Pt"<<"   "<<sTable.searchPt(token1.loc)<<"    "<<token1.loc<<endl;
+        }else if(token1.symbol==27){
+            tokenFile<<"It"<<"   "<<sTable.searchIt(token1.loc)<<"    "<<token1.loc<<endl;
+        }else if(token1.symbol==28){
+            tokenFile<<"Nt"<<"   "<<sTable.searchIt(token1.loc)<<"    "<<token1.loc<<endl;
+        }
+    }
     while (ch != EOF) {
         while (isspace(ch) && (ch != '\n'))//读到空格后直接跳过，读下一个字符
             GET;
@@ -151,7 +167,7 @@ token lexical::next() {
             }
             else {                               // 在保留字表中
                 string Kt = it->first;//取这个关键字的名字
-                flag = sTable.findPt(Kt);
+                flag = sTable.findKt(Kt);
                 token1.symbol = it->second;// 要把保留字的具体类型存入 symbol
                 token1.loc = flag;//关键字的loc代表它在符号表的位置
                 token1.row = m;
@@ -292,7 +308,7 @@ token lexical::next() {
                         GET;//读一个为被处理的字符，下面同理
                         return token1;
                     }
-                    else  {
+                    else {
                         Pt_str = "<";
                         flag = sTable.findPt(Pt_str);
                         token1.symbol = LESS;
@@ -313,7 +329,7 @@ token lexical::next() {
                         GET;
                         return token1;
                     }
-                    else  {
+                    else {
                         Pt_str = ">";
                         flag = sTable.findPt(Pt_str);
                         token1.symbol = GREATER;
@@ -442,9 +458,9 @@ token lexical::next() {
                     return token1;
                 default:  //这里进行非法字符的报错
                     if(ch==-1){
-                        cout<<"over"<<endl;
-                    }
-                    cout << "此单词为错误单词" << endl;
+                        cout<<"Lex OK!"<<endl;
+                    }else
+                        cout << "Illegal words" << endl;
                     GET;
                     exit(1);
             }

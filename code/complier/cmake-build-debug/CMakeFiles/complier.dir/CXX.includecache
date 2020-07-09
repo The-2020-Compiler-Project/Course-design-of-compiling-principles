@@ -6,26 +6,12 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAction/GrammarAction.cpp
-GrammarAction.h
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAction/GrammarAction.h
-
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAction/GrammarAction.h
 ../type/quatName.h
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/type/quatName.h
 ../XTable/FunSheet.h
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.h
 bits/stdc++.h
--
-
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAnalyzer/Grammar.cpp
-Grammar.h
-/cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAnalyzer/Grammar.h
-iostream
--
-stack
--
-vector
 -
 
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAnalyzer/Grammar.h
@@ -46,6 +32,24 @@ fstream
 ../STable/STable.h
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h
 
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/Optimizer/Optimizer.h
+iostream
+-
+string
+-
+vector
+-
+stack
+-
+fstream
+-
+map
+-
+sstream
+-
+algorithm
+-
+
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.h
 ../tokenType/tokenType.h
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/tokenType/tokenType.h
@@ -56,6 +60,34 @@ bits/stdc++.h
 
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.h
 bits/stdc++.h
+-
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/StackManager.h
+x86Code.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/x86Code.h
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/TargetCodeGenerator.h
+fstream
+-
+vector
+-
+map
+-
+set
+-
+StackManager.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/StackManager.h
+../type/type.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/type.h
+../type/cat.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/cat.h
+../XTable/FunSheet.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/FunSheet.h
+../type/quatName.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/type/quatName.h
+
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/x86Code.h
+string
 -
 
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.h
@@ -89,6 +121,10 @@ GrammarAnalyzer/Grammar.h
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAnalyzer/Grammar.h
 GrammarAction/GrammarAction.h
 /cygdrive/e/Course-design-of-compiling-principles/code/complier/GrammarAction/GrammarAction.h
+Optimizer/Optimizer.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/Optimizer/Optimizer.h
+TargetCodeGenerator/TargetCodeGenerator.h
+/cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/TargetCodeGenerator.h
 bits/stdc++.h
 -
 

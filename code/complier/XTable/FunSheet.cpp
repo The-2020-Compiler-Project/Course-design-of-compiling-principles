@@ -23,6 +23,26 @@ FunSheet::iterator FunSheet::getMain() {
     return FunSheet::iterator(this->root);
 }
 
+void FunSheet::output() {
+    queue<iterator>record;
+    record.push(iterator(this->root));
+    while(!record.empty()){
+        auto it=record.front();
+        record.pop();
+        for(auto son=(it.root)->sFunTable.begin();son!=it.root->sFunTable.end();son++){
+            record.push(iterator(son->second));
+        }
+        cout<<it.name()<<" "<<it.level()<<" "<<it.len()<<" "<<it.cat();
+        //输出参数
+        auto vSon=it.beginParameter();
+        cout<<"Parameter:"<<it.parameterNum()<<endl;
+        while(vSon.useful()){
+            cout<<vSon.name()<<vSon.type().name()<<vSon.offSet()<<endl;
+            ++vSon;
+        }
+    }
+}
+
 FunSheet::iterator::iterator(FunSheet::funNode *point) {
     root=point;
 }
@@ -121,8 +141,8 @@ FunSheet::iterator FunSheet::iterator::getFunIterator(const string &funName) {
 ElemSheet::iterator FunSheet::iterator::getElemIterator(const string &elemNaem) {
     ///全局查询符号表寻找标识符
     auto findAns=this->root->search(elemNaem);
-    if(findAns.first!=CAT::catV&&findAns.first!=CAT::catVn&&findAns.first!=CAT::catVf){
-        ///标识符不是变量（临时变量）、形参、换名形参，返回空迭代器
+    if(findAns.first!=CAT::catV&&findAns.first!=CAT::catVn&&findAns.first!=CAT::catVf&&findAns.first!=CAT::catPoint){
+        ///标识符不是变量（临时变量）、形参、换名形参、指针，返回空迭代器
         return ElemSheet::iterator(nullptr);
     }else{
         return ElemSheet::iterator((ElemSheet::ElemPoint)findAns.second);

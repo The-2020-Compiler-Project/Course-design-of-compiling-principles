@@ -98,6 +98,12 @@
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/Lexical/lexical.h">
 			<Option target="complier"/>
 		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/Optimizer/Optimizer.cpp">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/Optimizer/Optimizer.h">
+			<Option target="complier"/>
+		</Unit>
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/STable.cpp">
 			<Option target="complier"/>
 		</Unit>
@@ -108,6 +114,18 @@
 			<Option target="complier"/>
 		</Unit>
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/STable/Sheet.h">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/StackManager.h">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/TargetCodeGenerator.cpp">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/TargetCodeGenerator.h">
+			<Option target="complier"/>
+		</Unit>
+		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/TargetCodeGenerator/x86Code.h">
 			<Option target="complier"/>
 		</Unit>
 		<Unit filename="/cygdrive/e/Course-design-of-compiling-principles/code/complier/XTable/ElemSheet.cpp">

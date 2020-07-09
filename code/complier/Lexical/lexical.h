@@ -34,6 +34,8 @@ typedef enum {
     PROGRAM,            // program关键字
     TYPE,               // type关键字
     RECORD,             // record关键字
+    INPUT,              // input关键字
+    OUTPUT,             // output关键字
 
     IDENTIFIER,         // 标识符
     NUMBER,             // 整数
@@ -74,10 +76,10 @@ typedef struct
 class lexical {
 public:
     token next();
-    lexical(const string& file);   // 私有化构造函数，单例模式
+    lexical(const string& file,const string& outFile);   // 私有化构造函数，单例模式
 private:
     ifstream sourceFile; // 源程序文件输入流
-
+    ofstream tokenFile;
     /*vector<string> IT;    //标识符表
     vector<char> CT;      //字符表
     vector<string> ST;    //字符串表

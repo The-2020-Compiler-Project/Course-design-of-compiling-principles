@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stack>
 #include <vector>
+#include <set>
 //extern STable sTable;
 ofstream output("../main/token.txt");
 // 读下一个token
@@ -11,7 +12,7 @@ ofstream output("../main/token.txt");
 }
 
 //错误处理，DEBUG用
-#define ERROR(cat)  {                                 \                                        
+#define ERROR(cat)  {                                 \
             cerr<<"Line "<<word.row<<": "<<cat<<endl; \
             exit(1);                                  \
         }
@@ -112,9 +113,9 @@ void Grammar::ConstDef(){
     if(word.symbol != IDENTIFIER)
     ERROR("expected identifiler!");
 
-    //记录标识符                     
+    //记录标识符
     string name = sTable.searchIt(word.loc);
-    //重定义判断  
+    //重定义判断
     auto pr = Fun_It.find(name);
     if(pr.first) ERROR("identifiler redefined! : "+name);
 
@@ -190,9 +191,9 @@ void Grammar::VarDef(){
     auto pr = Fun_It.find(name);
     if(pr.first) ERROR("identifier redefined! : "+name);
 
-    vector<string> nameV;
+    set<string> nameV;
     //标识符存入向量
-    nameV.push_back(name);
+    nameV.insert(name);
 
     NEXT;
     while(word.symbol == COMMA){
@@ -206,8 +207,8 @@ void Grammar::VarDef(){
         pr = Fun_It.find(name);
         if(pr.first) ERROR("identifier redefined! : "+name);
         //标识符存入向量
-        nameV.push_back(name);
-
+        auto pr1=nameV.insert(name);
+        if(!pr1.second) ERROR("identifier redefined! : "+name);
         NEXT;
     }
     if(word.symbol != COLON)
@@ -286,6 +287,9 @@ void Grammar::TypeDef(){
     ERROR("expected identifier!");
     //压入类型定义标识符栈
     string name = sTable.searchIt(word.loc);
+    //判断重定义
+    auto pr = Fun_It.find(name);
+    if(pr.first) ERROR("identifier redefined! : "+name);
     TypeIdentifier.push(name);
 
     NEXT;
@@ -597,6 +601,14 @@ void Grammar::Statement(){
     {
         CompoundStatement();
     }
+    else if(word.symbol == INPUT)
+    {
+        InputStatement();
+    }
+    else if(word.symbol == OUTPUT)
+    {
+        OutputStatement();
+    }
 }
 
 //<赋值语句>
@@ -743,12 +755,35 @@ void Grammar::WhileStatement(){
     _action.Do();
 
     Statement();
-    /*if(word.symbol != SEMICOLON)
-    ERROR("expected \';\'!");
-    NEXT;
-*/
+//    if(word.symbol != SEMICOLON)
+//        ERROR("expected \';\'!");
+//    NEXT;
+
     //_,endWhile
     _action.endWhile();
+}
+
+
+//<输出语句>
+void Grammar::OutputStatement() {
+    if(word.symbol != OUTPUT)
+    ERROR("expected output!");
+    NEXT;
+    Expression();
+
+    //-,output
+    _action.OutPut();
+}
+
+//
+void Grammar::InputStatement() {
+    if(word.symbol != INPUT)
+    ERROR("expected input!");
+    NEXT;
+    Variable();
+
+    //-,input
+    _action.Input();
 }
 
 //<调用语句>
@@ -902,8 +937,8 @@ void Grammar::Factor(){
             }
             else if(pr.second == catC){
                 //类型检查，是否为整数
-                auto e_it = Fun_It.getElemIterator(name);
-                auto t_it = e_it.type();
+                auto e_it = Fun_It.searchConstInfo(name);
+                auto t_it = e_it.first;
                 TYPEVAL t = t_it.tVal();
                 if(t != typeValI)
                 ERROR("must be number");
@@ -911,7 +946,7 @@ void Grammar::Factor(){
 
                 //0+string,pushObjectStack
                 string tmp="0";
-                _action.pushObjectStack(tmp+name);
+                _action.pushObjectStack(tmp+e_it.second);
             }
             else{
                 ERROR("illegal identifier!");

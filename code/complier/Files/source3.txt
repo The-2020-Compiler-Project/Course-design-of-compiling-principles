@@ -1,8 +1,15 @@
-program Hello:
-        type arr = array [100] of integer;
-    	var a,b : integer; x:arr;
-    begin
-        a := 2;
-        b :=2*5+a;
-        x[10]:=a;
+program Hello://数组连续赋值计算和
+    type arr = array [100] of integer;
+    var a,b,times: integer; x:arr;
+begin
+     input a;
+     times:=0;
+     b:=0;
+     while times<a do
+         begin
+             input x[times];
+             b:=b+x[times];
+             times:=times+1
+         end;
+      output b;
 end.

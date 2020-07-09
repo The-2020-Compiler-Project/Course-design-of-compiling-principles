@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.o"
   "CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.o"
   "CMakeFiles/complier.dir/Lexical/lexical.cpp.o"
+  "CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o"
+  "CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o"
   "complier.pdb"
   "complier.exe"
   "libcomplier.dll.a"

@@ -30,6 +30,14 @@ CMakeFiles/complier.dir/Lexical/lexical.cpp.o: ../STable/STable.h
 CMakeFiles/complier.dir/Lexical/lexical.cpp.o: ../STable/Sheet.h
 CMakeFiles/complier.dir/Lexical/lexical.cpp.o: ../tokenType/tokenType.h
 
+CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o: ../Optimizer/Optimizer.cpp
+CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o: ../Optimizer/Optimizer.h
+CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o: ../XTable/ElemSheet.h
+CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o: ../XTable/FunSheet.h
+CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o: ../XTable/TypeSheet.h
+CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o: ../type/cat.h
+CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o: ../type/type.h
+
 CMakeFiles/complier.dir/STable/STable.cpp.o: ../STable/STable.cpp
 CMakeFiles/complier.dir/STable/STable.cpp.o: ../STable/STable.h
 CMakeFiles/complier.dir/STable/STable.cpp.o: ../STable/Sheet.h
@@ -37,6 +45,17 @@ CMakeFiles/complier.dir/STable/STable.cpp.o: ../tokenType/tokenType.h
 
 CMakeFiles/complier.dir/STable/Sheet.cpp.o: ../STable/Sheet.cpp
 CMakeFiles/complier.dir/STable/Sheet.cpp.o: ../STable/Sheet.h
+
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o: ../TargetCodeGenerator/StackManager.h
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o: ../TargetCodeGenerator/TargetCodeGenerator.cpp
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o: ../TargetCodeGenerator/TargetCodeGenerator.h
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o: ../TargetCodeGenerator/x86Code.h
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o: ../XTable/ElemSheet.h
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o: ../XTable/FunSheet.h
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o: ../XTable/TypeSheet.h
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o: ../type/cat.h
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o: ../type/quatName.h
+CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o: ../type/type.h
 
 CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o: ../XTable/ElemSheet.cpp
 CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o: ../XTable/ElemSheet.h
@@ -58,8 +77,12 @@ CMakeFiles/complier.dir/XTable/TypeSheet.cpp.o: ../type/type.h
 CMakeFiles/complier.dir/main.cpp.o: ../GrammarAction/GrammarAction.h
 CMakeFiles/complier.dir/main.cpp.o: ../GrammarAnalyzer/Grammar.h
 CMakeFiles/complier.dir/main.cpp.o: ../Lexical/lexical.h
+CMakeFiles/complier.dir/main.cpp.o: ../Optimizer/Optimizer.h
 CMakeFiles/complier.dir/main.cpp.o: ../STable/STable.h
 CMakeFiles/complier.dir/main.cpp.o: ../STable/Sheet.h
+CMakeFiles/complier.dir/main.cpp.o: ../TargetCodeGenerator/StackManager.h
+CMakeFiles/complier.dir/main.cpp.o: ../TargetCodeGenerator/TargetCodeGenerator.h
+CMakeFiles/complier.dir/main.cpp.o: ../TargetCodeGenerator/x86Code.h
 CMakeFiles/complier.dir/main.cpp.o: ../XTable/ElemSheet.h
 CMakeFiles/complier.dir/main.cpp.o: ../XTable/FunSheet.h
 CMakeFiles/complier.dir/main.cpp.o: ../XTable/TypeSheet.h

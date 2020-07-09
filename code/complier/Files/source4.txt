@@ -1,9 +1,10 @@
-program Hello://数组结构体
+program Hello://结构体连续赋值
     type
-        arr = array [100] of integer;
         node = record
-                    len : integer;
-                    size : arr;
+                    a : integer;
+                    b : integer;
+                    c : integer;
+
                end;
 	var
 	    times:integer;

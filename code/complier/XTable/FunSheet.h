@@ -60,6 +60,7 @@ private:
 public:
     ///提供给用户的函数接口
     struct iterator{
+        friend FunSheet;
     private:
         funNode* root;//迭代器的底层为指针
     public:
@@ -104,6 +105,7 @@ public:
 public:
     iterator creatMain(const string& name);//创建主函数
     iterator getMain();//获取主函数的迭代器
+    void output();
 };
 
 extern FunSheet xTable;

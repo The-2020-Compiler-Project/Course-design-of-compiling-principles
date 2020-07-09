@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Lexical/lexical.cpp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Lexical/lexical.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/STable/KTtable.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/XTable/FunSheet.cpp" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>

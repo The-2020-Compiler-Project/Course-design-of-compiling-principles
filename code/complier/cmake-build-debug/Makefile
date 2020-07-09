@@ -204,6 +204,33 @@ Lexical/lexical.cpp.s:
 	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/Lexical/lexical.cpp.s
 .PHONY : Lexical/lexical.cpp.s
 
+Optimizer/Optimizer.o: Optimizer/Optimizer.cpp.o
+
+.PHONY : Optimizer/Optimizer.o
+
+# target to build an object file
+Optimizer/Optimizer.cpp.o:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o
+.PHONY : Optimizer/Optimizer.cpp.o
+
+Optimizer/Optimizer.i: Optimizer/Optimizer.cpp.i
+
+.PHONY : Optimizer/Optimizer.i
+
+# target to preprocess a source file
+Optimizer/Optimizer.cpp.i:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.i
+.PHONY : Optimizer/Optimizer.cpp.i
+
+Optimizer/Optimizer.s: Optimizer/Optimizer.cpp.s
+
+.PHONY : Optimizer/Optimizer.s
+
+# target to generate assembly for a file
+Optimizer/Optimizer.cpp.s:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.s
+.PHONY : Optimizer/Optimizer.cpp.s
+
 STable/STable.o: STable/STable.cpp.o
 
 .PHONY : STable/STable.o
@@ -257,6 +284,33 @@ STable/Sheet.s: STable/Sheet.cpp.s
 STable/Sheet.cpp.s:
 	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/STable/Sheet.cpp.s
 .PHONY : STable/Sheet.cpp.s
+
+TargetCodeGenerator/TargetCodeGenerator.o: TargetCodeGenerator/TargetCodeGenerator.cpp.o
+
+.PHONY : TargetCodeGenerator/TargetCodeGenerator.o
+
+# target to build an object file
+TargetCodeGenerator/TargetCodeGenerator.cpp.o:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o
+.PHONY : TargetCodeGenerator/TargetCodeGenerator.cpp.o
+
+TargetCodeGenerator/TargetCodeGenerator.i: TargetCodeGenerator/TargetCodeGenerator.cpp.i
+
+.PHONY : TargetCodeGenerator/TargetCodeGenerator.i
+
+# target to preprocess a source file
+TargetCodeGenerator/TargetCodeGenerator.cpp.i:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.i
+.PHONY : TargetCodeGenerator/TargetCodeGenerator.cpp.i
+
+TargetCodeGenerator/TargetCodeGenerator.s: TargetCodeGenerator/TargetCodeGenerator.cpp.s
+
+.PHONY : TargetCodeGenerator/TargetCodeGenerator.s
+
+# target to generate assembly for a file
+TargetCodeGenerator/TargetCodeGenerator.cpp.s:
+	$(MAKE) -f CMakeFiles/complier.dir/build.make CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.s
+.PHONY : TargetCodeGenerator/TargetCodeGenerator.cpp.s
 
 XTable/ElemSheet.o: XTable/ElemSheet.cpp.o
 
@@ -384,12 +438,18 @@ help:
 	@echo "... Lexical/lexical.o"
 	@echo "... Lexical/lexical.i"
 	@echo "... Lexical/lexical.s"
+	@echo "... Optimizer/Optimizer.o"
+	@echo "... Optimizer/Optimizer.i"
+	@echo "... Optimizer/Optimizer.s"
 	@echo "... STable/STable.o"
 	@echo "... STable/STable.i"
 	@echo "... STable/STable.s"
 	@echo "... STable/Sheet.o"
 	@echo "... STable/Sheet.i"
 	@echo "... STable/Sheet.s"
+	@echo "... TargetCodeGenerator/TargetCodeGenerator.o"
+	@echo "... TargetCodeGenerator/TargetCodeGenerator.i"
+	@echo "... TargetCodeGenerator/TargetCodeGenerator.s"
 	@echo "... XTable/ElemSheet.o"
 	@echo "... XTable/ElemSheet.i"
 	@echo "... XTable/ElemSheet.s"

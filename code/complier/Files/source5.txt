@@ -8,7 +8,7 @@ program Hello:
          a : integer;
          b : char;
 	     tree :node;
-	procedure ex(var a,b:integer ) ;
+	procedure ex(a,b:integer ) ;
 		 var c: integer ;
 	begin
 		c:=3;
@@ -16,6 +16,6 @@ program Hello:
 	end;
 begin
     a := 2;
-	ex(a,b)
+	ex(2,a);
+	a:=a+2;
 end.
-//参数类型不匹配、以及参数个数不正确测试

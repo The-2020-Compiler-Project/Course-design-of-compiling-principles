@@ -1,13 +1,14 @@
-program Hello://简单函数调用
+program Hello: //简单函数调用
 	var a,b : integer ;
-	procedure ex(var a,b:integer ) ;
+	procedure ex(a,b:integer ) ;//var 换名
 		 var c,d : integer ;
 	begin
 		c:=3;
-		c:=a+b ;
+		c:=a+b ;//14
 	end;
 begin
-	a := 2;
-    b :=2*5+a;
-    ex(a,b)
+	a := 2;//2
+    b :=2*5+a;//12
+    ex(1,1);
+    output a
 end.

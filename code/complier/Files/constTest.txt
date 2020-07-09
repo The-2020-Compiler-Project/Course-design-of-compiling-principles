@@ -1,0 +1,11 @@
+program Hello:
+//常数类型测试
+    const top=100,low=50;
+    var n,m : integer;
+begin
+	n := 2;
+	input n;
+	m := 4;
+    m :=2* top*low+m;
+    output m;
+end.

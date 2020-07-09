@@ -21,7 +21,7 @@ class GrammarAction {
     const string empty="_";
     ;//中间代码所在文件地址
     int tmpIndex=0;//临时变量的标号
-    fstream fin;
+    ofstream fin;
 
     stack<FunSheet::iterator> funStack;//函数栈
     stack<string>object;//运算对象栈
