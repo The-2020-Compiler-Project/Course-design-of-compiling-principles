@@ -1,0 +1,79 @@
+function Info
+Name Level dataAreaLength Cat
+Hello 0 12 8
+
+Parameter Info
+Name OffSet Cat typeName
+
+Variable Info
+Name OffSet Cat typeName
+t1 0 5 integer
+t2 2 5 integer
+t3 4 5 integer
+
+Temporary Variable Info
+Name OffSet Cat typeName
+_4Return 6 5 integer
+_5Arithm 8 5 integer
+_6Arithm 10 5 integer
+
+Type Info
+Name Size Cat typeName
+bool 1
+char 1
+integer 2
+real 6
+
+
+function Info
+Name Level dataAreaLength Cat
+fb 1 6 6
+
+Parameter Info
+Name OffSet Cat typeName
+xx 0 1 integer
+yy 2 1 integer
+
+Variable Info
+Name OffSet Cat typeName
+
+Temporary Variable Info
+Name OffSet Cat typeName
+_3Return 4 5 integer
+
+Type Info
+Name Size Cat typeName
+bool 1
+char 1
+integer 2
+real 6
+
+
+function Info
+Name Level dataAreaLength Cat
+fa 1 14 6
+
+Parameter Info
+Name OffSet Cat typeName
+a 0 0 integer
+b 2 0 integer
+
+Variable Info
+Name OffSet Cat typeName
+c 4 5 integer
+d 6 5 integer
+
+Temporary Variable Info
+Name OffSet Cat typeName
+_0Arithm 8 5 integer
+_1Arithm 10 5 integer
+_2Arithm 12 5 integer
+
+Type Info
+Name Size Cat typeName
+bool 1
+char 1
+integer 2
+real 6
+
+

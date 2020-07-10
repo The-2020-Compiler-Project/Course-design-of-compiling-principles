@@ -1,0 +1,22 @@
+program Hello:
+	var
+	    t1,t2:integer;
+	    t3: integer ;
+	function fa(var a,b:integer ):integer;
+		 var c,d : integer ;
+	begin
+		c:=3*5+6;
+		c:=c-b ;
+		result := c
+	end;
+
+	function fb(xx,yy:integer):integer;
+	    const top=100,low=50;
+	 begin
+        result :=  fa(xx,yy);
+	 end;
+
+begin
+	//t1 := 2;
+    t2 :=2*fb(t1,t2)+t1;
+end.

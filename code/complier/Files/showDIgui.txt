@@ -1,0 +1,27 @@
+program Hello:
+    var
+        n:integer;
+
+	function fa(times:integer ):integer;
+        var
+            ans:integer;
+        procedure fb;
+        begin
+            if times>0 then
+            begin
+                ans:=ans*times;
+                times:=times-1;
+                fb;
+            end;
+      	end;
+
+	begin
+        ans:=1;
+        fb;
+        result:=ans;
+	end;
+
+begin
+    input n;
+    output fa(n);
+end.

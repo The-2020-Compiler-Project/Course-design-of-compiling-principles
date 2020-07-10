@@ -105,7 +105,7 @@ public:
 public:
     iterator creatMain(const string& name);//创建主函数
     iterator getMain();//获取主函数的迭代器
-    void output();
+    void output(const string&fileName);
 };
 
 extern FunSheet xTable;

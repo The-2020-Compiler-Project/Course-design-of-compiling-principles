@@ -50,6 +50,7 @@ public:
     int len();//信息表的总长度
     ElemPoint add(const string&addName,CAT addCat,TypeSheet::typePoint addType);//增加新的一项，传入名字、种类、类型
     pair<CAT,ElemPoint> find(const string &findName);//查找一个名字为name的标识符，返回安全指针
+    void output(ofstream&fout);
 };
 
 #endif //COMPLIER_ELEMSHEET_H

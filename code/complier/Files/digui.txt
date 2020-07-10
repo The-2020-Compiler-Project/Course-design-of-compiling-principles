@@ -1,11 +1,11 @@
-program Hello://递归调用计算阶乘演示
+program Hello: //递归调用计算阶乘演示
     const top=7;
     var ans,times:integer;
 	procedure fun;
 	begin
 		if times>0 then
 		begin
-            ans:=ans*times;
+            ans:=ans+1;
             times:=times-1;
             fun //递归调用
 		end
@@ -13,7 +13,7 @@ program Hello://递归调用计算阶乘演示
 begin
     input times;
     input ans;
-    ans:=1;
+    ans:=0;
     fun;
     output ans;
 end.

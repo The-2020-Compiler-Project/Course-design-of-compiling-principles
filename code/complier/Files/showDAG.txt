@@ -1,0 +1,25 @@
+program Hello:
+	var a,b ,c,R,r: integer ;
+	procedure ex(a,b:integer ) ;
+		 var c,d : integer ;
+	begin
+		c:=3;
+		c:=a+b ;//14
+	end;
+begin
+	a := 2; //2
+    b :=2*5+a;  //12
+    c:=0;
+    ex(a,b);
+    input R;
+    input r;
+    a:=2*3+b*c;//
+    b:=3*5+b*c;//
+    c:=5*6+b*c;//
+    output a;
+    output b;
+    output c;
+    b:=5;
+    a:=2*3*(R+r);
+    b:=2*3*(R+r)*(R-r)
+end.

@@ -4,23 +4,23 @@ program Hello:  // 4 2 36
 	procedure fa(var a,b:integer );
 		 var c,d : integer ;
 	begin
-		a:=a+b; //对a、b的值进行改变
-		b:=a-b;
+		a:=a+b; //对a、b的值进行改变 6
+		b:=a-b;// 4
 	end;
 
 	function fb(xx ,yy:integer):integer;
 	    const top=100,low=50;
 	 begin
-        fa(xx,yy);//调用过程改变xx,yy的值
-        result:=xx+yy;
+        fa(xx,yy);//调用过程改变xx,yy的值4 2
+        result:=xx+yy;//10
 	 end;
 
 	 function fc(ka, kb:integer):integer;
 	        var e,f,g: integer;
 	 begin
-	    e:=ka+kb;
-	    f:=fb(ka, kb);
-	    g:=e+f;
+	    e:=ka+kb;//6
+	    f:=fb(ka, kb);//10
+	    g:=e+f;//16
 	    result:= g;
 	 end;
 
@@ -28,6 +28,6 @@ program Hello:  // 4 2 36
 begin
 	input n;
 	input m;
-    m :=2* fc(n,m) +n;//赋值传递
-    output m
+    m :=2* fc(n,m) +n;//赋值传递 2*16*4
+    output m    //36
 end.

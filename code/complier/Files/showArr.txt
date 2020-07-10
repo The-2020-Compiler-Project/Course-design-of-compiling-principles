@@ -1,0 +1,26 @@
+program Hello:
+    type
+        arr = array [50] of integer;
+	var
+	    n,m,o,p : integer;
+	    x: arr;
+	function fc(var a:integer):integer;
+	    var e,f,g: integer;
+	begin
+        input a;
+        result:=a
+	end;
+
+
+begin
+	input n;    //表示对多少个数求和
+    m:=0;
+    p:=0;       //h和
+    while m<n do
+    begin
+        o:=fc(x[m]);
+        p:=p+x[m];
+        m:=m+1;
+    end;
+    output p
+end.

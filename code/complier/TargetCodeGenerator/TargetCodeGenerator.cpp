@@ -935,42 +935,16 @@ void TargetCodeGenerator::parCalculation(quar nowQuar, string name, int index, i
     string o1Code = "";
 
     ElemSheet::iterator nowIter = itStack.back().getElemIterator(o1);
-    if (nowIter.cat() == catPoint)
+    if(isNum(o1))
     {
-        //计算真实偏移量,原因查看测试ifwhile文档
-        int trueOffset = findTrueOffset(o1);
-
-        //查display表确定这个变量所在的活动记录开始位置
-        //表的前缀可以计算得出，所有的东西计算后变为汇编代码即可
-        //查看目标操作数的层次
-        int o1Level = itStack.back().getLevel(o1);
-
-        //在display表中查找目标位置
-        int o1Dis = findInDisplay(o1Level);
-
-        //将地址装到bx中，通过[bp-xxx]找到
-        string strDis = to_string(o1Dis);
-
-        //因为地址为2个存储单元，所以为word ptr
-        strDis = "word ptr [bp-" + strDis + "]";
-
-        //装入bx中
-        MOV(targetCodeArea, blank, "bx,", strDis);
-
-        //现在bx里面有对应的开始位置的地址
-        //通过偏移量可以确定位置
-        //暂时没考虑优化，没省去ppt中st指令，后续可能会加
-        string strTrueOffset = to_string(trueOffset);
-        SUB(targetCodeArea, blank, "bx,", strTrueOffset);
-        o1Code="bx";
+        for(int i=1;i<o1.size();i++)
+        {
+            o1Code+=o1[i];
+        }
     }
     else
     {
-        if(nowQuar.oper == quatName::moveTurePar)
-        {
-            o1Code = findXxx(o1, blank);
-        }
-        else
+        if (nowIter.cat() == catPoint)
         {
             //计算真实偏移量,原因查看测试ifwhile文档
             int trueOffset = findTrueOffset(o1);
@@ -997,10 +971,45 @@ void TargetCodeGenerator::parCalculation(quar nowQuar, string name, int index, i
             //暂时没考虑优化，没省去ppt中st指令，后续可能会加
             string strTrueOffset = to_string(trueOffset);
             SUB(targetCodeArea, blank, "bx,", strTrueOffset);
-            o1Code="bx";
+            o1Code = "[bx]";
+        }
+        else
+        {
+            if (nowQuar.oper == quatName::moveTurePar)
+            {
+                o1Code = findXxx(o1, blank);
+            }
+            else
+            {
+                //计算真实偏移量,原因查看测试ifwhile文档
+                int trueOffset = findTrueOffset(o1);
+
+                //查display表确定这个变量所在的活动记录开始位置
+                //表的前缀可以计算得出，所有的东西计算后变为汇编代码即可
+                //查看目标操作数的层次
+                int o1Level = itStack.back().getLevel(o1);
+
+                //在display表中查找目标位置
+                int o1Dis = findInDisplay(o1Level);
+
+                //将地址装到bx中，通过[bp-xxx]找到
+                string strDis = to_string(o1Dis);
+
+                //因为地址为2个存储单元，所以为word ptr
+                strDis = "word ptr [bp-" + strDis + "]";
+
+                //装入bx中
+                MOV(targetCodeArea, blank, "bx,", strDis);
+
+                //现在bx里面有对应的开始位置的地址
+                //通过偏移量可以确定位置
+                //暂时没考虑优化，没省去ppt中st指令，后续可能会加
+                string strTrueOffset = to_string(trueOffset);
+                SUB(targetCodeArea, blank, "bx,", strTrueOffset);
+                o1Code = "bx";
+            }
         }
     }
-
     //存到ax中
     MOV(targetCodeArea, blank, "ax,", o1Code);
 

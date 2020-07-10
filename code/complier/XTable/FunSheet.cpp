@@ -23,7 +23,8 @@ FunSheet::iterator FunSheet::getMain() {
     return FunSheet::iterator(this->root);
 }
 
-void FunSheet::output() {
+void FunSheet::output(const string&fileName) {
+    ofstream fout(fileName,ios::trunc);
     queue<iterator>record;
     record.push(iterator(this->root));
     while(!record.empty()){
@@ -32,14 +33,32 @@ void FunSheet::output() {
         for(auto son=(it.root)->sFunTable.begin();son!=it.root->sFunTable.end();son++){
             record.push(iterator(son->second));
         }
-        cout<<it.name()<<" "<<it.level()<<" "<<it.len()<<" "<<it.cat();
+        //输出函数信息
+        fout<<"function Info"<<endl;
+        fout<<"Name"<<' '<<"Level"<<' '<<"dataAreaLength"<<" "<<"Cat"<<endl;
+        fout<<it.name()<<" "<<it.level()<<" "<<it.len()<<" "<<it.cat()<<endl;
+        fout<<endl;
         //输出参数
-        auto vSon=it.beginParameter();
-        cout<<"Parameter:"<<it.parameterNum()<<endl;
-        while(vSon.useful()){
-            cout<<vSon.name()<<vSon.type().name()<<vSon.offSet()<<endl;
-            ++vSon;
-        }
+        fout<<"Parameter Info"<<endl;
+        fout<<"Name"<<" "<<"OffSet"<<" "<<"Cat"<<" "<<"typeName"<<endl;
+        it.root->parmSheet.output(fout);
+        fout<<endl;
+        //输出变量
+        fout<<"Variable Info"<<endl;
+        fout<<"Name"<<" "<<"OffSet"<<" "<<"Cat"<<" "<<"typeName"<<endl;
+        it.root->elemSheet.output(fout);
+        fout<<endl;
+        //临时变量
+        fout<<"Temporary Variable Info"<<endl;
+        fout<<"Name"<<" "<<"OffSet"<<" "<<"Cat"<<" "<<"typeName"<<endl;
+        it.root->tmpSheet.output(fout);
+        fout<<endl;
+        //类型
+        fout<<"Type Info"<<endl;
+        fout<<"Name"<<" "<<"Size"<<" "<<"Cat"<<" "<<"typeName"<<endl;
+        it.root->typeSheet.output(fout);
+        fout<<endl<<endl;
+
     }
 }
 

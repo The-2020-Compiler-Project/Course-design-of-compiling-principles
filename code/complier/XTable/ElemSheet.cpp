@@ -98,6 +98,12 @@ bool ElemSheet::erase(ElemSheet::iterator deletIterator) {
     return this->erase(deletIterator.root);
 }
 
+void ElemSheet::output(ofstream &fout) {
+    for(auto it=this->record.begin();it!=record.end();it++){
+        fout<<it->name<<' '<<it->offSet<<' '<<it->cat<<' '<<TypeSheet::iterator(it->typePoint).name()<<endl;
+    }
+}
+
 
 ElemSheet::iterator ElemSheet::iterator::operator++() {
     this->root=this->root->next;

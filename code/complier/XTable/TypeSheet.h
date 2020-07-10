@@ -17,7 +17,7 @@ private:
     ///类型表结点定义
     class TypeNode {
         friend TypeSheet;
-    private:
+    public:
         ///数组表的定义
         struct ArrNode {
             int low,up;
@@ -65,6 +65,7 @@ public:
     typePoint addArrType(const string&arrName,TypeNode* typePpint,const int &size);
     typePoint addStructType(const string&structName,vector<string>&sonName,vector<typePoint>&sonType);
     TypeSheet();
+    void output(ofstream&fout);
 };
 
 #endif //COMPLIER_TYPESHEET_H

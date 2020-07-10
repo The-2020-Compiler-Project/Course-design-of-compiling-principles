@@ -1,0 +1,38 @@
+program Hello:              // 4 2 36       用于展示token和符号表
+    type
+        arr = array [100] of integer;   //数组类型定义
+        node = record                   //结构体类型定义
+                    arr : integer;
+                    brr : integer;
+               end;
+    const low=10,up=100;                //常数定义
+    var                                 //变量定义
+        M1:integer;
+        M2:integer;                     //考虑临时变量
+	function fa(a,b:integer ):integer;         //(a+b)*(a-b)
+        var
+            x:arr;
+            y:node;
+        procedure fb(var xx ,yy:integer);//换名直接,xx=xx+yy,yy=yy
+        begin
+            xx:=xx+yy;
+            yy:=xx-yy;      //10 6; 3 2
+      	end;
+	begin
+        fb(a,b);        //10 6;
+        result:=a*b;    //60;   6
+	end;
+
+	function fc(ka, kb:integer):integer;
+        var M1,M2:integer;
+	begin
+	    M1:=2;
+	    M2:=1;
+        result:=fa(ka,kb)+fa(M1,M2);//60+6
+	 end;
+
+begin
+    input M1;       //6
+    input M2;       //4
+    output fc(M1,M2)    //66
+end.

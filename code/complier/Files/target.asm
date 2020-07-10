@@ -59,7 +59,7 @@ READ10 ENDP
 fa proc near
 	        push bp
 	        mov bp, sp
-	        sub sp, 18
+	        sub sp, 20
 	        mov bx, word ptr [bp]
 	        sub bx, 4
 	        mov si, bp
@@ -69,19 +69,15 @@ fa proc near
 	        sub si, 2
 	        mov word ptr [si], bp
 
-	        mov bx, word ptr [bp-8]
-	        mov ax, word ptr [bx]
-	        mov bx, word ptr [bp-10]
-	        add ax, word ptr [bx]
-	        mov bx, word ptr [bp-8]
-	        mov word ptr [bx], ax
-
-	        mov bx, word ptr [bp-8]
-	        mov ax, word ptr [bx]
+	        mov ax, 21
 	        mov bx, word ptr [bp-10]
 	        sub ax, word ptr [bx]
-	        mov bx, word ptr [bp-10]
-	        mov word ptr [bx], ax
+	        mov bx, word ptr [bp-6]
+	        mov word ptr [bx-12], ax
+
+	        mov bx, word ptr [bp-6]
+	        mov ax, word ptr [bx-12]
+	        mov word ptr [bp-2], ax
 
 	        mov sp, bp
 	        pop bp
@@ -117,10 +113,8 @@ fb proc near
 	        call fa
 
 	        mov bx, word ptr [bp-6]
-	        mov ax, word ptr [bx-8]
-	        mov bx, word ptr [bp-6]
-	        add ax, word ptr [bx-10]
-	        mov bx, word ptr [bp-6]
+	        mov si, sp
+	        mov ax, word ptr [si-6]
 	        mov word ptr [bx-12], ax
 
 	        mov bx, word ptr [bp-6]
@@ -132,121 +126,47 @@ fb proc near
 	        ret
 fb endp
 
-
-fc proc near
-	        push bp
-	        mov bp, sp
-	        sub sp, 22
-	        mov bx, word ptr [bp]
-	        sub bx, 4
-	        mov si, bp
-	        sub si, 4
-	        mov ax, word ptr [bx]
-	        mov word ptr [si], ax
-	        sub si, 2
-	        mov word ptr [si], bp
-
-	        mov bx, word ptr [bp-6]
-	        mov ax, word ptr [bx-8]
-	        mov bx, word ptr [bp-6]
-	        add ax, word ptr [bx-10]
-	        mov bx, word ptr [bp-6]
-	        mov word ptr [bx-12], ax
-
-
-
-	        mov bx, word ptr [bp-6]
-	        mov ax, word ptr [bx-8]
-	        mov si, sp
-	        mov word ptr [si-12], ax
-	        mov bx, word ptr [bp-6]
-	        mov ax, word ptr [bx-10]
-	        mov si, sp
-	        mov word ptr [si-14], ax
-	        call fb
-
-	        mov bx, word ptr [bp-6]
-	        mov si, sp
-	        mov ax, word ptr [si-6]
-	        mov word ptr [bx-14], ax
-
-	        mov bx, word ptr [bp-6]
-	        mov ax, word ptr [bx-12]
-	        mov bx, word ptr [bp-6]
-	        add ax, word ptr [bx-14]
-	        mov bx, word ptr [bp-6]
-	        mov word ptr [bx-16], ax
-
-	        mov bx, word ptr [bp-6]
-	        mov ax, word ptr [bx-16]
-	        mov word ptr [bp-2], ax
-
-	        mov sp, bp
-	        pop bp
-	        ret
-fc endp
-
 start: mov ax, sseg
 	        mov ds, ax
 	        mov ax, sseg
 	        mov ss, ax
 	        push bp
 	        mov bp, sp
-	        sub sp, 14
+	        sub sp, 16
 	        mov word ptr [bp-4], bp
 
-	        mov ax, 0
-	        mov N, ax
-	        lea si, N
-	        call READ10
-	        mov ax, N
-	        mov bx, word ptr [bp-4]
-	        mov word ptr [bx-8], ax
-
-	        mov ax, 0
-	        mov N, ax
-	        lea si, N
-	        call READ10
-	        mov ax, N
-	        mov bx, word ptr [bp-4]
-	        mov word ptr [bx-6], ax
 
 
-
-	        mov bx, word ptr [bp-4]
-	        mov ax, word ptr [bx-8]
-	        mov si, sp
-	        mov word ptr [si-12], ax
 	        mov bx, word ptr [bp-4]
 	        mov ax, word ptr [bx-6]
 	        mov si, sp
+	        mov word ptr [si-12], ax
+	        mov bx, word ptr [bp-4]
+	        mov ax, word ptr [bx-8]
+	        mov si, sp
 	        mov word ptr [si-14], ax
-	        call fc
+	        call fb
 
 	        mov bx, word ptr [bp-4]
 	        mov si, sp
 	        mov ax, word ptr [si-6]
-	        mov word ptr [bx-10], ax
+	        mov word ptr [bx-12], ax
 
 	        xor ax, ax
 	        xor dx, dx
 	        mov ax, 2
 	        mov bx, word ptr [bp-4]
-	        mov cx, word ptr [bx-10]
+	        mov cx, word ptr [bx-12]
 	        imul cx
 	        mov bx, word ptr [bp-4]
-	        mov word ptr [bx-12], ax
+	        mov word ptr [bx-14], ax
 
 	        mov bx, word ptr [bp-4]
-	        mov ax, word ptr [bx-12]
+	        mov ax, word ptr [bx-14]
 	        mov bx, word ptr [bp-4]
-	        add ax, word ptr [bx-8]
+	        add ax, word ptr [bx-6]
 	        mov bx, word ptr [bp-4]
-	        mov word ptr [bx-6], ax
-
-	        mov bx, word ptr [bp-4]
-	        mov ax, word ptr [bx-6]
-	        call PrintAx
+	        mov word ptr [bx-8], ax
 
 	        mov ah, 4ch
 	        	        int 21h

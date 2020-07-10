@@ -78,7 +78,7 @@ token lexical::next() {
         }else if(token1.symbol==27){
             tokenFile<<"It"<<"   "<<sTable.searchIt(token1.loc)<<"    "<<token1.loc<<endl;
         }else if(token1.symbol==28){
-            tokenFile<<"Nt"<<"   "<<sTable.searchIt(token1.loc)<<"    "<<token1.loc<<endl;
+            tokenFile<<"Nt"<<"   "<<sTable.searchNt(token1.loc)<<"    "<<token1.loc<<endl;
         }
     }
     while (ch != EOF) {
@@ -245,6 +245,7 @@ token lexical::next() {
                 }//跳出循环时，ch为换行符号
                 m++;//行数m要加一
                 GET;//读下一个字符以备分析
+                first=1;
                 return next();//调用自身进行下一个字符的分析
             }
             else {//下一个字符不是反斜杠，那么就是界符除以号
@@ -272,6 +273,7 @@ token lexical::next() {
                 }
                 GET;//当前符号为）
                 GET;//读下一个字符以备分析
+                first=1;
                 return next();//调用自身进行分析
             }
             else {//只有左括号，那么就是界符左括号

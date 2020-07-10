@@ -1,0 +1,15 @@
+1：利用showTable.txt求和.txt展示token、符号表、一部分的中间代码,ok ; 6 4 120
+2：利用showDAG.txt展示DAG图的优化,ok
+3：进行成功功能演示
+3.1：showArr.txt;数组求和OK，while循环调用子程序同时换名传递数组元素，子程序给数组元素赋值，然后主程序求和输出
+    同时展示数组、换名、指针、while循环    10 1 ~10 55
+3.2：showDigui.txt;计算阶乘，主函数调用子函数同时赋值传递参数n，子函数调用子过程，子过程采取if递归的形式计算阶乘并直接改变子函数中变量，
+    然后子函数将返回值返还给主函数
+    同时展示递归、赋值传递、if、assignresult、getresult函数
+3.3：程序纠错功能展示：
+    GrammarError.txt
+    program
+    GrammarError.txt
+    t1->t3
+    line3！！；
+    line11:返回类型

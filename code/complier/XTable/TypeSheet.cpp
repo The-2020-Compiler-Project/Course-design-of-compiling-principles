@@ -63,6 +63,21 @@ TypeSheet::addStructType(const string &structName, vector<string> &sonName, vect
     return addNode;
 }
 
+void TypeSheet::output(ofstream &fout) {
+    for(auto it=this->record.begin();it!=this->record.end();it++){
+        fout<<it->second->name<<' '<<it->second->len<<endl;
+        if(it->second->arrSheet){
+            fout<<"     arr  len:"<<it->second->arrSheet->up<<"  type:"<<it->second->arrSheet->arrType->name<<endl;
+        }else if(it->second->structSheet){
+            fout<<"     struct:";
+            for(auto son=it->second->structSheet->record.begin();son!=it->second->structSheet->record.end();son++){
+                fout<<son->first<<" ";
+            }
+            fout<<endl;
+        }
+    }
+}
+
 int TypeSheet::iterator::len() {
     return this->root->len;
 }
