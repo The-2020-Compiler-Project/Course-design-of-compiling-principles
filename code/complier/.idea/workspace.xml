@@ -11,49 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fc8c7ce-b33c-4d6d-a81a-d59fc339b549" name="Default Changelist" comment="加入input、output&#10;语义动作配套&#10;quatName更新">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Lenovo.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Files/GrammarError.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Files/Symboltable.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Files/showArr.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Files/showDAG.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Files/showDIgui.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Files/showTable.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Files/展示表.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Files/digui.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Files/digui.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Files/exMiddle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Files/exMiddle.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Files/hanshudiaoyong.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Files/hanshudiaoyong.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Files/middle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Files/middle.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Files/sumArr.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Files/target.asm" beforeDir="false" afterPath="$PROJECT_DIR$/Files/target.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Files/tokenOutput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Files/tokenOutput.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Files/新建文本文档.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lexical/lexical.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Lexical/lexical.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TargetCodeGenerator/TargetCodeGenerator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TargetCodeGenerator/TargetCodeGenerator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XTable/ElemSheet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/XTable/ElemSheet.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XTable/ElemSheet.h" beforeDir="false" afterPath="$PROJECT_DIR$/XTable/ElemSheet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XTable/FunSheet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/XTable/FunSheet.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XTable/FunSheet.h" beforeDir="false" afterPath="$PROJECT_DIR$/XTable/FunSheet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XTable/TypeSheet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/XTable/TypeSheet.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XTable/TypeSheet.h" beforeDir="false" afterPath="$PROJECT_DIR$/XTable/TypeSheet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/GrammarAction/GrammarAction.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/GrammarAnalyzer/Grammar.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/Lexical/lexical.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/Lexical/lexical.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/Optimizer/Optimizer.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/TargetCodeGenerator/TargetCodeGenerator.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/XTable/ElemSheet.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/XTable/funSheet.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/XTable/funSheet.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/XTable/typeSheet.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/XTable/typeSheet.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/complier.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/complier.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/complier.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/complier.exe.stackdump" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/complier.exe.stackdump" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/新建 360压缩 ZIP 文件.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../过程报告/01计算机1808-岳崇建-20184545/第二次过程报告.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../过程报告/01计算机1808-岳崇建-20184545/第二次过程报告.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../过程报告/编译原理课程设计组-第二次过程报告.zip" beforeDir="false" />
-    </list>
+    <list default="true" id="5fc8c7ce-b33c-4d6d-a81a-d59fc339b549" name="Default Changelist" comment="加入input、output&#10;语义动作配套&#10;quatName更新" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -266,11 +224,6 @@
               <item name="complier" type="b2602c69:ProjectViewProjectNode" />
               <item name="complier" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="complier" type="b2602c69:ProjectViewProjectNode" />
-              <item name="complier" type="462c0819:PsiDirectoryNode" />
-              <item name="Files" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -326,7 +279,7 @@
       <workItem from="1594271301315" duration="963000" />
       <workItem from="1594281259655" duration="17594000" />
       <workItem from="1594337577930" duration="11799000" />
-      <workItem from="1594373640149" duration="357000" />
+      <workItem from="1594373640149" duration="783000" />
     </task>
     <task id="LOCAL-00001" summary="加入input、output&#10;语义动作配套&#10;quatName更新">
       <created>1594175733976</created>
@@ -339,7 +292,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96757000" />
+    <option name="totallyTimeSpent" value="97183000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -352,7 +305,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17493297" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
